@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RealReady — Michelle Taylor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --black: #1a1a1a;
+    --white: #ffffff;
+    --cream: #f9f8f6;
+    --gray-700: #2e2e2c;
+    --gray-500: #6a6a68;
+    --accent: #3c8a79;
+    --accent-soft: #d9efe9;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    background: var(--black);
+    color: var(--black);
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .slide {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 90px 110px;
+  }
+
+  /* SHARED */
+  .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    border-radius: 100px;
+    width: fit-content;
+    margin-bottom: 24px;
+  }
+  .label i { font-size: 14px; }
+
+  /* NAVIGATION */
+  .slide-nav {
+    position: fixed;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(26,26,26,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 6px 12px;
+    border-radius: 32px;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .slide-nav button {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: var(--white);
+    font-size: 12px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .slide-nav button:hover { background: rgba(255,255,255,0.2); }
+  .slide-nav .dots { display: flex; align-items: center; gap: 5px; padding: 0 3px; }
+  .slide-nav .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .slide-nav .dot.active {
+    background: var(--white);
+    width: 16px;
+    border-radius: 3px;
+  }
+  .slide-nav .counter {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+    min-width: 36px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .home-btn {
+    position: fixed;
+    top: 20px; left: 20px;
+    z-index: 1001;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: rgba(26,26,26,0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white);
+    font-size: 16px;
+    text-decoration: none;
+    transition: background 0.2s;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .home-btn:hover { background: rgba(26,26,26,1); }
+
+  /* SLIDE 1 — TITLE */
+  .slide-title {
+    background: var(--black);
+    align-items: flex-start;
+  }
+  .slide-title .tag {
+    background: var(--accent);
+    color: var(--white);
+  }
+  .slide-title h1 {
+    color: var(--white);
+    font-size: clamp(64px, 8vw, 120px);
+    line-height: 0.94;
+    letter-spacing: -3px;
+    font-weight: 800;
+    margin-bottom: 32px;
+    max-width: 1100px;
+  }
+  .slide-title .subtitle {
+    font-size: 20px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.6);
+    max-width: 600px;
+    font-weight: 400;
+  }
+
+  /* SLIDE 2 — PLACEHOLDER */
+  .slide-placeholder {
+    background: var(--cream);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .slide-placeholder .label {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+  .slide-placeholder h2 {
+    color: var(--black);
+    font-size: clamp(48px, 5vw, 72px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    max-width: 900px;
+  }
+  .slide-placeholder p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--gray-700);
+    max-width: 560px;
+  }
+  .slide-placeholder .hint {
+    margin-top: 32px;
+    font-size: 12px;
+    color: var(--gray-500);
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<a href="index.html" class="home-btn"><i class="ph-bold ph-house-simple"></i></a>
+
+<!-- SLIDE 1: TITLE -->
+<div class="slide slide-title">
+  <div class="tag"><i class="ph-bold ph-check-circle"></i> Extra Credit</div>
+  <h1>RealReady</h1>
+  <p class="subtitle">A short description of RealReady goes here. Replace this copy when you're ready to flesh out the deck.</p>
+</div>
+
+<!-- SLIDE 2: PLACEHOLDER -->
+<div class="slide slide-placeholder">
+  <div class="label"><i class="ph-bold ph-pencil-simple"></i> Work in Progress</div>
+  <h2>This deck is being built.</h2>
+  <p>Add new <code>&lt;div class="slide"&gt;</code> blocks below this one to extend the deck. The slide nav and home button are wired automatically.</p>
+  <div class="hint">Edit realready.html to add your content</div>
+</div>
+
+<!-- NAVIGATION SCRIPT -->
+<script>
+(function() {
+  const nav = document.createElement('div');
+  nav.className = 'slide-nav';
+  nav.innerHTML = `
+    <button id="prev-btn"><i class="ph-bold ph-caret-up"></i></button>
+    <div class="dots" id="dots"></div>
+    <span class="counter" id="counter"></span>
+    <button id="next-btn"><i class="ph-bold ph-caret-down"></i></button>
+  `;
+  document.body.appendChild(nav);
+
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.getElementById('dots');
+  const counter = document.getElementById('counter');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  let current = 0;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  function updateUI() {
+    const dots = dotsContainer.querySelectorAll('.dot');
+    dots.forEach((d, i) => d.className = 'dot' + (i === current ? ' active' : ''));
+    counter.textContent = (current + 1) + ' / ' + slides.length;
+  }
+  function goTo(index) {
+    current = Math.max(0, Math.min(index, slides.length - 1));
+    slides[current].scrollIntoView({ behavior: 'smooth' });
+    updateUI();
+  }
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+        const index = Array.from(slides).indexOf(entry.target);
+        if (index !== -1) { current = index; updateUI(); }
+      }
+    });
+  }, { threshold: 0.5 });
+  slides.forEach(slide => observer.observe(slide));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
+    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
+  });
+
+  updateUI();
+})();
+</script>
+
+</body>
+</html>

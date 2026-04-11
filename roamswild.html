@@ -58,29 +58,29 @@
   /* ---- NAVIGATION CONTROLS ---- */
   .slide-nav {
     position: fixed;
-    bottom: 28px;
+    bottom: 22px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     background: rgba(26,26,26,0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    padding: 8px 16px;
-    border-radius: 40px;
+    padding: 6px 12px;
+    border-radius: 32px;
     z-index: 1000;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     border: 1px solid rgba(255,255,255,0.08);
   }
   .slide-nav button {
-    width: 36px;
-    height: 36px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     border: none;
     background: rgba(255,255,255,0.1);
     color: var(--white);
-    font-size: 16px;
+    font-size: 12px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -92,12 +92,12 @@
   .slide-nav .dots {
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 0 4px;
+    gap: 5px;
+    padding: 0 3px;
   }
   .slide-nav .dot {
-    width: 7px;
-    height: 7px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: rgba(255,255,255,0.2);
     cursor: pointer;
@@ -105,15 +105,15 @@
   }
   .slide-nav .dot.active {
     background: var(--white);
-    width: 20px;
-    border-radius: 4px;
+    width: 16px;
+    border-radius: 3px;
   }
   .slide-nav .dot:hover:not(.active) { background: rgba(255,255,255,0.4); }
   .slide-nav .counter {
-    font-size: 12px;
+    font-size: 11px;
     color: rgba(255,255,255,0.5);
     font-weight: 500;
-    min-width: 42px;
+    min-width: 36px;
     text-align: center;
     font-variant-numeric: tabular-nums;
   }

@@ -56,29 +56,29 @@
   /* ---- NAVIGATION CONTROLS ---- */
   .slide-nav {
     position: fixed;
-    bottom: 28px;
+    bottom: 22px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     background: rgba(26,26,26,0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    padding: 8px 16px;
-    border-radius: 40px;
+    padding: 6px 12px;
+    border-radius: 32px;
     z-index: 1000;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     border: 1px solid rgba(255,255,255,0.08);
   }
   .slide-nav button {
-    width: 36px;
-    height: 36px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     border: none;
     background: rgba(255,255,255,0.1);
     color: var(--white);
-    font-size: 16px;
+    font-size: 12px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -90,12 +90,12 @@
   .slide-nav .dots {
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 0 4px;
+    gap: 5px;
+    padding: 0 3px;
   }
   .slide-nav .dot {
-    width: 7px;
-    height: 7px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: rgba(255,255,255,0.2);
     cursor: pointer;
@@ -103,15 +103,15 @@
   }
   .slide-nav .dot.active {
     background: var(--white);
-    width: 20px;
-    border-radius: 4px;
+    width: 16px;
+    border-radius: 3px;
   }
   .slide-nav .dot:hover:not(.active) { background: rgba(255,255,255,0.4); }
   .slide-nav .counter {
-    font-size: 12px;
+    font-size: 11px;
     color: rgba(255,255,255,0.5);
     font-weight: 500;
-    min-width: 42px;
+    min-width: 36px;
     text-align: center;
     font-variant-numeric: tabular-nums;
   }
@@ -261,13 +261,142 @@
   }
   .chip i { font-size: 16px; color: var(--indigo); }
 
-  /* ---- SLIDE 2: CASE STUDIES ---- */
+  /* ---- SLIDE 2: ABOUT + WORK HISTORY ---- */
+  .slide-about {
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 100px;
+  }
+  .slide-about > * {
+    max-width: 1100px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .slide-about h2 {
+    font-size: clamp(48px, 5vw, 72px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--gray-900);
+    line-height: 1.05;
+    margin-bottom: 56px;
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+  }
+  .about-section .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .about-section .section-label i { color: var(--indigo); font-size: 14px; }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: var(--gray-200);
+  }
+  .timeline-entry {
+    position: relative;
+    padding-left: 32px;
+    padding-bottom: 22px;
+  }
+  .timeline-entry:last-child { padding-bottom: 0; }
+  .timeline-entry::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 3px solid var(--indigo);
+    box-sizing: border-box;
+  }
+  .timeline-entry .years {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .timeline-entry .company {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--gray-900);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .timeline-entry .role {
+    font-size: 14px;
+    color: var(--gray-500);
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  /* Personal */
+  .personal-text p {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--gray-700);
+    margin-bottom: 16px;
+  }
+  .personal-text p:last-child { margin-bottom: 0; }
+  .personal-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+  }
+  .personal-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    color: var(--gray-700);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 7px 14px;
+    border-radius: 100px;
+  }
+  .personal-chip i { font-size: 14px; color: var(--indigo); }
+
+  /* ---- SLIDE 3: CASE STUDIES ---- */
   .slide-cases {
     background: var(--gray-50);
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 80px 100px;
+  }
+  .slide-cases > * {
+    max-width: 1240px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
   .section-label {
     font-size: 12px;
@@ -278,90 +407,179 @@
     margin-bottom: 12px;
   }
   .slide-cases h2 {
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    font-size: clamp(48px, 5vw, 72px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
     color: var(--gray-900);
-    margin-bottom: 48px;
+    margin-bottom: 80px;
+    line-height: 1.05;
   }
   .case-studies {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: 24px;
   }
   .card {
-    background: var(--white);
-    border: 1px solid var(--gray-200);
-    border-radius: 16px;
-    padding: 32px;
+    background-color: var(--card-bg, var(--white));
+    background-image: var(--card-image, none);
+    background-size: auto 85%;
+    background-position: right -95px bottom -65px;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 8px;
     text-decoration: none;
     color: inherit;
-    transition: all 0.25s ease;
+    transition: all 0.3s ease, background-size 0.4s ease;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    min-height: 320px;
+  }
+  .card:hover { background-size: auto 87%; }
+  .card:hover {
+    box-shadow: 0 16px 36px var(--card-shadow, rgba(111,91,232,0.12));
+    transform: translateY(-3px);
+  }
+  .card--bolt {
+    --card-bg: #1a1a1a;
+    --card-border: #1a1a1a;
+    --card-accent: #E6FF00;
+    --card-text: #ffffff;
+    --card-shadow: rgba(0,0,0,0.25);
+    background-image: none;
+  }
+  .card--bolt .card-img-rounded {
+    position: absolute;
+    height: 85%;
+    width: auto;
+    bottom: -65px;
+    right: -95px;
+    border-radius: 10px;
+    z-index: 1;
+    transition: all 0.4s ease;
+  }
+  .card--bolt:hover .card-img-rounded {
+    height: 87%;
+  }
+  .card--bolt:hover .card-arrow {
+    color: var(--bolt-yellow, #E6FF00);
+  }
+  .card--roamswild {
+    --card-bg: #f5f0eb;
+    --card-border: #e6dfd5;
+    --card-accent: #5e7a14;
+    --card-shadow: rgba(94,122,20,0.12);
+  }
+  .card--realready {
+    --card-bg: #e8f5f1;
+    --card-border: #c6e3da;
+    --card-accent: #3c8a79;
+    --card-shadow: rgba(60,138,121,0.12);
+  }
+  .card--clipquery {
+    --card-bg: #ece8ff;
+    --card-border: #d3cbff;
+    --card-accent: #6f5be8;
+    --card-shadow: rgba(111,91,232,0.14);
+  }
+  .card .card-company { color: var(--card-accent, var(--gray-500)); }
+  .card h3 { color: var(--card-text, var(--gray-900)); }
+  .card .card-arrow { color: var(--card-arrow-color, var(--gray-400)); }
+  .card--bolt .card-arrow { --card-arrow-color: rgba(255,255,255,0.4); }
+  .card:hover .card-arrow { color: var(--card-accent, var(--indigo)); }
+  .card-content {
+    padding: 36px 40px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    align-items: flex-start;
+    text-align: left;
     position: relative;
-  }
-  .card:hover {
-    border-color: var(--indigo);
-    box-shadow: 0 8px 32px rgba(111,91,232,0.12);
-    transform: translateY(-2px);
-  }
-  .card-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    color: var(--white);
-  }
-  .card h3 {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--gray-900);
-    letter-spacing: -0.01em;
+    z-index: 2;
+    max-width: 56%;
+    height: 100%;
   }
   .card-company {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--indigo);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
   }
-  .card p {
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--gray-600);
+  .card h3 {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
   }
   .card-arrow {
     position: absolute;
-    top: 32px;
-    right: 32px;
-    font-size: 18px;
+    bottom: 36px;
+    left: 40px;
+    font-size: 22px;
     color: var(--gray-400);
-    transition: all 0.25s;
+    transition: all 0.3s ease;
+    z-index: 3;
   }
   .card:hover .card-arrow {
-    color: var(--indigo);
-    transform: translate(2px, -2px);
+    color: var(--card-accent, var(--indigo));
+    transform: translate(3px, -3px);
+  }
+  .card-peek {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 55%;
+    z-index: 1;
   }
   .card.coming-soon {
-    opacity: 0.55;
+    opacity: 0.5;
     pointer-events: none;
   }
-  .card.coming-soon::after {
+  .card.coming-soon .card-peek {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 24px;
+  }
+  .card.coming-soon .card-peek::after {
     content: 'Coming Soon';
     position: absolute;
-    top: 32px;
-    right: 32px;
-    font-size: 11px;
-    font-weight: 600;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--gray-400);
-    background: var(--gray-200);
-    padding: 4px 10px;
+    letter-spacing: 0.1em;
+    color: var(--gray-500);
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    padding: 5px 11px;
     border-radius: 100px;
+  }
+  .card.coming-soon .card-peek-icon {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    color: var(--gray-300);
+    opacity: 0.4;
+  }
+  .card .card-peek-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 110px;
+    color: var(--card-accent, var(--gray-400));
+    opacity: 0.18;
+    transition: all 0.3s ease;
+  }
+  .card:hover .card-peek-icon {
+    opacity: 0.28;
+    transform: translate(-50%, -50%) scale(1.05);
   }
 
   /* ---- FOOTER INSIDE SLIDE 2 ---- */
@@ -411,57 +629,102 @@
   </div>
 </section>
 
-<!-- SLIDE 2: CASE STUDIES -->
+<!-- SLIDE 2: ABOUT + WORK HISTORY -->
+<section class="slide slide-about">
+  <h2>A bit about me.</h2>
+  <div class="about-grid">
+    <div class="about-section">
+      <div class="section-label"><i class="ph-bold ph-briefcase"></i> Work History</div>
+      <div class="timeline">
+        <div class="timeline-entry">
+          <div class="years">2012 — 2017</div>
+          <div class="company">Clockwork</div>
+          <div class="role">Interactive Designer · Agency, B2B, Consumer</div>
+        </div>
+        <div class="timeline-entry">
+          <div class="years">2017 — 2019</div>
+          <div class="company">C.H. Robinson</div>
+          <div class="role">Lead UX Designer · Logistics</div>
+        </div>
+        <div class="timeline-entry">
+          <div class="years">2019 — 2021</div>
+          <div class="company">Capital One</div>
+          <div class="role">Principal Experience Designer · Commercial Banking</div>
+        </div>
+        <div class="timeline-entry">
+          <div class="years">2022 — 2024</div>
+          <div class="company">Bolt</div>
+          <div class="role">Sr. Product Designer · E-commerce, B2B</div>
+        </div>
+        <div class="timeline-entry">
+          <div class="years">2024 — Present</div>
+          <div class="company">Sabbatical</div>
+          <div class="role">Travel · Personal projects</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-section">
+      <div class="section-label"><i class="ph-bold ph-user"></i> Outside of Work</div>
+      <div class="personal-text">
+        <p>I'm a builder at heart — drawn to design not because I wanted to make things pretty, but because I wanted to understand how things work.</p>
+        <p>Off-screen I'm an avid solo traveler currently on sabbatical making my way around the country. Most of my time off the laptop is spent hiking, road-tripping, and shooting 35mm film.</p>
+      </div>
+      <div class="personal-chips">
+        <span class="personal-chip"><i class="ph-bold ph-user-circle"></i> I'm an Enneagram 8</span>
+        <span class="personal-chip"><i class="ph-bold ph-fire"></i> Aries</span>
+        <span class="personal-chip"><i class="ph-bold ph-mountains"></i> Hiking addict</span>
+        <span class="personal-chip"><i class="ph-bold ph-aperture"></i> Photography</span>
+        <span class="personal-chip"><i class="ph-bold ph-video-camera"></i> Videography</span>
+        <span class="personal-chip"><i class="ph-bold ph-globe-hemisphere-west"></i> Almost majored in Geography</span>
+        <span class="personal-chip"><i class="ph-bold ph-hammer"></i> I enjoy building things</span>
+        <span class="personal-chip"><i class="ph-bold ph-compass"></i> Avid solo traveler</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 3: CASE STUDIES -->
 <section class="slide slide-cases">
-  <p class="section-label">Case Studies</p>
-  <h2>Presentation Decks</h2>
+  <h2>Let's get started…</h2>
 
   <div class="case-studies">
-    <a class="card" href="onboarding.html">
-      <div class="card-icon" style="background: #133EE3;">
-        <i class="ph-bold ph-rocket-launch"></i>
+    <a class="card card--bolt" href="onboarding.html">
+      <div class="card-content">
+        <span class="card-company">Bolt</span>
+        <h3>Onboarding Acceleration</h3>
+        <i class="ph-bold ph-arrow-up-right card-arrow"></i>
       </div>
-      <span class="card-company">Bolt</span>
-      <h3>Onboarding Acceleration</h3>
-      <p>Redesigned the merchant onboarding flow to accelerate setup and reduce time-to-live for new merchants.</p>
-      <i class="ph-bold ph-arrow-up-right card-arrow"></i>
+      <img class="card-img-rounded" src="assets/onboarding/final-screens/Onboarding - Screen 0 - Unfilled.png" alt="">
     </a>
 
-    <div class="card coming-soon">
-      <div class="card-icon" style="background: #e84393;">
-        <i class="ph-bold ph-envelope-simple"></i>
+    <a class="card card--roamswild" href="roamswild.html" style="--card-image: url('assets/roamswild/mockup.png');">
+      <div class="card-content">
+        <span class="card-company">Personal Project</span>
+        <h3>RoamsWild</h3>
+        <i class="ph-bold ph-arrow-up-right card-arrow"></i>
       </div>
-      <span class="card-company">Bolt</span>
-      <h3>Abandoned Cart Recovery</h3>
-      <p>Email redesign that recovered $18M in revenue by boosting abandoned cart recovery rates by up to 26%.</p>
-    </div>
+    </a>
 
-    <div class="card coming-soon">
-      <div class="card-icon" style="background: #00875a;">
-        <i class="ph-bold ph-credit-card"></i>
+    <a class="card card--realready" href="realready.html">
+      <div class="card-content">
+        <span class="card-company">Extra Credit</span>
+        <h3>RealReady</h3>
+        <i class="ph-bold ph-arrow-up-right card-arrow"></i>
       </div>
-      <span class="card-company">Capital One</span>
-      <h3>Expense Management</h3>
-      <p>Automated corporate card reconciliation, streamlining expense processes for enterprise teams.</p>
-    </div>
+      <div class="card-peek">
+        <i class="ph-bold ph-check-circle card-peek-icon"></i>
+      </div>
+    </a>
 
-    <div class="card coming-soon">
-      <div class="card-icon" style="background: #0057b8;">
-        <i class="ph-bold ph-truck"></i>
+    <a class="card card--clipquery" href="clipquery.html">
+      <div class="card-content">
+        <span class="card-company">Extra Credit</span>
+        <h3>Clip Query</h3>
+        <i class="ph-bold ph-arrow-up-right card-arrow"></i>
       </div>
-      <span class="card-company">C.H. Robinson</span>
-      <h3>Navisphere Vision</h3>
-      <p>Logistics platform redesign focused on preventing shipment delays with proactive visibility tools.</p>
-    </div>
-
-    <a class="card" href="roamswild.html">
-      <div class="card-icon" style="background: #3c8a79;">
-        <i class="ph-bold ph-mountains"></i>
+      <div class="card-peek">
+        <i class="ph-bold ph-magnifying-glass card-peek-icon"></i>
       </div>
-      <span class="card-company">Personal Project</span>
-      <h3>RoamsWild</h3>
-      <p>AI-assisted outdoor discovery tool helping adventurers find and plan trips to wild destinations.</p>
-      <i class="ph-bold ph-arrow-up-right card-arrow"></i>
     </a>
   </div>
 
