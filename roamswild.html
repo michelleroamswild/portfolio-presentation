@@ -35,6 +35,8 @@
     color: var(--primary);
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
     height: 100vh;
     -webkit-font-smoothing: antialiased;
   }
@@ -47,6 +49,7 @@
     overflow: hidden;
     flex-shrink: 0;
     scroll-snap-align: start;
+    scroll-snap-stop: always;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1168,7 +1171,17 @@
   }
   .slide-thanks .next-link i { font-size: 16px; }
   @media (max-width: 768px) {
-    .slide { padding: 60px 28px; }
+    /* Universal mobile: soft snap + all slides auto-height so content is never clipped */
+    body { scroll-snap-type: y proximity; }
+    .slide {
+      padding: 60px 28px;
+      height: auto;
+      min-height: 100vh;
+      min-height: 100dvh;
+      overflow: visible;
+      scroll-snap-stop: normal;
+      justify-content: flex-start;
+    }
 
     /* Slide 1 — Title */
     .slide-title {
