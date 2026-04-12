@@ -353,7 +353,7 @@
     padding: 80px 100px;
   }
   .slide-about > * {
-    max-width: 1100px;
+    max-width: 1400px;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -369,7 +369,8 @@
   .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 72px;
+    gap: 110px;
+    align-items: center;
   }
   .about-section .section-label {
     font-size: 11px;
@@ -466,6 +467,80 @@
     border-radius: 100px;
   }
   .personal-chip i { font-size: 14px; color: var(--indigo); }
+
+  /* Photo collage */
+  .photo-collage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+  }
+  .collage-photo {
+    position: absolute;
+    overflow: hidden;
+    background: var(--white);
+    padding: 10px 10px 14px;
+    border-radius: 4px;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.16);
+  }
+  .collage-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 2px;
+  }
+  .collage-photo.pos-left {
+    width: 52%;
+    aspect-ratio: 4 / 5;
+    left: -8%;
+    top: 18%;
+    transform: rotate(-6deg);
+    z-index: 1;
+    animation: floatLeft 7s ease-in-out infinite;
+  }
+  .collage-photo.pos-center {
+    width: 70%;
+    aspect-ratio: 4 / 5;
+    left: 15%;
+    top: 6%;
+    transform: rotate(1.5deg);
+    z-index: 3;
+    animation: floatCenter 6s ease-in-out infinite;
+  }
+  .collage-photo.pos-right {
+    width: 50%;
+    aspect-ratio: 4 / 5;
+    right: -8%;
+    top: 24%;
+    transform: rotate(6deg);
+    z-index: 2;
+    animation: floatRight 8s ease-in-out infinite;
+  }
+  @keyframes floatLeft {
+    0%, 100% { transform: rotate(-6deg) translateY(0); }
+    50%      { transform: rotate(-5.8deg) translateY(-3px); }
+  }
+  @keyframes floatCenter {
+    0%, 100% { transform: rotate(1.5deg) translateY(0); }
+    50%      { transform: rotate(1.6deg) translateY(-4px); }
+  }
+  @keyframes floatRight {
+    0%, 100% { transform: rotate(6deg) translateY(0); }
+    50%      { transform: rotate(5.8deg) translateY(-2px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .collage-photo { animation: none !important; }
+  }
+  .collage-photo.pos-center img {
+    position: absolute;
+    inset: 10px 10px 14px;
+    width: calc(100% - 20px);
+    height: calc(100% - 24px);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  .collage-photo.pos-center img.active { opacity: 1; }
 
   /* ---- SLIDE 3: CASE STUDIES ---- */
   .slide-cases {
@@ -823,42 +898,11 @@
   </div>
 </section>
 
-<!-- SLIDE 2: ABOUT + WORK HISTORY -->
+<!-- SLIDE 2: ABOUT ME -->
 <section class="slide slide-about">
-  <h2>A bit about me.</h2>
   <div class="about-grid">
     <div class="about-section">
-      <div class="section-label"><i class="ph-bold ph-briefcase"></i> Work History</div>
-      <div class="timeline">
-        <div class="timeline-entry">
-          <div class="years">2012 — 2017</div>
-          <div class="company">Clockwork</div>
-          <div class="role">Interactive Designer · Agency, B2B, Consumer</div>
-        </div>
-        <div class="timeline-entry">
-          <div class="years">2017 — 2019</div>
-          <div class="company">C.H. Robinson</div>
-          <div class="role">Lead UX Designer · Logistics</div>
-        </div>
-        <div class="timeline-entry">
-          <div class="years">2019 — 2021</div>
-          <div class="company">Capital One</div>
-          <div class="role">Principal Experience Designer · Commercial Banking</div>
-        </div>
-        <div class="timeline-entry">
-          <div class="years">2022 — 2024</div>
-          <div class="company">Bolt</div>
-          <div class="role">Sr. Product Designer · E-commerce, B2B</div>
-        </div>
-        <div class="timeline-entry">
-          <div class="years">2024 — Present</div>
-          <div class="company">Sabbatical</div>
-          <div class="role">Travel · Personal projects</div>
-        </div>
-      </div>
-    </div>
-    <div class="about-section">
-      <div class="section-label"><i class="ph-bold ph-user"></i> Outside of Work</div>
+      <h2>A bit about me.</h2>
       <div class="personal-text">
         <p>I'm a builder at heart — drawn to design not because I wanted to make things pretty, but because I wanted to understand how things work.</p>
         <p>Off-screen I'm an avid solo traveler fresh off a sabbatical where I traveled around the country. Most of my time off the laptop is spent hiking, road-tripping, shooting film and videos, and generally out on some kind of adventure.</p>
@@ -872,6 +916,28 @@
         <span class="personal-chip"><i class="ph-bold ph-globe-hemisphere-west"></i> Almost majored in Geography</span>
         <span class="personal-chip"><i class="ph-bold ph-hammer"></i> I enjoy building things</span>
         <span class="personal-chip"><i class="ph-bold ph-compass"></i> Avid solo traveler</span>
+      </div>
+    </div>
+    <div class="photo-collage">
+      <div class="collage-photo pos-left">
+        <img src="assets/travel/A7C04228.JPG" alt="">
+      </div>
+      <div class="collage-photo pos-center" id="collage-center">
+        <img src="assets/travel/A7C02258.JPG" class="active" alt="">
+        <img src="assets/travel/A7C03919.JPG" alt="">
+        <img src="assets/travel/A7C05556.JPG" alt="">
+        <img src="assets/travel/A7C05591.JPG" alt="">
+        <img src="assets/travel/A7C06850.JPG" alt="">
+        <img src="assets/travel/A7C07855.JPG" alt="">
+        <img src="assets/travel/A7C08597.JPG" alt="">
+        <img src="assets/travel/A7C09675.JPG" alt="">
+        <img src="assets/travel/DSC01955.JPG" alt="">
+        <img src="assets/travel/DSC01984.JPG" alt="">
+        <img src="assets/travel/IMG_4104_jpg.JPG" alt="">
+        <img src="assets/travel/A7C00019.JPG" alt="">
+      </div>
+      <div class="collage-photo pos-right">
+        <img src="assets/travel/DJI_0557.JPG" alt="">
       </div>
     </div>
   </div>
@@ -1081,6 +1147,20 @@
   }
 
   updateUI();
+
+  // Photo collage — cycle center image every 3s
+  (function() {
+    const center = document.getElementById('collage-center');
+    if (!center) return;
+    const imgs = center.querySelectorAll('img');
+    if (imgs.length < 2) return;
+    let idx = 0;
+    setInterval(() => {
+      imgs[idx].classList.remove('active');
+      idx = (idx + 1) % imgs.length;
+      imgs[idx].classList.add('active');
+    }, 3000);
+  })();
 })();
 </script>
 
