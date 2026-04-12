@@ -6,7 +6,7 @@
 <title>Michelle Taylor — Product Design Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oooh+Baby&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css">
@@ -131,17 +131,35 @@
     position: relative;
     z-index: 1;
     width: clamp(280px, 28vw, 420px);
-    aspect-ratio: 4 / 5;
     flex-shrink: 0;
     transform: rotate(-3deg);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
+    background: var(--white);
+    padding: 18px 18px 24px;
+    border-radius: 6px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+    margin-right: 80px;
   }
   .hero-portrait img {
     width: 100%;
-    height: 100%;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
     display: block;
+  }
+  .hero-portrait .portrait-caption {
+    margin-top: 14px;
+    font-family: 'Oooh Baby', cursive;
+    font-size: 21px;
+    line-height: 1.05;
+    color: var(--gray-700);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  .hero-portrait .portrait-caption i {
+    font-size: 15px;
+    color: var(--indigo);
   }
   @media (max-width: 900px) {
     .slide-hero { flex-direction: column; justify-content: center; gap: 40px; padding: 60px 32px; }
@@ -582,6 +600,114 @@
     transform: translate(-50%, -50%) scale(1.05);
   }
 
+  /* ---- EXTRA CREDIT (smaller cards, half height) ---- */
+  .extra-credit {
+    margin-top: 80px;
+  }
+  .extra-credit-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--gray-500);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .extra-credit-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .ec-card {
+    background-color: var(--ec-bg, #ece8ff);
+    border-radius: 8px;
+    padding: 28px 32px;
+    min-height: 160px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .ec-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px var(--ec-shadow, rgba(0,0,0,0.08));
+  }
+  .ec-icon {
+    font-size: 42px;
+    color: var(--ec-accent, #6f5be8);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+  .ec-card:hover .ec-icon { transform: scale(1.05); }
+  .ec-text { display: flex; flex-direction: column; gap: 4px; }
+  .ec-company {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ec-accent, var(--gray-500));
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .ec-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gray-900);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  .ec--realready {
+    --ec-bg: #e8f5f1;
+    --ec-accent: #3c8a79;
+    --ec-shadow: rgba(60,138,121,0.14);
+  }
+  .ec--clipquery {
+    --ec-bg: #ece8ff;
+    --ec-accent: #6f5be8;
+    --ec-shadow: rgba(111,91,232,0.14);
+  }
+
+  /* Hover preview */
+  .ec-preview {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    margin-bottom: 14px;
+    width: 240px;
+    height: 150px;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 18px 44px rgba(0,0,0,0.14);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ec-card:hover .ec-preview {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  .ec-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .ec-preview-placeholder {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gray-400);
+  }
+
   /* ---- FOOTER INSIDE SLIDE 2 ---- */
   .slide-footer {
     margin-top: auto;
@@ -617,7 +743,7 @@
   <div class="hero-blob hero-blob-3"></div>
   <div class="hero-content">
     <p class="hero-greeting">Hi, I'm</p>
-    <h1>Michelle <span class="wave" role="img" aria-label="waving hand">👋🏼</span></h1>
+    <h1>Michelle. <span class="wave" role="img" aria-label="waving hand">👋🏼</span></h1>
     <div class="hero-chips">
       <div class="chip"><i class="ph-bold ph-calendar-check"></i> 10+ years experience</div>
       <div class="chip"><i class="ph-bold ph-compass"></i> E-commerce, Fintech, Logistics</div>
@@ -626,6 +752,7 @@
   </div>
   <div class="hero-portrait">
     <img src="assets/about/michelle-faroe-islands.jpg" alt="Michelle Taylor at Gásadalur waterfall, Faroe Islands">
+    <div class="portrait-caption"><i class="ph-fill ph-map-pin"></i> Múlafossur Waterfall, Faroe Islands</div>
   </div>
 </section>
 
@@ -667,7 +794,7 @@
       <div class="section-label"><i class="ph-bold ph-user"></i> Outside of Work</div>
       <div class="personal-text">
         <p>I'm a builder at heart — drawn to design not because I wanted to make things pretty, but because I wanted to understand how things work.</p>
-        <p>Off-screen I'm an avid solo traveler currently on sabbatical making my way around the country. Most of my time off the laptop is spent hiking, road-tripping, and shooting 35mm film.</p>
+        <p>Off-screen I'm an avid solo traveler fresh off a sabbatical where I traveled around the country. Most of my time off the laptop is spent hiking, road-tripping, shooting film and videos, and generally out on some kind of adventure.</p>
       </div>
       <div class="personal-chips">
         <span class="personal-chip"><i class="ph-bold ph-user-circle"></i> I'm an Enneagram 8</span>
@@ -705,27 +832,34 @@
       </div>
     </a>
 
-    <a class="card card--realready" href="realready.html">
-      <div class="card-content">
-        <span class="card-company">Extra Credit</span>
-        <h3>RealReady</h3>
-        <i class="ph-bold ph-arrow-up-right card-arrow"></i>
-      </div>
-      <div class="card-peek">
-        <i class="ph-bold ph-check-circle card-peek-icon"></i>
-      </div>
-    </a>
+  </div>
 
-    <a class="card card--clipquery" href="clipquery.html">
-      <div class="card-content">
-        <span class="card-company">Extra Credit</span>
-        <h3>Clip Query</h3>
-        <i class="ph-bold ph-arrow-up-right card-arrow"></i>
-      </div>
-      <div class="card-peek">
-        <i class="ph-bold ph-magnifying-glass card-peek-icon"></i>
-      </div>
-    </a>
+  <div class="extra-credit">
+    <p class="extra-credit-label">Extra Credit</p>
+    <div class="extra-credit-row">
+      <a class="ec-card ec--realready" href="realready.html">
+        <i class="ph-bold ph-film-reel ec-icon"></i>
+        <div class="ec-text">
+          <span class="ec-company">Personal Project</span>
+          <span class="ec-name">Reel Ready</span>
+        </div>
+        <div class="ec-preview">
+          <!-- Add preview image here later: <img src="..." alt=""> -->
+          <span class="ec-preview-placeholder">Preview</span>
+        </div>
+      </a>
+      <a class="ec-card ec--clipquery" href="clipquery.html">
+        <i class="ph-bold ph-film-strip ec-icon"></i>
+        <div class="ec-text">
+          <span class="ec-company">Personal Project</span>
+          <span class="ec-name">Clip Query</span>
+        </div>
+        <div class="ec-preview">
+          <!-- Add preview image here later: <img src="..." alt=""> -->
+          <span class="ec-preview-placeholder">Preview</span>
+        </div>
+      </a>
+    </div>
   </div>
 
   <div class="slide-footer">
@@ -744,6 +878,7 @@
     <div class="dots" id="dots"></div>
     <span class="counter" id="counter"></span>
     <button id="next-btn"><i class="ph-bold ph-caret-down"></i></button>
+    <button id="fullscreen-btn" aria-label="Toggle fullscreen"><i class="ph-bold ph-arrows-out"></i></button>
   `;
   document.body.appendChild(nav);
 
@@ -790,7 +925,45 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
     if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
+    if (e.key === 'f' || e.key === 'F') { e.preventDefault(); toggleFullscreen(); }
   });
+
+  const FS_KEY = 'deck-fullscreen';
+  const fullscreenBtn = document.getElementById('fullscreen-btn');
+  let isUnloading = false;
+  window.addEventListener('beforeunload', () => { isUnloading = true; });
+  window.addEventListener('pagehide', () => { isUnloading = true; });
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(() => {});
+    } else {
+      document.exitFullscreen();
+    }
+  }
+  fullscreenBtn.addEventListener('click', toggleFullscreen);
+  document.addEventListener('fullscreenchange', () => {
+    const icon = fullscreenBtn.querySelector('i');
+    const inFs = !!document.fullscreenElement;
+    icon.className = inFs ? 'ph-bold ph-arrows-in' : 'ph-bold ph-arrows-out';
+    if (inFs) sessionStorage.setItem(FS_KEY, '1');
+    else if (!isUnloading) sessionStorage.removeItem(FS_KEY);
+  });
+  // Intercept link clicks while in fullscreen to mark as navigating
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href]');
+    if (link && document.fullscreenElement) isUnloading = true;
+  }, true);
+  if (sessionStorage.getItem(FS_KEY) === '1') {
+    const resume = () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => sessionStorage.removeItem(FS_KEY));
+      }
+      document.removeEventListener('click', resume);
+      document.removeEventListener('keydown', resume);
+    };
+    document.addEventListener('click', resume);
+    document.addEventListener('keydown', resume);
+  }
 
   updateUI();
 })();

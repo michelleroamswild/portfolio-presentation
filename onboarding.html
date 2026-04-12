@@ -1,52 +1,44 @@
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Onboarding Acceleration — Michelle Taylor</title>
+<title>From 70+ Days to Minutes — Michelle Taylor</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css">
-<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async=""></script>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
+    /* Brand */
     --black: #1a1a1a;
-    --cream: #f5f1ed;
-    --cream-dark: #e8e2db;
     --white: #ffffff;
-    --gray-900: #222222;
-    --gray-700: #555555;
-    --gray-500: #888888;
-    --gray-300: #cccccc;
-    --gray-100: #f0f0f0;
     --bolt-yellow: #E6FF00;
     --bolt-pink: #FF9AF1;
     --bolt-blue: #68D8FC;
     --bolt-indigo: #133EE3;
-    --slide-w: 1440px;
-    --slide-h: 810px;
+    /* Neutrals */
+    --cream: #f5f1ed;
+    --cream-dark: #ebe5dc;
+    --gray-700: #2e2e2c;
+    --gray-500: #6a6a68;
+    --gray-300: #cccccc;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; }
 
   body {
     font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
     background: var(--black);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-    padding: 0;
     color: var(--black);
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     height: 100vh;
+    -webkit-font-smoothing: antialiased;
   }
 
   .slide {
@@ -57,10 +49,62 @@
     overflow: hidden;
     flex-shrink: 0;
     scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 90px 110px;
   }
 
   /* ============================================
-     NAVIGATION CONTROLS
+     SHARED ELEMENTS
+     ============================================ */
+  .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    padding: 7px 14px;
+    border-radius: 100px;
+    width: fit-content;
+  }
+  .label i { font-size: 14px; }
+
+  .slide h1 {
+    font-size: clamp(64px, 7vw, 110px);
+    line-height: 0.96;
+    letter-spacing: -3px;
+    font-weight: 800;
+  }
+  .slide h2 {
+    font-size: clamp(48px, 5vw, 76px);
+    line-height: 1.02;
+    letter-spacing: -2px;
+    font-weight: 800;
+    margin-bottom: 32px;
+  }
+  .slide h3 {
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    font-weight: 700;
+  }
+  .slide .body-text {
+    font-size: 18px;
+    line-height: 1.6;
+    font-weight: 400;
+    color: var(--gray-700);
+    max-width: 640px;
+  }
+  .slide .body-text.on-dark {
+    color: rgba(255,255,255,0.75);
+  }
+
+  /* ============================================
+     NAVIGATION
      ============================================ */
   .slide-nav {
     position: fixed;
@@ -80,34 +124,20 @@
     border: 1px solid rgba(255,255,255,0.08);
   }
   .slide-nav button {
-    width: 28px;
-    height: 28px;
+    width: 28px; height: 28px;
     border-radius: 50%;
     border: none;
     background: rgba(255,255,255,0.1);
     color: var(--white);
     font-size: 12px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     transition: background 0.2s;
   }
-  .slide-nav button:hover {
-    background: rgba(255,255,255,0.2);
-  }
-  .slide-nav button:active {
-    background: rgba(255,255,255,0.3);
-  }
-  .slide-nav .dots {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 0 3px;
-  }
+  .slide-nav button:hover { background: rgba(255,255,255,0.2); }
+  .slide-nav .dots { display: flex; align-items: center; gap: 5px; padding: 0 3px; }
   .slide-nav .dot {
-    width: 6px;
-    height: 6px;
+    width: 6px; height: 6px;
     border-radius: 50%;
     background: rgba(255,255,255,0.2);
     cursor: pointer;
@@ -118,9 +148,6 @@
     width: 16px;
     border-radius: 3px;
   }
-  .slide-nav .dot:hover:not(.active) {
-    background: rgba(255,255,255,0.4);
-  }
   .slide-nav .counter {
     font-size: 11px;
     color: rgba(255,255,255,0.5);
@@ -130,9 +157,24 @@
     font-variant-numeric: tabular-nums;
   }
 
-  h1, h2, h3 {
-    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  /* Home button */
+  .home-btn {
+    position: fixed;
+    top: 20px; left: 20px;
+    z-index: 1001;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: rgba(26,26,26,0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white);
+    font-size: 16px;
+    text-decoration: none;
+    transition: background 0.2s;
+    border: 1px solid rgba(255,255,255,0.08);
   }
+  .home-btn:hover { background: rgba(26,26,26,1); }
 
   /* ============================================
      SLIDE 1 — TITLE
@@ -141,741 +183,632 @@
     background: var(--black);
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding: 0;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
   }
   .slide-title .left {
-    padding: 100px 80px 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 100px 90px;
+    position: relative;
+    z-index: 2;
   }
   .slide-title .tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
     background: var(--bolt-yellow);
     color: var(--black);
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    padding: 5px 14px;
-    border-radius: 4px;
-    margin-bottom: 28px;
-    width: fit-content;
+    padding: 7px 14px;
+    border-radius: 100px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 36px;
   }
   .slide-title h1 {
-    font-size: 68px;
-    line-height: 1.02;
     color: var(--white);
     margin-bottom: 28px;
-    letter-spacing: -2px;
-    font-weight: 800;
   }
   .slide-title .subtitle {
-    font-size: 18px;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.6;
-    max-width: 460px;
-    font-weight: 300;
+    font-size: 19px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.6);
+    max-width: 480px;
+    font-weight: 400;
+    margin-bottom: 56px;
   }
   .slide-title .author {
-    margin-top: 48px;
-    font-size: 13px;
-    color: rgba(255,255,255,0.3);
-    font-weight: 400;
-    letter-spacing: 1.5px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 500;
+    letter-spacing: 2px;
     text-transform: uppercase;
   }
   .slide-title .right {
+    position: relative;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 50px 50px 50px 0;
-    position: relative;
+    padding: 60px 60px 60px 0;
+    z-index: 2;
   }
   .slide-title .right img.hero-img {
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 85%;
     object-fit: contain;
-    filter: drop-shadow(0 24px 48px rgba(0,0,0,0.4));
+    filter: drop-shadow(0 24px 48px rgba(0,0,0,0.45));
     position: relative;
     z-index: 2;
   }
-  .slide-title .bg-illustration {
+  .slide-title img.bg-illustration {
     position: absolute;
     right: -300px;
     bottom: -180px;
     width: 1100px;
     height: auto;
-    opacity: 1;
+    opacity: 0.85;
     z-index: 1;
     pointer-events: none;
   }
 
   /* ============================================
-     SLIDE 2 — OVERVIEW
+     SLIDE 2 — THE PROBLEM
      ============================================ */
-  .slide-overview {
+  .slide-problem {
     background: var(--cream);
-    padding: 80px 100px;
+  }
+  .slide-problem .label {
+    background: var(--bolt-pink);
+    color: var(--black);
+  }
+  .slide-problem h2 { color: var(--black); max-width: 900px; }
+  .slide-problem .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 56px;
+  }
+  .slide-problem .card {
+    background: var(--white);
+    padding: 32px 28px;
+    border-radius: 16px;
+    border: 1px solid rgba(0,0,0,0.06);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 14px;
+    min-height: 200px;
   }
-  .slide-overview h2 {
-    font-size: 48px;
+  .slide-problem .card .icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--bolt-pink);
     color: var(--black);
-    margin-bottom: 56px;
-    letter-spacing: -1px;
-    font-weight: 800;
+    font-size: 20px;
   }
-  .slide-overview .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px 80px;
+  .slide-problem .card h3 {
+    color: var(--black);
+    font-size: 18px;
   }
-  .slide-overview .item {
-    padding-top: 20px;
-    position: relative;
-  }
-  .slide-overview .item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    border-radius: 2px;
-  }
-  .slide-overview .item:nth-child(1)::before { background: var(--bolt-indigo); }
-  .slide-overview .item:nth-child(2)::before { background: var(--bolt-yellow); }
-  .slide-overview .item:nth-child(3)::before { background: var(--bolt-pink); }
-  .slide-overview .item:nth-child(4)::before { background: var(--bolt-blue); }
-  .slide-overview .item-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gray-500);
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .slide-overview .item-label i {
-    font-size: 15px;
-  }
-  .slide-overview .item:nth-child(1) .item-label i { color: var(--bolt-indigo); }
-  .slide-overview .item:nth-child(2) .item-label i { color: #b8cc00; }
-  .slide-overview .item:nth-child(3) .item-label i { color: var(--bolt-pink); }
-  .slide-overview .item:nth-child(4) .item-label i { color: var(--bolt-blue); }
-  .slide-overview .item p {
-    font-size: 16px;
-    line-height: 1.7;
+  .slide-problem .card p {
+    font-size: 14px;
+    line-height: 1.55;
     color: var(--gray-700);
-    font-weight: 300;
+    margin-top: auto;
   }
 
   /* ============================================
-     SLIDE — WHY THIS MATTERED
+     SLIDE 3 — WHY IT WAS BROKEN (image left, text right)
      ============================================ */
   .slide-why {
     background: var(--black);
     display: grid;
-    grid-template-columns: 0.42fr 0.58fr;
+    grid-template-columns: 0.62fr 0.38fr;
+    gap: 80px;
+    align-items: center;
+    padding: 80px 100px;
   }
-  .slide-why .left {
-    padding: 70px 60px;
+  .slide-why .visual {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    max-height: 620px;
+    position: relative;
+    overflow: hidden;
+    cursor: zoom-in;
+  }
+  .slide-why .visual img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: transform 0.35s ease;
+    transform-origin: 50% 50%;
+    will-change: transform;
+  }
+  .slide-why .visual:hover img {
+    transform: scale(2.2);
+    transition: transform 0.15s ease;
+  }
+  .slide-why .visual .zoom-hint {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: rgba(26,26,26,0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.5px;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 2;
+  }
+  .slide-why .visual .zoom-hint i { font-size: 13px; color: var(--bolt-yellow); }
+  .slide-why .visual:hover .zoom-hint { opacity: 0; }
+  .slide-why .content .label {
+    background: rgba(230,255,0,0.12);
+    color: var(--bolt-yellow);
+  }
+  .slide-why h2 {
+    color: var(--white);
+    font-size: clamp(40px, 4.2vw, 64px);
+  }
+  .slide-why ul {
+    list-style: none;
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .slide-why ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: rgba(255,255,255,0.8);
+    font-size: 15px;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+  .slide-why ul li i {
+    color: var(--bolt-yellow);
+    font-size: 18px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  /* ============================================
+     SLIDE 3b — OLD SCREENS SLIDER
+     ============================================ */
+  .slide-old-screens {
+    background: var(--cream-dark);
+    display: grid;
+    grid-template-columns: 0.4fr 0.6fr;
+    gap: 50px;
+    padding: 60px 80px;
+    align-items: center;
+  }
+  .slide-old-screens .header { max-width: 480px; }
+  .slide-old-screens .label {
+    background: var(--bolt-pink);
+    color: var(--black);
+  }
+  .slide-old-screens h2 {
+    color: var(--black);
+    font-size: clamp(40px, 4.2vw, 56px);
+    margin-bottom: 18px;
+  }
+  .slide-old-screens .body-text {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+  .slide-old-screens .image-stack {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .slide-old-screens .frame {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    max-width: 100%;
+    max-height: 100%;
+    display: grid;
+    place-items: stretch;
+  }
+  .slide-old-screens .frame img {
+    grid-row: 1;
+    grid-column: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 12px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.22);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+  .slide-old-screens .frame img.active { opacity: 1; }
+  .slide-old-screens .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(0,0,0,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    color: var(--black);
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    transition: transform 0.15s ease, background 0.15s ease;
+    z-index: 5;
+  }
+  .slide-old-screens .slider-btn.prev { left: 18px; }
+  .slide-old-screens .slider-btn.next { right: 18px; }
+  .slide-old-screens .slider-btn:hover {
+    transform: translateY(-50%) scale(1.08);
+    background: var(--bolt-pink);
+  }
+  .slide-old-screens .slider-btn:active {
+    transform: translateY(-50%) scale(0.96);
+  }
+  .slide-old-screens .slider-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* ============================================
+     SLIDE 4 — ROLE & MANDATE (centered hero + partner row)
+     ============================================ */
+  .slide-role {
+    background: var(--cream);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-right: 1px solid rgba(255,255,255,0.06);
+    align-items: center;
+    text-align: center;
+    padding: 90px 110px;
   }
-  .slide-why .label {
+  .slide-role .label {
+    background: var(--bolt-blue);
+    color: var(--black);
+  }
+  .slide-role h2 {
+    color: var(--black);
+    max-width: 1100px;
+    font-size: clamp(56px, 6vw, 92px);
+  }
+  .slide-role .body-text {
+    margin: 0 auto 64px;
+    text-align: center;
+    max-width: 720px;
+    font-size: 19px;
+  }
+  .slide-role .partners-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    max-width: 980px;
+  }
+  .slide-role .partner-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 24px;
+    background: var(--white);
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--black);
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: transform 0.2s ease;
+  }
+  .slide-role .partner-chip:hover { transform: translateY(-2px); }
+  .slide-role .partner-chip i {
+    color: var(--bolt-indigo);
+    font-size: 18px;
+  }
+  .slide-role .partners-label {
     font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    margin-bottom: 20px;
+  }
+
+  /* ============================================
+     SLIDE 5 — STRATEGY (HERO)
+     ============================================ */
+  .slide-strategy {
+    background: var(--bolt-yellow);
+    padding: 90px 110px;
+  }
+  .slide-strategy .label {
+    background: var(--black);
+    color: var(--bolt-yellow);
+  }
+  .slide-strategy h2 {
+    color: var(--black);
+    max-width: 1100px;
+    font-size: clamp(56px, 6vw, 92px);
+    margin-bottom: 64px;
+  }
+  .slide-strategy .shifts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .slide-strategy .shift {
+    background: var(--black);
+    color: var(--white);
+    padding: 36px 32px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .slide-strategy .shift .num {
+    font-size: 13px;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--bolt-yellow);
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
   }
-  .slide-why .label i { font-size: 16px; }
-  .slide-why h2 {
-    font-size: 44px;
-    color: var(--white);
-    font-weight: 800;
-    letter-spacing: -1px;
-    line-height: 1.1;
-    margin-bottom: 24px;
-  }
-  .slide-why .body {
-    font-size: 15px;
-    line-height: 1.7;
-    color: rgba(255,255,255,0.7);
-    font-weight: 300;
-  }
-  .slide-why .right {
-    padding: 60px 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0;
-  }
-  .slide-why .metric {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 22px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-  .slide-why .metric:last-child { border-bottom: none; }
-  .slide-why .metric .icon-box {
-    width: 46px;
-    height: 46px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    flex-shrink: 0;
-  }
-  .slide-why .metric:nth-child(1) .icon-box { background: rgba(19,62,227,0.2); color: var(--bolt-blue); }
-  .slide-why .metric:nth-child(2) .icon-box { background: rgba(255,154,241,0.15); color: var(--bolt-pink); }
-  .slide-why .metric:nth-child(3) .icon-box { background: rgba(230,255,0,0.12); color: var(--bolt-yellow); }
-  .slide-why .metric:nth-child(4) .icon-box { background: rgba(104,216,252,0.15); color: var(--bolt-blue); }
-  .slide-why .metric:nth-child(5) .icon-box { background: rgba(19,62,227,0.2); color: var(--bolt-indigo); }
-  .slide-why .metric .metric-text {
-    flex: 1;
-  }
-  .slide-why .metric .metric-text .num {
-    font-size: 22px;
-    font-weight: 800;
-    color: var(--white);
-    margin-bottom: 2px;
+  .slide-strategy .shift .from-to {
+    font-size: 28px;
+    line-height: 1.15;
+    font-weight: 700;
     letter-spacing: -0.5px;
   }
-  .slide-why .metric .metric-text .desc {
-    font-size: 13px;
-    color: rgba(255,255,255,0.65);
-    font-weight: 300;
-    line-height: 1.4;
+  .slide-strategy .shift .from-to .arrow {
+    color: var(--bolt-yellow);
+    margin: 0 6px;
   }
-
-  /* ============================================
-     SLIDE 3 — KEY RESULTS
-     ============================================ */
-  .slide-results-early {
-    background: var(--white);
-    padding: 80px 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .slide-results-early .label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gray-500);
-    margin-bottom: 48px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .slide-results-early .label i {
-    color: var(--bolt-indigo);
-    font-size: 16px;
-  }
-  .slide-results-early .stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 60px;
-    margin-bottom: 56px;
-  }
-  .slide-results-early .stat .num {
-    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
-    font-size: 76px;
-    line-height: 1;
-    color: var(--black);
-    margin-bottom: 14px;
-    font-weight: 800;
-    letter-spacing: -2px;
-  }
-  .slide-results-early .stat:nth-child(1) .num { color: var(--bolt-indigo); }
-  .slide-results-early .stat:nth-child(2) .num { color: var(--black); }
-  .slide-results-early .stat:nth-child(3) .num { color: var(--bolt-indigo); }
-  .slide-results-early .stat .desc {
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--gray-700);
-    font-weight: 300;
-  }
-  .slide-results-early .divider {
-    width: 100%;
-    height: 1px;
-    background: var(--gray-300);
-    margin-bottom: 32px;
-  }
-  .slide-results-early .footnote {
+  .slide-strategy .shift p {
     font-size: 14px;
-    color: var(--gray-500);
-    line-height: 1.7;
-    font-weight: 300;
-    max-width: 800px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.7);
+    margin-top: 8px;
   }
 
   /* ============================================
-     SLIDE 4 — STRATEGY & EPICS
+     SLIDE 6 — TRADEOFFS
      ============================================ */
-  .slide-epics {
+  .slide-tradeoffs {
+    background: var(--cream);
+  }
+  .slide-tradeoffs .label {
+    background: var(--bolt-blue);
+    color: var(--black);
+  }
+  .slide-tradeoffs h2 {
+    color: var(--black);
+    max-width: 900px;
+  }
+  .slide-tradeoffs .body-text { margin-bottom: 56px; }
+  .slide-tradeoffs .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .slide-tradeoffs .card {
     background: var(--white);
-    padding: 60px 80px;
+    border-radius: 20px;
+    padding: 36px 32px;
+    border: 1px solid rgba(0,0,0,0.06);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-  }
-  .slide-epics .label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gray-500);
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .slide-epics .label i { color: var(--bolt-indigo); font-size: 16px; }
-  .slide-epics h2 {
-    font-size: 42px;
-    color: var(--black);
-    margin-bottom: 36px;
-    font-weight: 800;
-    letter-spacing: -1px;
-  }
-  .slide-epics .epics-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 32px;
-  }
-  .slide-epics .epic-card {
-    border-radius: 12px;
-    padding: 28px 24px;
+    gap: 16px;
     position: relative;
     overflow: hidden;
   }
-  .slide-epics .epic-card::before {
+  .slide-tradeoffs .card::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 4px;
   }
-  .slide-epics .epic-card:nth-child(1) { background: rgba(19,62,227,0.05); }
-  .slide-epics .epic-card:nth-child(1)::before { background: var(--bolt-indigo); }
-  .slide-epics .epic-card:nth-child(2) { background: rgba(255,154,241,0.08); }
-  .slide-epics .epic-card:nth-child(2)::before { background: var(--bolt-pink); }
-  .slide-epics .epic-card:nth-child(3) { background: rgba(104,216,252,0.08); }
-  .slide-epics .epic-card:nth-child(3)::before { background: var(--bolt-blue); }
-  .slide-epics .epic-card .epic-num {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-  .slide-epics .epic-card:nth-child(1) .epic-num { color: var(--bolt-indigo); }
-  .slide-epics .epic-card:nth-child(2) .epic-num { color: var(--bolt-pink); }
-  .slide-epics .epic-card:nth-child(3) .epic-num { color: var(--bolt-blue); }
-  .slide-epics .epic-card h3 {
-    font-size: 18px;
+  .slide-tradeoffs .card:nth-child(1)::before { background: var(--bolt-yellow); }
+  .slide-tradeoffs .card:nth-child(2)::before { background: var(--bolt-pink); }
+  .slide-tradeoffs .card:nth-child(3)::before { background: var(--bolt-blue); }
+  .slide-tradeoffs .card .pair {
+    font-size: 24px;
+    line-height: 1.2;
     font-weight: 700;
     color: var(--black);
-    margin-bottom: 10px;
-    line-height: 1.25;
+    letter-spacing: -0.5px;
   }
-  .slide-epics .epic-card p {
-    font-size: 13px;
+  .slide-tradeoffs .card .pair .vs {
+    color: var(--gray-500);
+    font-weight: 500;
+    margin: 0 6px;
+  }
+  .slide-tradeoffs .card p {
+    font-size: 14px;
     line-height: 1.6;
     color: var(--gray-700);
-    font-weight: 300;
-  }
-  .slide-epics .adjustments-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gray-500);
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .slide-epics .adjustments-label i { color: var(--bolt-yellow); font-size: 15px; }
-  .slide-epics .adjustments {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 16px;
-  }
-  .slide-epics .adj-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--gray-700);
-    line-height: 1.5;
-    font-weight: 400;
-  }
-  .slide-epics .adj-item i {
-    color: #b8cc00;
-    font-size: 14px;
-    margin-top: 2px;
-    flex-shrink: 0;
   }
 
   /* ============================================
-     SLIDE — LONG TERM VISION
+     SLIDE 7 — THE SOLUTION (vertical centered hero)
      ============================================ */
-  .slide-vision {
+  .slide-solution {
     background: var(--black);
-    padding: 70px 100px;
-    display: grid;
-    grid-template-columns: 0.4fr 0.6fr;
-    gap: 80px;
-    align-items: center;
-  }
-  .slide-vision .left {}
-  .slide-vision .label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--bolt-blue);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .slide-vision .label i { font-size: 16px; }
-  .slide-vision h2 {
-    font-size: 42px;
-    color: var(--white);
-    margin-bottom: 24px;
-    font-weight: 800;
-    letter-spacing: -1px;
-    line-height: 1.1;
-  }
-  .slide-vision .body {
-    font-size: 15px;
-    line-height: 1.7;
-    color: rgba(255,255,255,0.5);
-    font-weight: 300;
-  }
-  .slide-vision .phases {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 70px 100px;
+    gap: 28px;
   }
-  .slide-vision .phase {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 24px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+  .slide-solution .label {
+    background: rgba(104,216,252,0.15);
+    color: var(--bolt-blue);
   }
-  .slide-vision .phase:last-child { border-bottom: none; }
-  .slide-vision .phase-num {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
+  .slide-solution h2 {
+    color: var(--white);
+    max-width: 1100px;
+    margin-bottom: 12px;
+    font-size: clamp(48px, 5vw, 72px);
+  }
+  .slide-solution .body-text {
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    margin: 0 auto;
+    max-width: 720px;
+  }
+  .slide-solution .visual {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
-    font-weight: 800;
-    flex-shrink: 0;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+    max-width: 1000px;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
   }
-  .slide-vision .phase:nth-child(1) .phase-num { background: var(--bolt-indigo); color: var(--white); }
-  .slide-vision .phase:nth-child(2) .phase-num { background: var(--bolt-pink); color: var(--black); }
-  .slide-vision .phase:nth-child(3) .phase-num { background: var(--bolt-blue); color: var(--black); }
-  .slide-vision .phase:nth-child(4) .phase-num { background: var(--bolt-yellow); color: var(--black); }
-  .slide-vision .phase-content h3 {
-    font-size: 17px;
+  .slide-solution .visual img {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 6px;
+  }
+  .slide-solution .feature-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    max-width: 1100px;
+  }
+  .slide-solution .feature-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: rgba(104,216,252,0.12);
+    border: 1px solid rgba(104,216,252,0.25);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--bolt-blue);
+  }
+  .slide-solution .feature-chip i {
+    font-size: 14px;
+  }
+
+  /* ============================================
+     SLIDE 8 — OUTCOMES
+     ============================================ */
+  .slide-outcomes {
+    background: var(--bolt-pink);
+    padding: 90px 110px;
+  }
+  .slide-outcomes .label {
+    background: var(--black);
+    color: var(--bolt-pink);
+  }
+  .slide-outcomes h2 {
+    color: var(--black);
+    max-width: 1000px;
+    margin-bottom: 64px;
+  }
+  .slide-outcomes .stats {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 28px;
+  }
+  .slide-outcomes .stat {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 240px;
+  }
+  .slide-outcomes .stat .num {
+    font-size: clamp(56px, 6vw, 88px);
+    line-height: 0.95;
+    font-weight: 800;
+    letter-spacing: -3px;
+    color: var(--black);
+  }
+  .slide-outcomes .stat .num small {
+    font-size: 0.45em;
     font-weight: 700;
-    color: var(--white);
+    color: var(--gray-500);
+    letter-spacing: -1px;
+  }
+  .slide-outcomes .stat .label-row {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gray-500);
     margin-bottom: 4px;
   }
-  .slide-vision .phase-content p {
-    font-size: 13.5px;
-    color: rgba(255,255,255,0.5);
-    font-weight: 300;
+  .slide-outcomes .stat p {
+    font-size: 14px;
     line-height: 1.5;
-  }
-
-  /* ============================================
-     SLIDE 5 — THE PROBLEM
-     ============================================ */
-  .slide-problem {
-    background: var(--black);
-    padding: 80px 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .slide-problem .label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--bolt-pink);
-    margin-bottom: 40px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .slide-problem .label i {
-    font-size: 16px;
-  }
-  .slide-problem .quote {
-    font-size: 44px;
-    line-height: 1.2;
-    color: var(--white);
-    margin-bottom: 40px;
-    max-width: 900px;
-    font-weight: 700;
-    letter-spacing: -1px;
-  }
-  .slide-problem .issues {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px 60px;
-  }
-  .slide-problem .issue {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  .slide-problem .issue i {
-    color: var(--bolt-pink);
-    font-size: 14px;
-    flex-shrink: 0;
-    margin-top: 4px;
-  }
-  .slide-problem .issue p {
-    font-size: 14px;
-    line-height: 1.6;
-    color: rgba(255,255,255,0.55);
-    font-weight: 300;
-  }
-
-  /* ============================================
-     SLIDE 5 — BEFORE / AFTER
-     ============================================ */
-  .slide-screens-compare {
-    background: var(--cream);
-    padding: 60px 80px;
-    display: flex;
-    flex-direction: column;
-  }
-  .slide-screens-compare h2 {
-    font-size: 42px;
-    color: var(--black);
-    margin-bottom: 12px;
-    font-weight: 800;
-    letter-spacing: -1px;
-  }
-  .slide-screens-compare .sub {
-    font-size: 15px;
-    color: var(--gray-500);
-    font-weight: 300;
-    margin-bottom: 36px;
-  }
-  .slide-screens-compare .images-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    flex: 1;
-  }
-  .slide-screens-compare .img-block {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    background: var(--white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-  }
-  .slide-screens-compare .img-block img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
-  .slide-screens-compare .img-block .tag {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 5px 12px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  .slide-screens-compare .img-block .tag.before {
-    background: var(--bolt-pink);
-    color: var(--black);
-  }
-  .slide-screens-compare .img-block .tag.after {
-    background: var(--bolt-blue);
-    color: var(--black);
-  }
-
-  /* ============================================
-     SLIDE 6 — DISCOVERY
-     ============================================ */
-  .slide-discovery {
-    background: var(--white);
-    display: grid;
-    grid-template-columns: 0.45fr 0.55fr;
-  }
-  .slide-discovery .left {
-    padding: 70px 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-right: 1px solid var(--gray-100);
-  }
-  .slide-discovery .label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--bolt-indigo);
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .slide-discovery .label i {
-    font-size: 16px;
-  }
-  .slide-discovery h2 {
-    font-size: 40px;
-    color: var(--black);
-    margin-bottom: 24px;
-    line-height: 1.1;
-    font-weight: 800;
-    letter-spacing: -1px;
-  }
-  .slide-discovery .body {
-    font-size: 15px;
-    line-height: 1.75;
     color: var(--gray-700);
-    font-weight: 300;
-    margin-bottom: 28px;
-  }
-  .slide-discovery .checklist {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .slide-discovery .checklist li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 14px;
-    color: var(--gray-700);
-    line-height: 1.55;
-    font-weight: 400;
-  }
-  .slide-discovery .checklist li i {
-    color: var(--bolt-indigo);
-    font-size: 16px;
-    margin-top: 2px;
-    flex-shrink: 0;
-  }
-  .slide-discovery .right {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px;
-    background: var(--cream);
-  }
-  .slide-discovery .right img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    margin-top: auto;
   }
 
   /* ============================================
-     SLIDE 7 — FLOW DIAGRAM
+     SLIDE 9 — WHAT CHANGED
      ============================================ */
-  .slide-flow {
+  .slide-changed {
     background: var(--cream);
-    padding: 56px 80px;
-    display: flex;
-    flex-direction: column;
   }
-  .slide-flow .top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 32px;
-  }
-  .slide-flow h2 {
-    font-size: 40px;
+  .slide-changed .label {
+    background: var(--bolt-yellow);
     color: var(--black);
-    font-weight: 800;
-    letter-spacing: -1px;
   }
-  .slide-flow .top .desc {
-    font-size: 14px;
-    color: var(--gray-500);
-    font-weight: 300;
-    max-width: 360px;
-    text-align: right;
-    line-height: 1.6;
+  .slide-changed h2 { color: var(--black); }
+  .slide-changed .body-text { margin-bottom: 56px; max-width: 720px; }
+  .slide-changed .audiences {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
   }
-  .slide-flow .flow-img {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .slide-changed .audience {
     background: var(--white);
-    border-radius: 12px;
-    padding: 24px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+    border-radius: 20px;
+    padding: 36px 32px;
+    border: 1px solid rgba(0,0,0,0.06);
   }
-  .slide-flow .flow-img img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
-
-  /* ============================================
-     SLIDE 8 — EXPLORATIONS
-     ============================================ */
-  .slide-explorations {
-    background: var(--white);
-    padding: 56px 80px;
-    display: flex;
-    flex-direction: column;
-  }
-  .slide-explorations .top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 28px;
-  }
-  .slide-explorations .label {
+  .slide-changed .audience .who {
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -886,736 +819,525 @@
     align-items: center;
     gap: 8px;
   }
-  .slide-explorations .label i {
-    color: var(--bolt-blue);
-    font-size: 15px;
-  }
-  .slide-explorations h2 {
-    font-size: 40px;
+  .slide-changed .audience .who i { font-size: 14px; }
+  .slide-changed .audience:nth-child(1) .who i { color: var(--bolt-indigo); }
+  .slide-changed .audience:nth-child(2) .who i { color: var(--bolt-pink); }
+  .slide-changed .audience:nth-child(3) .who i { color: var(--bolt-blue); }
+  .slide-changed .audience h3 {
     color: var(--black);
-    font-weight: 800;
-    letter-spacing: -1px;
-  }
-  .slide-explorations .top .desc {
-    font-size: 14px;
-    color: var(--gray-500);
-    font-weight: 300;
-    max-width: 400px;
-    text-align: right;
-    line-height: 1.6;
-  }
-  .slide-explorations .img-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    flex: 1;
-  }
-  .slide-explorations .img-card {
-    background: var(--cream);
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-  .slide-explorations .img-card img {
-    width: 100%;
-    flex: 1;
-    object-fit: cover;
-  }
-  .slide-explorations .img-card .caption {
-    padding: 14px 20px;
-    font-size: 12px;
-    color: var(--gray-700);
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .slide-explorations .img-card:nth-child(1) .caption i { color: var(--bolt-pink); }
-  .slide-explorations .img-card:nth-child(2) .caption i { color: var(--bolt-blue); }
-
-  /* ============================================
-     SLIDE 9 — FINAL SCREENS
-     ============================================ */
-  .slide-screens {
-    background: var(--cream);
-    padding: 48px 60px;
-    display: flex;
-    flex-direction: column;
-  }
-  .slide-screens h2 {
-    font-size: 40px;
-    color: var(--black);
-    margin-bottom: 28px;
-    font-weight: 800;
-    letter-spacing: -1px;
-  }
-  .slide-screens .grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr 1fr;
-    gap: 14px;
-    flex: 1;
-  }
-  .slide-screens .screen {
-    background: var(--white);
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    box-shadow: 0 1px 8px rgba(0,0,0,0.04);
-  }
-  .slide-screens .screen img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  /* ============================================
-     SLIDE 10 — EXPANDING
-     ============================================ */
-  .slide-expand {
-    background: var(--white);
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-  .slide-expand .panel {
-    padding: 48px 36px;
-    display: flex;
-    flex-direction: column;
-    border-right: 1px solid var(--gray-100);
-  }
-  .slide-expand .panel:last-child { border-right: none; }
-  .slide-expand .panel .label {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .slide-expand .panel:nth-child(1) .label { color: var(--bolt-indigo); }
-  .slide-expand .panel:nth-child(2) .label { color: var(--bolt-pink); }
-  .slide-expand .panel:nth-child(3) .label { color: var(--bolt-blue); }
-  .slide-expand .panel:nth-child(1) .label i { color: var(--bolt-indigo); }
-  .slide-expand .panel:nth-child(2) .label i { color: var(--bolt-pink); }
-  .slide-expand .panel:nth-child(3) .label i { color: var(--bolt-blue); }
-  .slide-expand .panel h3 {
     font-size: 24px;
-    color: var(--black);
-    margin-bottom: 14px;
-    line-height: 1.15;
-    font-weight: 700;
-    letter-spacing: -0.5px;
+    margin-bottom: 18px;
   }
-  .slide-expand .panel p {
-    font-size: 13px;
-    line-height: 1.65;
-    color: var(--gray-700);
-    font-weight: 300;
-    margin-bottom: 20px;
-  }
-  .slide-expand .panel .img-wrap {
-    flex: 1;
-    border-radius: 8px;
-    overflow: hidden;
-    background: var(--cream);
+  .slide-changed .audience ul {
+    list-style: none;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
+    flex-direction: column;
+    gap: 12px;
   }
-  .slide-expand .panel .img-wrap img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+  .slide-changed .audience ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--gray-700);
+    font-weight: 400;
+  }
+  .slide-changed .audience ul li i {
+    color: var(--bolt-indigo);
+    font-size: 16px;
+    margin-top: 1px;
+    flex-shrink: 0;
   }
 
   /* ============================================
-     SLIDE 11 — OUTCOMES
+     SLIDE 10 — WHAT I LEARNED
      ============================================ */
-  .slide-outcomes {
+  .slide-learned {
     background: var(--black);
-    padding: 80px 100px;
+  }
+  .slide-learned .label {
+    background: rgba(255,154,241,0.18);
+    color: var(--bolt-pink);
+  }
+  .slide-learned h2 { color: var(--white); }
+  .slide-learned .body-text { color: rgba(255,255,255,0.6); margin-bottom: 56px; max-width: 720px; }
+  .slide-learned .lessons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .slide-learned .lesson {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 36px 32px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 16px;
   }
-  .slide-outcomes .label {
+  .slide-learned .lesson .icon {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    background: rgba(255,154,241,0.15);
+    color: var(--bolt-pink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+  }
+  .slide-learned .lesson:nth-child(2) .icon { background: rgba(230,255,0,0.15); color: var(--bolt-yellow); }
+  .slide-learned .lesson:nth-child(3) .icon { background: rgba(104,216,252,0.15); color: var(--bolt-blue); }
+  .slide-learned .lesson h3 {
+    color: var(--white);
+    font-size: 22px;
+    line-height: 1.2;
+  }
+  .slide-learned .lesson p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.65);
+  }
+
+  /* ============================================
+     SLIDE 11 — WHAT'S NEXT
+     ============================================ */
+  .slide-next {
+    background: var(--bolt-yellow);
+    text-align: left;
+  }
+  .slide-next .label {
+    background: var(--black);
+    color: var(--bolt-yellow);
+  }
+  .slide-next h2 {
+    color: var(--black);
+    max-width: 1000px;
+    margin-bottom: 56px;
+  }
+  .slide-next .ideas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1100px;
+  }
+  .slide-next .idea {
+    background: var(--black);
+    color: var(--white);
+    padding: 32px 28px;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .slide-next .idea .num {
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--bolt-yellow);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
   }
-  .slide-outcomes .label i {
-    font-size: 16px;
-  }
-  .slide-outcomes h2 {
-    font-size: 48px;
+  .slide-next .idea h3 {
     color: var(--white);
-    margin-bottom: 48px;
-    font-weight: 800;
-    letter-spacing: -1px;
-  }
-  .slide-outcomes .outcomes-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .slide-outcomes .outcome {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-  .slide-outcomes .outcome:last-child { border-bottom: none; }
-  .slide-outcomes .outcome i {
     font-size: 20px;
-    margin-top: 2px;
-    flex-shrink: 0;
+    line-height: 1.2;
   }
-  .slide-outcomes .outcome:nth-child(1) i { color: var(--bolt-yellow); }
-  .slide-outcomes .outcome:nth-child(2) i { color: var(--bolt-blue); }
-  .slide-outcomes .outcome:nth-child(3) i { color: var(--bolt-pink); }
-  .slide-outcomes .outcome:nth-child(4) i { color: var(--bolt-yellow); }
-  .slide-outcomes .outcome p {
-    font-size: 16px;
-    line-height: 1.6;
+  .slide-next .idea p {
+    font-size: 14px;
+    line-height: 1.55;
     color: rgba(255,255,255,0.7);
-    font-weight: 300;
   }
-  .slide-outcomes .outcome p strong {
-    color: var(--white);
+  .slide-next .footer {
+    margin-top: 48px;
+    font-size: 13px;
+    color: rgba(0,0,0,0.5);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
     font-weight: 600;
   }
 
   /* ============================================
-     SLIDE 12 — THANK YOU
+     SLIDE 13 — THANK YOU
      ============================================ */
   .slide-thanks {
     background: var(--cream);
-    display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
   }
-  .slide-thanks .content {}
-  .slide-thanks h2 {
-    font-size: 72px;
+  .slide-thanks h1 {
     color: var(--black);
-    margin-bottom: 20px;
-    letter-spacing: -2px;
+    font-size: clamp(80px, 9vw, 140px);
+    line-height: 0.96;
+    letter-spacing: -3px;
     font-weight: 800;
+    margin-bottom: 24px;
   }
-  .slide-thanks .sub {
-    font-size: 18px;
+  .slide-thanks .questions {
+    font-size: clamp(20px, 2vw, 28px);
     color: var(--gray-500);
-    font-weight: 300;
-    margin-bottom: 48px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
   }
-  .slide-thanks .links {
-    display: flex;
-    gap: 40px;
+  .slide-thanks .next-link {
+    position: absolute;
+    bottom: 56px;
+    right: 56px;
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    text-decoration: none;
+    color: var(--black);
+    transition: all 0.2s ease;
   }
-  .slide-thanks .link-item {
+  .slide-thanks .next-link:hover {
+    background: var(--black);
+    color: var(--white);
+    transform: translateY(-2px);
+  }
+  .slide-thanks .next-link i { font-size: 16px; }
+
+  /* ============================================
+     IMAGE PLACEHOLDER (use if you want to swap a real
+     image in later — none used in this build but kept
+     handy)
+     ============================================ */
+  .img-placeholder {
+    border: 2px dashed rgba(0,0,0,0.18);
+    border-radius: 16px;
+    padding: 32px;
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    color: var(--gray-700);
-    font-weight: 400;
-  }
-  .slide-thanks .link-item i {
-    font-size: 18px;
-    color: var(--bolt-indigo);
+    justify-content: center;
+    text-align: center;
+    color: var(--gray-500);
+    font-size: 13px;
+    font-weight: 500;
   }
 </style>
 </head>
 <body>
 
-<a href="index.html" style="position:fixed;top:20px;left:20px;z-index:1001;width:36px;height:36px;border-radius:50%;background:rgba(26,26,26,0.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;text-decoration:none;transition:background 0.2s;border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.background='rgba(26,26,26,0.85)'" onmouseout="this.style.background='rgba(26,26,26,0.6)'"><i class="ph-bold ph-house-simple"></i></a>
+<a href="index.html" class="home-btn"><i class="ph-bold ph-house-simple"></i></a>
 
-<!-- SLIDE 1: TITLE -->
+<!-- ================================================
+     SLIDE 1 — TITLE
+     ================================================ -->
 <div class="slide slide-title">
   <div class="left">
     <div class="tag"><i class="ph-bold ph-lightning"></i> Case Study</div>
-    <h1 style="outline: none;">From 70+ days<br>to Minutes</h1>
-    <p class="subtitle" style="outline: none;">Designing a scalable, automated merchant onboarding system for Bolt Products</p>
-    <p class="author" style="outline: none; border-radius: 4px;">Michelle Taylor — Lead Product Designer</p>
+    <h1>From 70+ Days<br>to Minutes</h1>
+    <p class="subtitle">A redesign of Bolt's merchant onboarding system — turning a months-long manual bottleneck into a self-serve flow that takes minutes.</p>
   </div>
   <div class="right">
-    <img class="hero-img" src="assets/onboarding/Overview-hero.png" alt="Onboarding overview">
+    <img class="hero-img" src="assets/onboarding/Overview-hero.png" alt="Bolt onboarding overview">
   </div>
   <img class="bg-illustration" src="assets/onboarding/Bolt Blends Seamlessly2.png" alt="">
 </div>
 
-<!-- SLIDE 2: OVERVIEW -->
-<div class="slide slide-overview">
-  <h2 style="outline: none;">Project Overview</h2>
-  <div class="grid">
-    <div class="item">
-      <div class="item-label" style="outline: none;"><i class="ph-bold ph-user-circle"></i> My Role</div>
-      <p style="outline: none; border-radius: 4px;"><b>Lead Product Designer</b> working with Product Manager and Engineering Lead, a pod of engineers on implementation, Sales and Implementation Managers</p>
-    </div>
-    <div class="item">
-      <div class="item-label" style="outline: none;"><i class="ph-bold ph-target"></i> Goal</div>
-      <p style="outline: none; border-radius: 4px;">Increase merchant self-service experiences, reduce internal touchpoints and manual work to get merchants live faster. <b>Cut down time-to-live to act on potential revenue</b> in open opportunities.</p>
-    </div>
-    <div class="item">
-      <div class="item-label" style="outline: none;"><i class="ph-bold ph-warning-circle"></i> Challenges</div>
-      <p style="outline: none; border-radius: 4px;">• Change resistance from internal teams hesitant to adopt new processes.&nbsp;<div>• Data validation complexity across multiple teams and products.&nbsp;</div><div>• Platform variability across e-commerce integrations (Magento, Adobe Commerce).</div></p>
-    </div>
-    <div class="item">
-      <div class="item-label" style="outline: none;"><i class="ph-bold ph-clock-countdown"></i> Key Metric</div>
-      <p style="outline: none; border-radius: 4px;">• Increased onboarding efficiency as perceived by IMs<div>• Reduced time to launch</div><div>• Increase SI Deals</div><div>• Increased deal velocity</div></p>
-    </div>
-  </div>
-</div>
-
-<!-- SLIDE 3: WHY THIS MATTERED -->
-<div class="slide slide-why">
-  <div class="left">
-    <div class="label" style="outline: none;"><i class="ph-bold ph-siren"></i> Why This Mattered</div>
-    <h2 style="outline: none;">Onboarding Was Blocking Revenue</h2>
-    <p class="body" style="outline: none; border-radius: 4px;">Onboarding wasn't just a UX problem – it was a systems bottleneck impacting revenue velocity, internal team capacity, and the very first impression merchants had of Bolt. Every day of delay meant lost momentum on deals and strained resources.</p>
-  </div>
-  <div class="right">
-    <div class="metric">
-      <div class="icon-box"><i class="ph-bold ph-hourglass-medium"></i></div>
-      <div class="metric-text">
-        <div class="num" style="outline: none;">70+ days</div>
-        <div class="desc" style="outline: none;">Average time from contract signing to merchant go-live</div>
-      </div>
-    </div>
-    <div class="metric">
-      <div class="icon-box"><i class="ph-bold ph-clock-countdown"></i></div>
-      <div class="metric-text">
-        <div class="num" style="outline: none;">50+ days</div>
-        <div class="desc" style="outline: none;">Even after account creation, merchants still waited weeks to go live</div>
-      </div>
-    </div>
-    <div class="metric">
-      <div class="icon-box"><i class="ph-bold ph-envelope-simple"></i></div>
-      <div class="metric-text">
-        <div class="num" style="outline: none;">5+ email cycles</div>
-        <div class="desc" style="outline: none;">Back-and-forth between merchant and Bolt teams before setup complete</div>
-      </div>
-    </div>
-    <div class="metric">
-      <div class="icon-box"><i class="ph-bold ph-user-gear"></i></div>
-      <div class="metric-text">
-        <div class="num" style="outline: none;">Heavy IM dependency</div>
-        <div class="desc" style="outline: none;">Implementation Managers manually handling tasks that could be automated</div>
-      </div>
-    </div>
-    <div class="metric">
-      <div class="icon-box"><i class="ph-bold ph-currency-dollar"></i></div>
-      <div class="metric-text">
-        <div class="num" style="outline: none;">$1.4B at stake</div>
-        <div class="desc" style="outline: none;">Adobe Commerce opportunities gated by onboarding friction</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- SLIDE 4: KEY RESULTS -->
-<div class="slide slide-results-early">
-  <div class="label" style="outline: none;"><i class="ph-bold ph-chart-line-up"></i> Key Results</div>
-  <div class="stats">
-    <div class="stat">
-      <div class="num" style="outline: none; border-radius: 4px;">70+</div>
-      <div class="desc" style="outline: none; border-radius: 4px;">Days cut down to<b> just a few minutes</b> for merchant account creation time</div>
-    </div>
-    <div class="stat">
-      <div class="num" style="outline: none; border-radius: 4px;">40 → 10</div>
-      <div class="desc" style="outline: none; border-radius: 4px;">Inputs condensed, removing redundant data collection, and targeting correct users</div>
-    </div>
-    <div class="stat">
-      <div class="num" style="outline: none;">$1.4B</div>
-      <div class="desc" style="outline: none; border-radius: 4px;">In open opportunities by removing months off go-live time for signing merchants (for Adobe Commerce alone)</div>
-    </div>
-  </div>
-  <div class="divider"></div>
-  <p class="footnote" style="outline: none;">Fewer direct touchpoints and intervention with merchants during onboarding. The sales team gained greater flexibility with how they engage prospects.</p>
-</div>
-
-<!-- SLIDE 4: STRATEGY & EPICS -->
-<div class="slide slide-epics">
-  <div class="label" style="outline: none;"><i class="ph-bold ph-map-trifold"></i> Strategic Approach</div>
-  <h2 style="outline: none; border-radius: 4px;">Phased Epics</h2>
-  <div class="epics-grid">
-    <div class="epic-card">
-      <div class="epic-num" style="outline: none; border-radius: 4px;"><i class="ph-bold ph-number-one"></i> Epic 1</div>
-      <h3 style="outline: none;">Redesign Onboarding Form</h3>
-      <p style="outline: none;">Create a scalable, simplified, and consistent flow for collecting the essential information needed to create a Bolt merchant account.</p>
-    </div>
-    <div class="epic-card">
-      <div class="epic-num" style="outline: none;"><i class="ph-bold ph-number-two"></i> Epic 2</div>
-      <h3 style="outline: none;">Automate Account Creation</h3>
-      <p style="outline: none;">Automate account creation and configuration across all shopping cart platforms, removing manual steps previously handled by Bolt teams.</p>
-    </div>
-    <div class="epic-card">
-      <div class="epic-num" style="outline: none;"><i class="ph-bold ph-number-three"></i> Epic 3</div>
-      <h3 style="outline: none;">Auto-Link Adobe Commerce</h3>
-      <p style="outline: none;">Enable automatic linking between Bolt accounts and Adobe Commerce — the highest-impact shopping platform for revenue opportunity.</p>
-    </div>
-  </div>
-  <div class="adjustments-label" style="outline: none;"><i class="ph-bold ph-arrows-clockwise"></i> Adjustments Along the Way</div>
-  <div class="adjustments">
-    <div class="adj-item"><i class="ph-bold ph-plus-circle"></i> Moving payment info from onboarding into the merchant dashboard</div>
-    <div class="adj-item"><i class="ph-bold ph-plus-circle"></i> Designing task completion UI for post-account creation steps</div>
-    <div class="adj-item"><i class="ph-bold ph-plus-circle"></i> Adding international address support for expanding merchant base</div>
-    <div class="adj-item"><i class="ph-bold ph-plus-circle"></i> Adding screens and flows for new standalone Bolt products</div>
-  </div>
-</div>
-
-<!-- SLIDE 5: THE PROBLEM -->
+<!-- ================================================
+     SLIDE 2 — THE PROBLEM
+     ================================================ -->
 <div class="slide slide-problem">
-  <div class="label" style="outline: none;"><i class="ph-bold ph-warning-diamond"></i> The Problem</div>
-  <div class="quote" style="outline: none;">Basic onboarding was taking over 2 months after contract signing.</div>
-  <div class="issues">
-    <div class="issue"><i class="ph ph-x-circle"></i><p style="outline: none;">Time-consuming communication loops between Merchants and Bolt</p></div>
-    <div class="issue"><i class="ph ph-x-circle"></i><p style="outline: none;">Manual task handling by Bolt's Implementation managers</p></div>
-    <div class="issue"><i class="ph ph-x-circle"></i><p style="outline: none;">Overly long forms requiring merchants to gather info from different stakeholders</p></div>
-    <div class="issue"><i class="ph ph-x-circle"></i><p style="outline: none;">Repetitive data entry by 3+ different merchant users</p></div>
-    <div class="issue"><i class="ph ph-x-circle"></i><p style="outline: none;">Address fields didn't support international addresses</p></div>
-    <div class="issue"><i class="ph ph-x-circle"></i><p style="outline: none;">5+ contact points between Bolt and Merchant done through email</p></div>
-    <div class="issue"><i class="ph ph-x-circle"></i><p style="outline: none;">Poor accessibility design resulting in hard to read information</p></div>
-    <div class="issue"><i class="ph ph-x-circle"></i><p style="outline: none;">Redundant payment and configuration data causing blockers</p></div>
-  </div>
-</div>
-
-<!-- SLIDE 5: BEFORE/AFTER -->
-<div class="slide slide-screens-compare">
-  <h2 style="outline: none;">Before &amp; After</h2>
-  <div class="sub">The old onboarding experience vs. the redesigned flow</div>
-  <div class="images-row">
-    <div class="img-block">
-      <div class="tag before"><i class="ph-bold ph-x"></i> Before</div>
-      <img src="assets/onboarding/boltonboardinginmagento.png" alt="Old onboarding in Magento">
+  <div class="label"><i class="ph-bold ph-warning-diamond"></i> The Problem</div>
+  <h2>Onboarding was the business's biggest bottleneck.</h2>
+  <p class="body-text">Merchants would sign — then wait weeks, sometimes months, before they could actually start processing payments. Internally, every step required manual work across ops, risk, and compliance.</p>
+  <div class="grid">
+    <div class="card">
+      <div class="icon"><i class="ph-bold ph-clock-countdown"></i></div>
+      <h3>70+ day timelines</h3>
+      <p>Going live took longer than most product launches.</p>
     </div>
-    <div class="img-block">
-      <div class="tag after"><i class="ph-bold ph-check"></i> After</div>
-      <img src="assets/onboarding/final-screens/Initialseclet.png" alt="New onboarding initial selection">
+    <div class="card">
+      <div class="icon"><i class="ph-bold ph-hand-tap"></i></div>
+      <h3>Heavy manual review</h3>
+      <p>Every merchant ran through ops, risk, and compliance by hand.</p>
+    </div>
+    <div class="card">
+      <div class="icon"><i class="ph-bold ph-prohibit"></i></div>
+      <h3>Merchants blocked</h3>
+      <p>Signed deals stalled before generating a single transaction.</p>
+    </div>
+    <div class="card">
+      <div class="icon"><i class="ph-bold ph-currency-circle-dollar"></i></div>
+      <h3>Revenue delayed</h3>
+      <p>Open opportunities sat untouched while merchants waited.</p>
     </div>
   </div>
 </div>
 
-<!-- SLIDE 6: DISCOVERY -->
-<div class="slide slide-discovery">
-  <div class="left">
-    <div class="label" style="outline: none;"><i class="ph-bold ph-magnifying-glass"></i> Discovery</div>
-    <h2 style="outline: none;">Auditing 40+ Inputs</h2>
-    <p class="body" style="outline: none;">My PM and I collaborated with cross-functional teams to audit every input collected during onboarding. We identified which fields were truly required, who the intended user was, and how data was used internally.</p>
-    <ul class="checklist">
-      <li style="outline: none;"><i class="ph-bold ph-check-circle"></i> What data was used for internally</li>
-      <li style="outline: none;"><i class="ph-bold ph-check-circle"></i> Whether it was necessary for account creation</li>
-      <li style="outline: none;"><i class="ph-bold ph-check-circle"></i> Which user role was expected to provide it</li>
+<!-- ================================================
+     SLIDE 3 — WHY IT WAS BROKEN (image left, text right)
+     ================================================ -->
+<div class="slide slide-why">
+  <div class="visual zoom-pan">
+    <span class="zoom-hint"><i class="ph-bold ph-magnifying-glass-plus"></i> Hover to inspect</span>
+    <img src="assets/onboarding/currentstateflow.png" alt="Current state flow showing fragmented onboarding process">
+  </div>
+  <div class="content">
+    <div class="label"><i class="ph-bold ph-graph"></i> Why it broke</div>
+    <h2>It wasn't a screen problem. It was a system problem.</h2>
+    <ul>
+      <li><i class="ph-bold ph-circle-half-tilt"></i> Fragmented systems and tools across teams</li>
+      <li><i class="ph-bold ph-arrows-down-up"></i> Sequential verification — every step waited on the last</li>
+      <li><i class="ph-bold ph-handshake"></i> Heavy dependency on internal handoffs</li>
     </ul>
   </div>
-  <div class="right">
-    <img src="assets/onboarding/currentstateflow.png" alt="Current state flow">
-  </div>
 </div>
 
-<!-- SLIDE 7: FLOW DIAGRAM -->
-<div class="slide slide-flow">
-  <div class="top">
-    <h2 style="outline: none;">Redesigned Flow</h2>
-    <p class="desc" style="outline: none;">Data translated into the desired end-to-end flow, clarifying surfaces, required inputs, and sequence handling.</p>
+<!-- ================================================
+     SLIDE 3b — OLD SCREENS SLIDER
+     ================================================ -->
+<div class="slide slide-old-screens">
+  <div class="header">
+    <div class="label"><i class="ph-bold ph-stack"></i> The Old Experience</div>
+    <h2>What merchants used to see.</h2>
+    <p class="body-text">The legacy flow: long forms, manual handoffs, and screens that asked for the same thing twice. Click through to see what merchants navigated before going live.</p>
   </div>
-  <div class="flow-img">
-    <img src="assets/onboarding/M2-Flow.png" alt="M2 end-to-end flow">
-  </div>
-</div>
-
-<!-- SLIDE 8: EXPLORATIONS -->
-<div class="slide slide-explorations">
-  <div class="top">
-    <div>
-      <div class="label" style="outline: none;"><i class="ph-bold ph-pencil-ruler"></i> Design Process</div>
-      <h2 style="outline: none;">Explorations</h2>
-    </div>
-    <p class="desc" style="outline: none;">Iterations from wireframes to a polished, branded experience. Progress indicators were explored for scalability.</p>
-  </div>
-  <div class="img-row">
-    <div class="img-card">
-      <img src="assets/onboarding/onboardingexplorations.png" alt="Screen explorations">
-      <div class="caption" style="outline: none;"><i class="ph-bold ph-layout"></i> Screen Explorations</div>
-    </div>
-    <div class="img-card">
-      <img src="assets/onboarding/stepperexplorations.png" alt="Stepper iterations">
-      <div class="caption" style="outline: none;"><i class="ph-bold ph-steps"></i> Progress Indicator Iterations</div>
+  <div class="image-stack">
+    <div class="frame" id="old-frame">
+      <img src="assets/onboarding/old-screens/1.png" class="active" alt="Old onboarding screen 1">
+      <img src="assets/onboarding/old-screens/23.png" alt="Old onboarding screen 2">
+      <img src="assets/onboarding/old-screens/24.png" alt="Old onboarding screen 3">
+      <img src="assets/onboarding/old-screens/25.png" alt="Old onboarding screen 4">
+      <img src="assets/onboarding/old-screens/26.png" alt="Old onboarding screen 5">
+      <img src="assets/onboarding/old-screens/27.png" alt="Old onboarding screen 6">
+      <img src="assets/onboarding/old-screens/28.png" alt="Old onboarding screen 7">
+      <img src="assets/onboarding/old-screens/29.png" alt="Old onboarding screen 8">
+      <button class="slider-btn prev" id="old-prev" aria-label="Previous screen"><i class="ph-bold ph-caret-left"></i></button>
+      <button class="slider-btn next" id="old-next" aria-label="Next screen"><i class="ph-bold ph-caret-right"></i></button>
     </div>
   </div>
 </div>
 
-<!-- SLIDE 9: FINAL SCREENS -->
-<div class="slide slide-screens">
-  <h2 style="outline: none;">Final Onboarding Flow</h2>
+<!-- ================================================
+     SLIDE 4 — ROLE & MANDATE (centered hero + partner row)
+     ================================================ -->
+<div class="slide slide-role">
+  <div class="label"><i class="ph-bold ph-target"></i> My Role</div>
+  <h2>Reduce onboarding time without increasing risk.</h2>
+  <p class="body-text">I led the end-to-end onboarding experience as Lead Product Designer — partnering closely with the people who actually run risk, compliance, and ops, because changing onboarding meant changing how the business operated.</p>
+  <div class="partners-label">Worked alongside</div>
+  <div class="partners-row">
+    <div class="partner-chip"><i class="ph-bold ph-strategy"></i> Product Manager</div>
+    <div class="partner-chip"><i class="ph-bold ph-code"></i> Engineering Team</div>
+    <div class="partner-chip"><i class="ph-bold ph-user-gear"></i> Implementation Managers</div>
+    <div class="partner-chip"><i class="ph-bold ph-handshake"></i> Sales Partners</div>
+    <div class="partner-chip"><i class="ph-bold ph-credit-card"></i> Payments Team</div>
+  </div>
+</div>
+
+<!-- ================================================
+     SLIDE 5 — STRATEGY (the most important slide)
+     ================================================ -->
+<div class="slide slide-strategy">
+  <div class="label"><i class="ph-bold ph-lightbulb-filament"></i> The Strategy</div>
+  <h2>Reframe the system, not the steps.</h2>
+  <div class="shifts">
+    <div class="shift">
+      <div class="num">Shift 01</div>
+      <div class="from-to">Manual <span class="arrow">→</span> Automated</div>
+      <p>Replace human review with automated checks wherever risk and compliance allow.</p>
+    </div>
+    <div class="shift">
+      <div class="num">Shift 02</div>
+      <div class="from-to">Sequential <span class="arrow">→</span> Parallel</div>
+      <p>Run verification, underwriting, and provisioning concurrently instead of waiting in a chain.</p>
+    </div>
+    <div class="shift">
+      <div class="num">Shift 03</div>
+      <div class="from-to">Internal <span class="arrow">→</span> Self-Serve</div>
+      <p>Hand control to the merchant. Internal teams move from gatekeepers to safety net.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================
+     SLIDE 6 — TRADEOFFS
+     ================================================ -->
+<div class="slide slide-tradeoffs">
+  <div class="label"><i class="ph-bold ph-scales"></i> Tradeoffs</div>
+  <h2>Speed had a price tag. We knew it.</h2>
+  <p class="body-text">This wasn't just a design exercise — it required real tradeoffs between business goals, operational risk, and merchant experience. We made these decisions deliberately.</p>
   <div class="grid">
-    <div class="screen"><img src="assets/onboarding/final-screens/Onboarding - Screen 0 - Unfilled.png" alt="Screen 0"></div>
-    <div class="screen"><img src="assets/onboarding/final-screens/Onboarding - Screen 0b - Unfilled.png" alt="Screen 0b"></div>
-    <div class="screen"><img src="assets/onboarding/final-screens/Onboarding - Screen 1 - Filled.png" alt="Screen 1"></div>
-    <div class="screen"><img src="assets/onboarding/final-screens/Onboarding - Screen 2 - Filled.png" alt="Screen 2"></div>
-    <div class="screen"><img src="assets/onboarding/final-screens/Onboarding - Screen 3 - Unfilled.png" alt="Screen 3"></div>
-    <div class="screen"><img src="assets/onboarding/final-screens/Onboarding - Screen 5.png" alt="Screen 5"></div>
-    <div class="screen"><img src="assets/onboarding/final-screens/Onboarding - Screen 6 - Confirm.png" alt="Screen 6"></div>
-    <div class="screen"><img src="assets/onboarding/final-screens/Onboarding - Screen 7 - Created.png" alt="Screen 7"></div>
-  </div>
-</div>
-
-<!-- SLIDE 10: EXPANDING -->
-<div class="slide slide-expand">
-  <div class="panel">
-    <div class="label" style="outline: none;"><i class="ph-bold ph-stack"></i> Phase 2</div>
-    <h3 style="outline: none;">Product Selection</h3>
-    <p style="outline: none;">A new product-selection screen tailors the onboarding path based on the merchant's chosen Bolt product.</p>
-    <div class="img-wrap"><img src="assets/onboarding/SelectProduct.png" alt="Product selection"></div>
-  </div>
-  <div class="panel">
-    <div class="label" style="outline: none;"><i class="ph-bold ph-gear-six"></i> Automation</div>
-    <h3 style="outline: none;">Automated Setup</h3>
-    <p style="outline: none;">Automated connections with Bolt systems to create Production and Sandbox accounts.</p>
-    <div class="img-wrap"><img src="assets/onboarding/automated.gif" alt="Automation"></div>
-  </div>
-  <div class="panel">
-    <div class="label" style="outline: none;"><i class="ph-bold ph-squares-four"></i> Dashboard</div>
-    <h3 style="outline: none;">Post-Onboarding</h3>
-    <p style="outline: none;">Non-essential data moved to the dashboard with a checklist that deep-links to sections.</p>
-    <div class="img-wrap"><img src="assets/onboarding/Additional Setup.png" alt="Dashboard setup"></div>
-  </div>
-</div>
-
-<!-- SLIDE 12: LONG-TERM VISION -->
-<div class="slide slide-vision">
-  <div class="left">
-    <div class="label" style="outline: none;"><i class="ph-bold ph-binoculars"></i> Long-Term Vision</div>
-    <h2 style="outline: none;">Progressive Automation</h2>
-    <p class="body" style="outline: none;">By enabling merchants to complete onboarding independently in fewer steps, we aimed to significantly reduce time-to-launch. Over time, Professional Services shifts from manual task execution to a strategic partner role ensuring merchant success.</p>
-  </div>
-  <div class="phases">
-    <div class="phase">
-      <div class="phase-num">1</div>
-      <div class="phase-content">
-        <h3 style="outline: none;">Onboarding &amp; Account Creation</h3>
-        <p style="outline: none;">Streamlined self-serve form with automated account provisioning</p>
-      </div>
+    <div class="card">
+      <div class="pair">Automation <span class="vs">vs</span> fraud risk</div>
+      <p>How much could we automate before increasing exposure? Some checks stayed manual on purpose.</p>
     </div>
-    <div class="phase">
-      <div class="phase-num">2</div>
-      <div class="phase-content">
-        <h3 style="outline: none;">Configuration &amp; Implementation</h3>
-        <p style="outline: none;">Auto-connect merchant platforms, reduce manual integration steps</p>
-      </div>
+    <div class="card">
+      <div class="pair">Speed <span class="vs">vs</span> verification accuracy</div>
+      <p>Faster verification meant accepting tighter signal. We backed it with stronger downstream monitoring.</p>
     </div>
-    <div class="phase">
-      <div class="phase-num">3</div>
-      <div class="phase-content">
-        <h3 style="outline: none;">Testing</h3>
-        <p style="outline: none;">Automated sandbox setup so merchants can validate Bolt on their site faster</p>
-      </div>
-    </div>
-    <div class="phase">
-      <div class="phase-num">4</div>
-      <div class="phase-content">
-        <h3 style="outline: none;">Feature Enablement &amp; Upsells</h3>
-        <p style="outline: none;">Self-serve feature activation and product expansion within the dashboard</p>
-      </div>
+    <div class="card">
+      <div class="pair">Flexibility <span class="vs">vs</span> standardization</div>
+      <p>We intentionally limited custom paths to make the flow scalable across products and merchants.</p>
     </div>
   </div>
 </div>
 
-<!-- SLIDE 13: OUTCOMES -->
+<!-- ================================================
+     SLIDE 7 — THE SOLUTION (vertical centered hero)
+     ================================================ -->
+<div class="slide slide-solution">
+  <div class="label"><i class="ph-bold ph-flow-arrow"></i> The Solution</div>
+  <h2>A system, not a stack of screens.</h2>
+  <p class="body-text">Account creation became instant. Verification ran automatically. Checks that used to wait in line now ran in parallel — and manual intervention became the exception, not the default.</p>
+  <div class="visual">
+    <img src="assets/onboarding/M2-Flow.png" alt="Redesigned onboarding flow diagram">
+  </div>
+  <div class="feature-chips">
+    <span class="feature-chip"><i class="ph-bold ph-lightning"></i> Instant account creation</span>
+    <span class="feature-chip"><i class="ph-bold ph-check-square"></i> Automated verification</span>
+    <span class="feature-chip"><i class="ph-bold ph-arrows-out"></i> Parallel risk + compliance</span>
+    <span class="feature-chip"><i class="ph-bold ph-rocket-launch"></i> Immediate activation</span>
+  </div>
+</div>
+
+<!-- ================================================
+     SLIDE 8 — OUTCOMES
+     ================================================ -->
 <div class="slide slide-outcomes">
-  <div class="label" style="outline: none;"><i class="ph-bold ph-trophy"></i> Outcomes</div>
-  <h2 style="outline: none;">Impact</h2>
-  <div class="outcomes-list">
-    <div class="outcome"><i class="ph-bold ph-rocket-launch"></i><p style="outline: none;">The redesigned onboarding launched successfully — merchants can now create accounts and begin setup in <strong>minutes instead of months</strong></p></div>
-    <div class="outcome"><i class="ph-bold ph-currency-dollar"></i><p style="outline: none;">Completing automation for Adobe Commerce merchants represented a potential <strong>$1.4B in open opportunities</strong></p></div>
-    <div class="outcome"><i class="ph-bold ph-hands-clapping"></i><p style="outline: none;">Internal feedback showed a <strong>drastic reduction in manual effort</strong> — fewer steps and less direct intervention from Implementation managers</p></div>
-    <div class="outcome"><i class="ph-bold ph-trend-up"></i><p style="outline: none;">New experience positioned sales to <strong>increase deal velocity</strong> by allowing prospects to evaluate Bolt more quickly on their own sites</p></div>
-  </div>
-</div>
-
-<!-- SLIDE 12: THANK YOU -->
-<div class="slide slide-thanks">
-  <div class="content">
-    <h2 style="outline: none;">Thank you.</h2>
-    <p class="sub" style="outline: none;">Michelle Taylor — Product Designer</p>
-    <div class="links">
-      <div class="link-item"><i class="ph ph-globe-simple"></i> michelletaylor.design</div>
-      <div class="link-item"><i class="ph ph-envelope-simple"></i> hello@michelletaylor.design</div>
+  <div class="label"><i class="ph-bold ph-trophy"></i> Outcomes</div>
+  <h2>Months of friction → minutes of momentum.</h2>
+  <div class="stats">
+    <div class="stat">
+      <div class="label-row">Time to live</div>
+      <div class="num">70+ days<br><small>→ minutes</small></div>
+      <p>Onboarding shrank from a multi-month ordeal to a self-serve flow merchants could finish in a sitting.</p>
+    </div>
+    <div class="stat">
+      <div class="label-row">Inputs condensed</div>
+      <div class="num">40+ <small>→ 11</small></div>
+      <p>Audited every required field and cut what wasn't essential to first activation.</p>
+    </div>
+    <div class="stat">
+      <div class="label-row">Open opportunity</div>
+      <div class="num">$1.4B</div>
+      <p>Surface area of revenue unlocked by removing months from merchant go-live time.</p>
     </div>
   </div>
 </div>
 
-<!-- NAVIGATION -->
+<!-- ================================================
+     SLIDE 9 — WHAT CHANGED (BEYOND METRICS)
+     ================================================ -->
+<div class="slide slide-changed">
+  <div class="label"><i class="ph-bold ph-arrows-out-cardinal"></i> What changed</div>
+  <h2>The numbers were the easy part.</h2>
+  <p class="body-text">The bigger shift was operational. Three different audiences felt the change in three different ways.</p>
+  <div class="audiences">
+    <div class="audience">
+      <div class="who"><i class="ph-bold ph-storefront"></i> For merchants</div>
+      <h3>Faster time to value</h3>
+      <ul>
+        <li><i class="ph-bold ph-check"></i> Start using Bolt the same day they sign</li>
+        <li><i class="ph-bold ph-check"></i> Far fewer back-and-forth communications</li>
+        <li><i class="ph-bold ph-check"></i> A single, clear path to live</li>
+      </ul>
+    </div>
+    <div class="audience">
+      <div class="who"><i class="ph-bold ph-chart-line-up"></i> For the business</div>
+      <h3>Faster revenue capture</h3>
+      <ul>
+        <li><i class="ph-bold ph-check"></i> Closed deals start generating revenue sooner</li>
+        <li><i class="ph-bold ph-check"></i> Onboarding scales without scaling headcount</li>
+        <li><i class="ph-bold ph-check"></i> Sales can demo a real working flow</li>
+      </ul>
+    </div>
+    <div class="audience">
+      <div class="who"><i class="ph-bold ph-users-three"></i> For internal teams</div>
+      <h3>Reduced manual workload</h3>
+      <ul>
+        <li><i class="ph-bold ph-check"></i> Implementation managers freed from rote tasks</li>
+        <li><i class="ph-bold ph-check"></i> Risk + compliance only review exceptions</li>
+        <li><i class="ph-bold ph-check"></i> Higher-value work moves to the front</li>
+      </ul>
+    </div>
+  </div>
+</div>
 
+<!-- ================================================
+     SLIDE 10 — WHAT I LEARNED
+     ================================================ -->
+<div class="slide slide-learned">
+  <div class="label"><i class="ph-bold ph-book-open-text"></i> What I Learned</div>
+  <h2>The highest-impact design work isn't about UI.</h2>
+  <p class="body-text">It's about rethinking systems, aligning teams, and designing inside heavy constraints — not because constraints are fun, but because they're where the real leverage lives.</p>
+  <div class="lessons">
+    <div class="lesson">
+      <div class="icon"><i class="ph-bold ph-shield-check"></i></div>
+      <h3>Design within constraints</h3>
+      <p>Compliance and risk aren't blockers — they're the boundary conditions that make the design defensible and shippable.</p>
+    </div>
+    <div class="lesson">
+      <div class="icon"><i class="ph-bold ph-puzzle-piece"></i></div>
+      <h3>Systems, not screens</h3>
+      <p>The biggest wins came from redesigning how the pieces connected, not from polishing individual flows.</p>
+    </div>
+    <div class="lesson">
+      <div class="icon"><i class="ph-bold ph-handshake"></i></div>
+      <h3>Aligning teams = the work</h3>
+      <p>Most of the hard work was getting risk, ops, and engineering to agree on a new model — design followed.</p>
+    </div>
+  </div>
+</div>
 
+<!-- ================================================
+     SLIDE 11 — WHAT'S NEXT
+     ================================================ -->
+<div class="slide slide-next">
+  <div class="label"><i class="ph-bold ph-rocket-launch"></i> What's Next</div>
+  <h2>If I picked this back up tomorrow.</h2>
+  <div class="ideas">
+    <div class="idea">
+      <div class="num">Idea 01</div>
+      <h3>Expand automation coverage</h3>
+      <p>Push automation deeper into the edge cases that still drop into manual review queues.</p>
+    </div>
+    <div class="idea">
+      <div class="num">Idea 02</div>
+      <h3>Smarter risk-based routing</h3>
+      <p>Send merchants down different paths based on real-time risk signals instead of one shared flow.</p>
+    </div>
+    <div class="idea">
+      <div class="num">Idea 03</div>
+      <h3>Better edge case handling</h3>
+      <p>Treat the exceptions as a designed experience instead of a fallback — clear status, clear next steps.</p>
+    </div>
+  </div>
+  <div class="footer">Thanks — Michelle Taylor</div>
+</div>
+
+<!-- ================================================
+     SLIDE 13 — THANK YOU
+     ================================================ -->
+<div class="slide slide-thanks">
+  <h1>Thank you.</h1>
+  <p class="questions">Questions?</p>
+  <a class="next-link" href="roamswild.html" aria-label="Next project"><i class="ph-bold ph-arrow-right"></i></a>
+</div>
+
+<!-- ================================================
+     NAVIGATION SCRIPT
+     ================================================ -->
 <script>
-// Edit mode toggle
-let hasUnsavedChanges = false;
-let isEditMode = false;
-const editableSelector = 'h1, h2, h3, p, span, div.num, div.desc, div.quote, div.epic-num, div.caption, div.item-label, div.label, div.adjustments-label, li';
-
-function getEditableElements() {
-  return [...document.querySelectorAll(editableSelector)].filter(el => el.children.length === 0 || el.querySelector('i, strong, br'));
-}
-
-function enableEditing() {
-  isEditMode = true;
-  getEditableElements().forEach(el => {
-    el.setAttribute('contenteditable', 'true');
-    el.style.outline = 'none';
-  });
-  editBtn.innerHTML = '<i class="ph-bold ph-floppy-disk"></i> Save';
-  editBtn.style.background = 'var(--bolt-indigo)';
-  editBtn.style.width = 'auto';
-  editBtn.style.padding = '12px 18px';
-  editBtn.style.borderRadius = '28px';
-}
-
-function disableEditing() {
-  isEditMode = false;
-  document.querySelectorAll('[contenteditable]').forEach(el => {
-    el.removeAttribute('contenteditable');
-    el.style.outline = 'none';
-  });
-  editBtn.innerHTML = '<i class="ph-bold ph-dots-three-vertical"></i>';
-  editBtn.style.background = 'rgba(26,26,26,0.85)';
-  editBtn.style.width = '48px';
-  editBtn.style.padding = '0';
-  editBtn.style.borderRadius = '50%';
-}
-
-// Set up focus/blur listeners once on all editable elements
-getEditableElements().forEach(el => {
-  el.style.outline = 'none';
-  el.addEventListener('focus', () => {
-    if (!isEditMode) return;
-    el.style.outline = '2px solid rgba(19,62,227,0.4)';
-    el.style.borderRadius = '4px';
-  });
-  el.addEventListener('blur', () => {
-    el.style.outline = 'none';
-    if (isEditMode) hasUnsavedChanges = true;
-  });
-});
-
-// Menu FAB (bottom right) — default state opens popover; edit-mode state saves
-const editBtn = document.createElement('button');
-editBtn.id = 'save-btn';
-editBtn.innerHTML = '<i class="ph-bold ph-dots-three-vertical"></i>';
-editBtn.style.cssText = 'position:fixed;bottom:28px;right:28px;z-index:1001;width:48px;height:48px;background:rgba(26,26,26,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#fff;border:1px solid rgba(255,255,255,0.08);padding:0;border-radius:50%;font-family:Space Grotesk,sans-serif;font-size:18px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 4px 24px rgba(0,0,0,0.3);transition:all 0.2s;';
-document.body.appendChild(editBtn);
-
-// Popover menu
-const menuPopover = document.createElement('div');
-menuPopover.id = 'menu-popover';
-menuPopover.style.cssText = 'position:fixed;bottom:88px;right:28px;z-index:1001;background:rgba(26,26,26,0.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:6px;box-shadow:0 8px 32px rgba(0,0,0,0.4);display:none;flex-direction:column;min-width:160px;opacity:0;transform:translateY(8px);transition:opacity 0.15s, transform 0.15s;';
-menuPopover.setAttribute('data-remove', '');
-menuPopover.innerHTML = '<button id="menu-edit" style="background:transparent;color:#fff;border:none;padding:10px 14px;border-radius:8px;font-family:Space Grotesk,sans-serif;font-size:13px;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:10px;text-align:left;width:100%;transition:background 0.15s;"><i class="ph-bold ph-pencil-simple"></i> Edit slides</button>';
-document.body.appendChild(menuPopover);
-
-const menuEditItem = menuPopover.querySelector('#menu-edit');
-menuEditItem.addEventListener('mouseenter', () => { menuEditItem.style.background = 'rgba(255,255,255,0.1)'; });
-menuEditItem.addEventListener('mouseleave', () => { menuEditItem.style.background = 'transparent'; });
-
-let menuOpen = false;
-function openMenu() {
-  menuPopover.style.display = 'flex';
-  requestAnimationFrame(() => {
-    menuPopover.style.opacity = '1';
-    menuPopover.style.transform = 'translateY(0)';
-  });
-  menuOpen = true;
-}
-function closeMenu() {
-  menuPopover.style.opacity = '0';
-  menuPopover.style.transform = 'translateY(8px)';
-  setTimeout(() => { if (!menuOpen) menuPopover.style.display = 'none'; }, 150);
-  menuOpen = false;
-}
-
-document.addEventListener('click', (e) => {
-  if (menuOpen && !menuPopover.contains(e.target) && e.target !== editBtn && !editBtn.contains(e.target)) {
-    closeMenu();
-  }
-});
-
-menuEditItem.addEventListener('click', () => {
-  closeMenu();
-  enableEditing();
-});
-
-editBtn.addEventListener('mouseenter', () => { editBtn.style.transform = 'scale(1.05)'; });
-editBtn.addEventListener('mouseleave', () => { editBtn.style.transform = 'scale(1)'; });
-
-editBtn.addEventListener('click', async (e) => {
-  if (!isEditMode) {
-    e.stopPropagation();
-    if (menuOpen) closeMenu(); else openMenu();
-    return;
-  }
-
-  // Save: remove contenteditable before capturing HTML
-  disableEditing();
-
-  // Temporarily mark nav and save btn for removal, then clone
-  const nav = document.querySelector('.slide-nav');
-  const btn = document.getElementById('save-btn');
-  nav.setAttribute('data-remove', '');
-  btn.setAttribute('data-remove', '');
-
-  // Clone the document, remove nav/btn from clone (not from live DOM)
-  const clone = document.documentElement.cloneNode(true);
-  clone.querySelectorAll('[data-remove]').forEach(el => el.remove());
-
-  // Keep the nav and save btn markup out of saved file — JS recreates them
-
-  const html = '<!DOCTYPE html>\n' + clone.outerHTML;
-
-  // Restore live DOM
-  nav.removeAttribute('data-remove');
-  btn.removeAttribute('data-remove');
-
-  // Download as file
-  const blob = new Blob([html], { type: 'text/html' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'onboarding.html';
-  a.click();
-  URL.revokeObjectURL(a.href);
-
-  hasUnsavedChanges = false;
-  editBtn.innerHTML = '<i class="ph-bold ph-check-circle"></i> Saved!';
-  setTimeout(() => {
-    editBtn.innerHTML = '<i class="ph-bold ph-dots-three-vertical"></i>';
-    editBtn.style.background = 'rgba(26,26,26,0.85)';
-    editBtn.style.width = '48px';
-    editBtn.style.padding = '0';
-    editBtn.style.borderRadius = '50%';
-  }, 2000);
-});
-
-// Warn before leaving with unsaved changes
-window.addEventListener('beforeunload', (e) => {
-  if (hasUnsavedChanges) { e.preventDefault(); e.returnValue = ''; }
-});
-
 (function() {
+  const nav = document.createElement('div');
+  nav.className = 'slide-nav';
+  nav.innerHTML = `
+    <button id="prev-btn"><i class="ph-bold ph-caret-up"></i></button>
+    <div class="dots" id="dots"></div>
+    <span class="counter" id="counter"></span>
+    <button id="next-btn"><i class="ph-bold ph-caret-down"></i></button>
+    <button id="fullscreen-btn" aria-label="Toggle fullscreen"><i class="ph-bold ph-arrows-out"></i></button>
+  `;
+  document.body.appendChild(nav);
+
   const slides = document.querySelectorAll('.slide');
   const dotsContainer = document.getElementById('dots');
   const counter = document.getElementById('counter');
@@ -1623,7 +1345,6 @@ window.addEventListener('beforeunload', (e) => {
   const nextBtn = document.getElementById('next-btn');
   let current = 0;
 
-  // Create dots
   slides.forEach((_, i) => {
     const dot = document.createElement('div');
     dot.className = 'dot' + (i === 0 ? ' active' : '');
@@ -1646,31 +1367,103 @@ window.addEventListener('beforeunload', (e) => {
   prevBtn.addEventListener('click', () => goTo(current - 1));
   nextBtn.addEventListener('click', () => goTo(current + 1));
 
-  // Track scroll position to update active dot
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
         const index = Array.from(slides).indexOf(entry.target);
-        if (index !== -1) {
-          current = index;
-          updateUI();
-        }
+        if (index !== -1) { current = index; updateUI(); }
       }
     });
   }, { threshold: 0.5 });
 
   slides.forEach(slide => observer.observe(slide));
 
-  // Keyboard navigation
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
     if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
+    if (e.key === 'f' || e.key === 'F') { e.preventDefault(); toggleFullscreen(); }
   });
 
+  const FS_KEY = 'deck-fullscreen';
+  const fullscreenBtn = document.getElementById('fullscreen-btn');
+  let isUnloading = false;
+  window.addEventListener('beforeunload', () => { isUnloading = true; });
+  window.addEventListener('pagehide', () => { isUnloading = true; });
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(() => {});
+    } else {
+      document.exitFullscreen();
+    }
+  }
+  fullscreenBtn.addEventListener('click', toggleFullscreen);
+  document.addEventListener('fullscreenchange', () => {
+    const icon = fullscreenBtn.querySelector('i');
+    const inFs = !!document.fullscreenElement;
+    icon.className = inFs ? 'ph-bold ph-arrows-in' : 'ph-bold ph-arrows-out';
+    if (inFs) sessionStorage.setItem(FS_KEY, '1');
+    else if (!isUnloading) sessionStorage.removeItem(FS_KEY);
+  });
+  // Intercept link clicks while in fullscreen to mark as navigating
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href]');
+    if (link && document.fullscreenElement) isUnloading = true;
+  }, true);
+  if (sessionStorage.getItem(FS_KEY) === '1') {
+    const resume = () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => sessionStorage.removeItem(FS_KEY));
+      }
+      document.removeEventListener('click', resume);
+      document.removeEventListener('keydown', resume);
+    };
+    document.addEventListener('click', resume);
+    document.addEventListener('keydown', resume);
+  }
+
   updateUI();
+
+  // Hover-to-pan zoom on flagged images
+  document.querySelectorAll('.zoom-pan').forEach(el => {
+    const img = el.querySelector('img');
+    if (!img) return;
+    el.addEventListener('mousemove', (e) => {
+      const rect = el.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      img.style.transformOrigin = `${x}% ${y}%`;
+    });
+    el.addEventListener('mouseleave', () => {
+      img.style.transformOrigin = '50% 50%';
+    });
+  });
+
+  // Old screens slider
+  (function() {
+    const frame = document.getElementById('old-frame');
+    if (!frame) return;
+    const imgs = frame.querySelectorAll('img');
+    const prevBtn = document.getElementById('old-prev');
+    const nextBtn = document.getElementById('old-next');
+    let idx = 0;
+    const total = imgs.length;
+
+    function update() {
+      imgs.forEach((img, i) => img.classList.toggle('active', i === idx));
+      prevBtn.disabled = idx === 0;
+      nextBtn.disabled = idx === total - 1;
+    }
+    function go(i) {
+      if (i < 0 || i >= total) return;
+      idx = i;
+      update();
+    }
+    prevBtn.addEventListener('click', () => go(idx - 1));
+    nextBtn.addEventListener('click', () => go(idx + 1));
+    update();
+  })();
 })();
-</script><button id="save-btn" style="position: fixed; top: 20px; right: 20px; z-index: 1001; background: var(--bolt-indigo); color: rgb(255, 255, 255); border: none; padding: 10px 20px; border-radius: 8px; font-family: Inter, sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; display: none; align-items: center; gap: 6px; box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 16px; opacity: 1; pointer-events: auto; transition: 0.2s; transform: scale(1.05);"><i class="ph-bold ph-floppy-disk"></i> Save</button>
+</script>
 
-
-
-</body></html>
+</body>
+</html>

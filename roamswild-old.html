@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RoamsWild — Michelle Taylor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    /* RoamsWild brand palette — sourced from roamswild.com */
+    /* Text */
+    --primary: #3d4a2c;     /* dark olive — brand + primary text */
+    --gray-700: #4f5b34;    /* secondary text (muted olive) */
+    --gray-500: #7e8460;    /* labels (faint olive) */
+    --white: #ffffff;
+    /* Backgrounds */
+    --cream: #faf8f3;       /* warm off-white — main bg */
+    --sand: #ede4d0;        /* warmer cream — section break */
+    --highlight: #eef4d3;   /* lime tint — takeaways */
+    /* Accents */
+    --forest: #7d951e;      /* dark olive lime — primary accent */
+    --lime: #5e7a14;        /* dark olive green */
+    --amber: #edb04e;       /* warm amber — secondary accent */
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 0;
+    color: var(--primary);
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+  }
+
+  .slide {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+
+  /* ---- NAVIGATION CONTROLS ---- */
+  .slide-nav {
+    position: fixed;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(26,26,26,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 6px 12px;
+    border-radius: 32px;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .slide-nav button {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: var(--white);
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+  .slide-nav button:hover { background: rgba(255,255,255,0.2); }
+  .slide-nav button:active { background: rgba(255,255,255,0.3); }
+  .slide-nav .dots {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0 3px;
+  }
+  .slide-nav .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .slide-nav .dot.active {
+    background: var(--white);
+    width: 16px;
+    border-radius: 3px;
+  }
+  .slide-nav .dot:hover:not(.active) { background: rgba(255,255,255,0.4); }
+  .slide-nav .counter {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+    min-width: 36px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+
+  h1, h2, h3 { font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif; }
+
+  /* ============================================
+     SLIDE 1 — TITLE
+     ============================================ */
+  .slide-title {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .slide-title .left {
+    padding: 100px 80px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .slide-title .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .slide-title .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(125,149,30,0.12);
+    color: var(--forest);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    width: fit-content;
+  }
+  .slide-title .tag.tag-personal {
+    background: rgba(94,122,20,0.14);
+    color: var(--lime);
+  }
+  .slide-title h1 {
+    font-size: 62px;
+    line-height: 1.05;
+    color: var(--primary);
+    margin-bottom: 28px;
+    letter-spacing: -2px;
+    font-weight: 800;
+  }
+  .slide-title .subtitle {
+    font-size: 18px;
+    color: rgba(61,74,44,0.82);
+    line-height: 1.6;
+    max-width: 460px;
+    font-weight: 400;
+  }
+  .slide-title .visit-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 40px;
+    background: var(--primary);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 14px 24px;
+    border-radius: 100px;
+    width: fit-content;
+    transition: all 0.2s ease;
+  }
+  .slide-title .visit-cta:hover {
+    background: #2c361f;
+    transform: translateY(-1px);
+  }
+  .slide-title .visit-cta i { font-size: 16px; }
+  .slide-title .right {
+    position: relative;
+    overflow: hidden;
+  }
+  .slide-title .right video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ============================================
+     SLIDE 2 — PERSONAL / OUTDOORS
+     ============================================ */
+  .slide-personal {
+    background: var(--cream);
+    padding: 80px 100px;
+    display: grid;
+    grid-template-columns: 0.85fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .slide-personal .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .slide-personal .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .slide-personal .label i { font-size: 16px; }
+  .slide-personal h2 {
+    font-size: 56px;
+    color: var(--primary);
+    margin-bottom: 28px;
+    letter-spacing: -1.5px;
+    font-weight: 800;
+    line-height: 1.05;
+  }
+  .slide-personal p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--gray-700);
+    font-weight: 400;
+    max-width: 460px;
+  }
+  .slide-personal .activities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 28px;
+  }
+  .slide-personal .activity {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--white);
+    color: var(--primary);
+    border: 1px solid rgba(0,0,0,0.06);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 7px 14px;
+    border-radius: 100px;
+  }
+  .slide-personal .activity i { font-size: 14px; color: var(--forest); }
+
+  .slide-personal .collage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-height: 70vh;
+    margin: 0 auto;
+  }
+  .slide-personal .collage-card {
+    position: absolute;
+    overflow: hidden;
+    background: #e6e1d6;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.14);
+    transition: transform 0.4s ease;
+  }
+  .slide-personal .collage-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .slide-personal .collage-card-1 {
+    width: 56%;
+    aspect-ratio: 4 / 5;
+    top: 2%;
+    left: 2%;
+    transform: rotate(-3deg);
+    z-index: 2;
+  }
+  .slide-personal .collage-card-2 {
+    width: 48%;
+    aspect-ratio: 5 / 4;
+    top: 8%;
+    right: 2%;
+    transform: rotate(3deg);
+    z-index: 1;
+  }
+  .slide-personal .collage-card-3 {
+    width: 50%;
+    aspect-ratio: 1 / 1;
+    bottom: 4%;
+    left: 14%;
+    transform: rotate(2deg);
+    z-index: 3;
+  }
+  .slide-personal .collage-card-4 {
+    width: 44%;
+    aspect-ratio: 4 / 5;
+    bottom: 2%;
+    right: 4%;
+    transform: rotate(-2deg);
+    z-index: 2;
+  }
+
+  /* ============================================
+     SLIDE 3 — OVERVIEW
+     ============================================ */
+  .slide-overview {
+    background: var(--white);
+    padding: 80px 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .slide-overview .right-img img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+  }
+  .slide-overview h2 {
+    font-size: 48px;
+    color: var(--primary);
+    margin-bottom: 48px;
+    letter-spacing: -1px;
+    font-weight: 800;
+  }
+  .slide-overview .grid {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  }
+  .slide-overview .item-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .slide-overview .item-label i { font-size: 15px; }
+  .slide-overview .item:nth-child(1) .item-label i { color: var(--forest); }
+  .slide-overview .item:nth-child(2) .item-label i { color: var(--amber); }
+  .slide-overview .item:nth-child(3) .item-label i { color: var(--lime); }
+  .slide-overview .item p {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--gray-700);
+    font-weight: 400;
+  }
+  .slide-overview .tool-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .slide-overview .tool-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--white);
+    color: var(--primary);
+    border: 1px solid rgba(0,0,0,0.06);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 7px 14px;
+    border-radius: 100px;
+  }
+  .slide-overview .tool-badge i { font-size: 14px; color: var(--forest); }
+
+  /* ============================================
+     SLIDE 3 — THE PROBLEM
+     ============================================ */
+  .slide-problem {
+    background: var(--sand);
+    padding: 80px 100px;
+    display: grid;
+    grid-template-columns: 0.45fr 0.55fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .slide-problem .left {
+    display: flex;
+    flex-direction: column;
+  }
+  .slide-problem .right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .slide-problem .right img {
+    width: 100%;
+    border-radius: 12px;
+  }
+  .slide-problem .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--lime);
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .slide-problem .label i { font-size: 16px; }
+  .slide-problem .quote {
+    font-size: 42px;
+    line-height: 1.2;
+    color: var(--primary);
+    margin-bottom: 48px;
+    max-width: 900px;
+    font-weight: 700;
+    letter-spacing: -1px;
+  }
+  .slide-problem .issues {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 60px;
+  }
+  .slide-problem .issue {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .slide-problem .issue i {
+    color: var(--lime);
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+  .slide-problem .issue p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(61,74,44,0.88);
+    font-weight: 400;
+  }
+
+  /* ============================================
+     SLIDE 4 — CHOOSING THE PROBLEM
+     ============================================ */
+  .slide-choosing {
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 0.45fr 0.55fr;
+  }
+  .slide-choosing .left {
+    padding: 70px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid var(--sand);
+  }
+  .slide-choosing .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .slide-choosing .label i { font-size: 16px; }
+  .slide-choosing h2 {
+    font-size: 40px;
+    color: var(--primary);
+    margin-bottom: 24px;
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -1px;
+  }
+  .slide-choosing .body {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--gray-700);
+    font-weight: 400;
+    margin-bottom: 28px;
+  }
+  .slide-choosing .domains {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .slide-choosing .domain {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    background: var(--sand);
+  }
+  .slide-choosing .domain i {
+    font-size: 18px;
+    color: var(--forest);
+  }
+  .slide-choosing .domain span {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary);
+  }
+  .slide-choosing .right {
+    position: relative;
+    overflow: hidden;
+  }
+  .slide-choosing .right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ============================================
+     SLIDE 5 — TAKEAWAY
+     ============================================ */
+  .slide-takeaway {
+    background: var(--highlight);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 100px;
+  }
+  .slide-takeaway .content {
+    max-width: 700px;
+  }
+  .slide-takeaway .takeaway-num {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin-bottom: 32px;
+  }
+  .slide-takeaway .content p {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--primary);
+    letter-spacing: -0.5px;
+  }
+
+  /* ============================================
+     SLIDE 6 — THE BEGINNING
+     ============================================ */
+  .slide-beginning {
+    background: var(--white);
+    padding: 80px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .slide-beginning .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .slide-beginning .label i { color: var(--forest); font-size: 16px; }
+  .slide-beginning h2 {
+    font-size: 42px;
+    color: var(--primary);
+    margin-bottom: 40px;
+    font-weight: 800;
+    letter-spacing: -1px;
+  }
+  .slide-beginning .questions {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .slide-beginning .q-card {
+    border-radius: 12px;
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .slide-beginning .q-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+  }
+  .slide-beginning .q-card:nth-child(1) { background: rgba(125,149,30,0.08); }
+  .slide-beginning .q-card:nth-child(1)::before { background: var(--forest); }
+  .slide-beginning .q-card:nth-child(2) { background: rgba(237,176,78,0.08); }
+  .slide-beginning .q-card:nth-child(2)::before { background: var(--amber); }
+  .slide-beginning .q-card:nth-child(3) { background: rgba(94,122,20,0.08); }
+  .slide-beginning .q-card:nth-child(3)::before { background: var(--lime); }
+  .slide-beginning .q-card .q-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .slide-beginning .q-card:nth-child(1) .q-label { color: var(--forest); }
+  .slide-beginning .q-card:nth-child(2) .q-label { color: var(--amber); }
+  .slide-beginning .q-card:nth-child(3) .q-label { color: var(--lime); }
+  .slide-beginning .q-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 10px;
+    line-height: 1.25;
+  }
+  .slide-beginning .q-card p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--gray-700);
+    font-weight: 400;
+  }
+  .slide-beginning .footnote {
+    margin-top: 36px;
+    font-size: 14px;
+    color: var(--gray-500);
+    font-weight: 400;
+    line-height: 1.7;
+    max-width: 700px;
+  }
+
+  /* ============================================
+     SLIDE 7 — FOUNDATION / DESIGN SYSTEM
+     ============================================ */
+  .slide-foundation {
+    background: var(--cream);
+    padding: 70px 100px;
+    display: grid;
+    grid-template-columns: 0.4fr 0.6fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .slide-foundation .left {}
+  .slide-foundation .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .slide-foundation .label i { font-size: 16px; }
+  .slide-foundation h2 {
+    font-size: 42px;
+    color: var(--primary);
+    margin-bottom: 24px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.1;
+  }
+  .slide-foundation .body {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray-700);
+    font-weight: 400;
+    margin-bottom: 28px;
+  }
+  .slide-foundation .design-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .slide-foundation .design-items li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--gray-700);
+    line-height: 1.55;
+    font-weight: 400;
+    list-style: none;
+  }
+  .slide-foundation .design-items li i {
+    color: var(--forest);
+    font-size: 16px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .slide-foundation .right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* ============================================
+     SLIDE 7b — INITIAL OUTPUT VIDEO
+     ============================================ */
+  .slide-initial {
+    background: var(--sand);
+    padding: 60px 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+  .slide-initial .left {
+    max-width: 760px;
+    text-align: center;
+  }
+  .slide-initial .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .slide-initial .label i { font-size: 16px; }
+  .slide-initial h2 {
+    font-size: 38px;
+    color: var(--primary);
+    margin-bottom: 16px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.1;
+  }
+  .slide-initial .body {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--gray-700);
+    font-weight: 400;
+  }
+  .slide-initial .video-frame {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.14);
+  }
+  .slide-initial .video-frame video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .slide-initial .extras {
+    width: 100%;
+    max-width: 1100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .slide-initial .extras > * {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    aspect-ratio: 16 / 10;
+    background: var(--cream);
+  }
+  .slide-initial .extras img,
+  .slide-initial .extras video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ============================================
+     SLIDE 8 — INTELLIGENCE LAYER
+     ============================================ */
+  .slide-intelligence {
+    background: var(--sand);
+    display: grid;
+    grid-template-columns: 0.42fr 0.58fr;
+  }
+  .slide-intelligence .left {
+    padding: 70px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid rgba(0,0,0,0.08);
+  }
+  .slide-intelligence .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .slide-intelligence .label i { font-size: 16px; }
+  .slide-intelligence h2 {
+    font-size: 40px;
+    color: var(--primary);
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+  .slide-intelligence .body {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(61,74,44,0.88);
+    font-weight: 400;
+  }
+  .slide-intelligence .right {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+    overflow-y: auto;
+  }
+  .slide-intelligence .factor {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .slide-intelligence .factor:last-child { border-bottom: none; }
+  .slide-intelligence .factor .icon-box {
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .slide-intelligence .factor:nth-child(1) .icon-box { background: rgba(125,149,30,0.15); color: var(--forest); }
+  .slide-intelligence .factor:nth-child(2) .icon-box { background: rgba(237,176,78,0.18); color: var(--amber); }
+  .slide-intelligence .factor:nth-child(3) .icon-box { background: rgba(125,149,30,0.18); color: var(--forest); }
+  .slide-intelligence .factor:nth-child(4) .icon-box { background: rgba(94,122,20,0.18); color: var(--lime); }
+  .slide-intelligence .factor:nth-child(5) .icon-box { background: rgba(61,74,44,0.1); color: var(--primary); }
+  .slide-intelligence .factor .factor-text {
+    flex: 1;
+  }
+  .slide-intelligence .factor .factor-text .num {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 2px;
+  }
+  .slide-intelligence .factor .factor-text .desc {
+    font-size: 13px;
+    color: rgba(61,74,44,0.85);
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  /* ============================================
+     SLIDE 9 — APIs & TOOLS
+     ============================================ */
+  .slide-apis {
+    background: var(--white);
+    padding: 80px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .slide-apis .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .slide-apis .label i { color: var(--primary); font-size: 16px; }
+  .slide-apis h2 {
+    font-size: 42px;
+    color: var(--primary);
+    margin-bottom: 16px;
+    font-weight: 800;
+    letter-spacing: -1px;
+  }
+  .slide-apis .sub {
+    font-size: 15px;
+    color: var(--gray-500);
+    font-weight: 400;
+    margin-bottom: 48px;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+  .slide-apis .tools-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+  .slide-apis .tool-card {
+    background: var(--sand);
+    border-radius: 12px;
+    padding: 24px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .slide-apis .tool-card .tool-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: var(--white);
+  }
+  .slide-apis .tool-card h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  .slide-apis .tool-card p {
+    font-size: 12px;
+    color: var(--gray-500);
+    font-weight: 400;
+    line-height: 1.5;
+  }
+  .slide-apis .apis-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 16px;
+  }
+  .slide-apis .api-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--sand);
+  }
+  .slide-apis .api-item i {
+    font-size: 18px;
+    color: var(--forest);
+  }
+  .slide-apis .api-item .api-text .api-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary);
+  }
+  .slide-apis .api-item .api-text .api-desc {
+    font-size: 11px;
+    color: var(--gray-500);
+    font-weight: 400;
+  }
+
+  /* ============================================
+     SLIDE 10 — SYSTEMS DESIGNED
+     ============================================ */
+  .slide-systems {
+    background: var(--cream);
+    padding: 60px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .slide-systems .left {}
+  .slide-systems .right-imgs {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .slide-systems .right-imgs img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+  .slide-systems .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .slide-systems .label i { color: var(--forest); font-size: 16px; }
+  .slide-systems h2 {
+    font-size: 42px;
+    color: var(--primary);
+    margin-bottom: 40px;
+    font-weight: 800;
+    letter-spacing: -1px;
+  }
+  .slide-systems .systems-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .slide-systems .sys-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .slide-systems .sys-card .sys-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: var(--white);
+  }
+  .slide-systems .sys-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.25;
+  }
+  .slide-systems .sys-card p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--gray-700);
+    font-weight: 400;
+  }
+
+  /* ============================================
+     SLIDE 11 — TAKEAWAY 3
+     ============================================ */
+
+  /* ============================================
+     SLIDE 12 — OUTCOMES
+     ============================================ */
+  .slide-outcomes {
+    background: var(--sand);
+    padding: 80px 100px;
+    display: grid;
+    grid-template-columns: 1fr 0.45fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .slide-outcomes .left {
+    display: flex;
+    flex-direction: column;
+  }
+  .slide-outcomes .right-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .slide-outcomes .right-img img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+  }
+  .slide-outcomes .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .slide-outcomes .label i { font-size: 16px; }
+  .slide-outcomes h2 {
+    font-size: 48px;
+    color: var(--primary);
+    margin-bottom: 48px;
+    font-weight: 800;
+    letter-spacing: -1px;
+  }
+  .slide-outcomes .outcomes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .slide-outcomes .outcome {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .slide-outcomes .outcome:last-child { border-bottom: none; }
+  .slide-outcomes .outcome i {
+    font-size: 20px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .slide-outcomes .outcome:nth-child(1) i { color: var(--forest); }
+  .slide-outcomes .outcome:nth-child(2) i { color: var(--amber); }
+  .slide-outcomes .outcome:nth-child(3) i { color: var(--forest); }
+  .slide-outcomes .outcome:nth-child(4) i { color: var(--lime); }
+  .slide-outcomes .outcome p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(61,74,44,0.88);
+    font-weight: 400;
+  }
+  .slide-outcomes .outcome p strong {
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  /* ============================================
+     SLIDE 13 — THANK YOU
+     ============================================ */
+  .slide-thanks {
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .slide-thanks h2 {
+    font-size: 72px;
+    color: var(--primary);
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+    font-weight: 800;
+  }
+  .slide-thanks .sub {
+    font-size: 18px;
+    color: var(--gray-500);
+    font-weight: 400;
+    margin-bottom: 32px;
+  }
+  .slide-thanks .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--primary);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 100px;
+    transition: all 0.2s;
+    margin-bottom: 40px;
+  }
+  .slide-thanks .cta:hover { background: #2c361f; }
+  .slide-thanks .links {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+  }
+  .slide-thanks .link-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--gray-700);
+    font-weight: 400;
+  }
+  .slide-thanks .link-item i {
+    font-size: 18px;
+    color: var(--forest);
+  }
+</style>
+</head>
+<body>
+
+<a href="index.html" style="position:fixed;top:20px;left:20px;z-index:1001;width:36px;height:36px;border-radius:50%;background:rgba(61,74,44,0.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;text-decoration:none;transition:background 0.2s;border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.background='rgba(61,74,44,1)'" onmouseout="this.style.background='rgba(61,74,44,0.85)'"><i class="ph-bold ph-house-simple"></i></a>
+
+<!-- SLIDE 1: TITLE -->
+<div class="slide slide-title">
+  <div class="left">
+    <div class="tags">
+      <div class="tag"><i class="ph-bold ph-mountains"></i> Case Study</div>
+      <div class="tag tag-personal"><i class="ph-bold ph-sparkle"></i> Personal Project</div>
+    </div>
+    <h1>Learning AI<br>by Building</h1>
+    <p class="subtitle">Creating a location intelligence platform for discovering dispersed campsites, scenic routes, and photo-worthy landscapes using terrain data, AI-assisted scoring, and modern APIs.</p>
+    <a class="visit-cta" href="https://www.roamswild.com/" target="_blank" rel="noopener noreferrer">Visit RoamsWild <i class="ph-bold ph-arrow-up-right"></i></a>
+  </div>
+  <div class="right">
+    <video src="assets/roamswild/OverlandingGearHero.mp4" autoplay muted loop playsinline></video>
+  </div>
+</div>
+
+<!-- SLIDE 2: PERSONAL / OUTDOORS -->
+<div class="slide slide-personal">
+  <div class="left">
+    <div class="label"><i class="ph-bold ph-mountains"></i> About Me</div>
+    <h2>I roamed long before I built it.</h2>
+    <p>I spend a lot of my time outside — hiking trails, sleeping in tents, and chasing long road trips through the kinds of places that don't show up well on most maps. RoamsWild grew straight out of the gap between the tools I was using and the experience I actually wanted on the road.</p>
+    <div class="activities">
+      <span class="activity"><i class="ph-bold ph-boot"></i> Hiking</span>
+      <span class="activity"><i class="ph-bold ph-tent"></i> Camping</span>
+      <span class="activity"><i class="ph-bold ph-jeep"></i> Road tripping</span>
+      <span class="activity"><i class="ph-bold ph-camera"></i> Landscape photography</span>
+    </div>
+  </div>
+  <div class="collage">
+    <!-- Add <img src="assets/roamswild/personal/01.jpg" alt=""> inside each card when ready -->
+    <div class="collage-card collage-card-1"></div>
+    <div class="collage-card collage-card-2"></div>
+    <div class="collage-card collage-card-3"></div>
+    <div class="collage-card collage-card-4"></div>
+  </div>
+</div>
+
+<!-- SLIDE 3: OVERVIEW -->
+<div class="slide slide-overview">
+  <div class="left">
+  <h2>Project Overview</h2>
+  <div class="grid">
+    <div class="item">
+      <div class="item-label"><i class="ph-bold ph-target"></i> Objective</div>
+      <p>Explore how AI tools and modern APIs extend capabilities as a Product Designer. AI functioned as a practical build partner for rapid exploration of system architecture, API design, and data transformations.</p>
+    </div>
+    <div class="item">
+      <div class="item-label"><i class="ph-bold ph-users"></i> Target Users</div>
+      <p>Road-based travelers, dispersed camping enthusiasts, landscape photographers, and public lands explorers who need smarter location intelligence, not just listings.</p>
+    </div>
+    <div class="item">
+      <div class="item-label"><i class="ph-bold ph-wrench"></i> Tools & Tech</div>
+      <div class="tool-badges">
+        <span class="tool-badge"><i class="ph-bold ph-robot"></i> Claude Code</span>
+        <span class="tool-badge"><i class="ph-bold ph-heart"></i> Loveable</span>
+        <span class="tool-badge"><i class="ph-bold ph-github-logo"></i> GitHub</span>
+        <span class="tool-badge"><i class="ph-bold ph-database"></i> Supabase</span>
+        <span class="tool-badge"><i class="ph-bold ph-envelope-simple"></i> Resend</span>
+        <span class="tool-badge"><i class="ph-bold ph-triangle"></i> Vercel</span>
+        <span class="tool-badge"><i class="ph-bold ph-paint-brush"></i> Procreate</span>
+        <span class="tool-badge"><i class="ph-bold ph-notebook"></i> Notion</span>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="right-img">
+    <img src="assets/roamswild/features.png" alt="RoamsWild feature overview cards">
+  </div>
+</div>
+
+<!-- SLIDE 3: THE PROBLEM -->
+<div class="slide slide-problem">
+  <div class="left">
+    <div class="label"><i class="ph-bold ph-warning-diamond"></i> The Problem</div>
+    <div class="quote">How might I design a system that helps people make better decisions, not just find places?</div>
+    <div class="issues">
+      <div class="issue"><i class="ph ph-x-circle"></i><p>Outdoor travelers rely on static apps, outdated reports, and guesswork</p></div>
+      <div class="issue"><i class="ph ph-x-circle"></i><p>Tools are fragmented and time-consuming to cross-reference</p></div>
+      <div class="issue"><i class="ph ph-x-circle"></i><p>Decision fatigue from juggling multiple apps with conflicting information</p></div>
+      <div class="issue"><i class="ph ph-x-circle"></i><p>"Good on paper, bad in reality" locations with no way to verify quality</p></div>
+      <div class="issue"><i class="ph ph-x-circle"></i><p>No tools account for lighting conditions or photography timing</p></div>
+      <div class="issue"><i class="ph ph-x-circle"></i><p>Road conditions and access restrictions poorly documented</p></div>
+    </div>
+  </div>
+  <div class="right">
+    <img src="assets/roamswild/Competitorapps.png" alt="Fragmented landscape of existing outdoor apps">
+  </div>
+</div>
+
+<!-- SLIDE 4: CHOOSING THE PROBLEM -->
+<div class="slide slide-choosing">
+  <div class="left">
+    <div class="label"><i class="ph-bold ph-crosshair"></i> Choosing a Problem</div>
+    <h2>Three Overlapping Domains</h2>
+    <p class="body">Chosen intentionally for personal relevance and real-world complexity. This space has messy, imperfect data and requires judgment — not just retrieval.</p>
+    <div class="domains">
+      <div class="domain"><i class="ph-bold ph-car-profile"></i> <span>Outdoor Travel</span></div>
+      <div class="domain"><i class="ph-bold ph-tent"></i> <span>Dispersed Camping</span></div>
+      <div class="domain"><i class="ph-bold ph-camera"></i> <span>Landscape Photography</span></div>
+    </div>
+  </div>
+  <div class="right">
+    <img src="assets/roamswild/DSC09645.jpg" alt="Landscape photography">
+  </div>
+</div>
+
+<!-- SLIDE 5: TAKEAWAY 1 -->
+<div class="slide slide-takeaway">
+  <div class="content">
+    <div class="takeaway-num">Takeaway 01</div>
+    <p>Start with some kind of plan or you will spend a lot of time regressing or redoing work. Seems obvious, but it's easy to get carried away with ideas.</p>
+  </div>
+</div>
+
+<!-- SLIDE 6: THE BEGINNING -->
+<div class="slide slide-beginning">
+  <div class="label"><i class="ph-bold ph-flag-pennant"></i> The Beginning</div>
+  <h2>Foundational Questions</h2>
+  <div class="questions">
+    <div class="q-card">
+      <div class="q-label"><i class="ph-bold ph-user-focus"></i> Who</div>
+      <h3>The Users</h3>
+      <p>Road-based travelers and photographers navigating public lands who need confidence in their decisions.</p>
+    </div>
+    <div class="q-card">
+      <div class="q-label"><i class="ph-bold ph-question"></i> What Struggles</div>
+      <h3>The Pain Points</h3>
+      <p>Land access confusion, unknown road conditions, terrain quality uncertainty, weather timing, and low confidence levels.</p>
+    </div>
+    <div class="q-card">
+      <div class="q-label"><i class="ph-bold ph-trophy"></i> Success Definition</div>
+      <h3>The Goal</h3>
+      <p>Fewer but better, smarter recommendations with clear explanations for why a location is worth visiting.</p>
+    </div>
+  </div>
+  <video src="assets/roamswild/Ideatimelapse.mp4" autoplay muted loop playsinline style="margin-top:32px; width:100%; flex:1; object-fit:cover; border-radius:12px;"></video>
+</div>
+
+<!-- SLIDE 7: FOUNDATION -->
+<div class="slide slide-foundation">
+  <div class="left">
+    <div class="label"><i class="ph-bold ph-palette"></i> The Foundation</div>
+    <h2>Design quality after the build</h2>
+    <p class="body">Once I had something more concrete, I intentionally shifted focus back to design quality. I created a style guide, improved consistency, and refined core interaction patterns so the product didn't feel like a purely technical experiment.</p>
+    <ul class="design-items">
+      <li><i class="ph-bold ph-check-circle"></i> Style guide creation</li>
+      <li><i class="ph-bold ph-check-circle"></i> Core interaction patterns</li>
+      <li><i class="ph-bold ph-check-circle"></i> Consistency across components</li>
+      <li><i class="ph-bold ph-check-circle"></i> Typography and color system</li>
+    </ul>
+  </div>
+  <div class="right">
+    <img src="assets/roamswild/colors.png" alt="RoamsWild color palette" style="width:100%; border-radius:12px;">
+  </div>
+</div>
+
+<!-- SLIDE 7b: INITIAL OUTPUT VIDEO -->
+<div class="slide slide-initial">
+  <div class="left">
+    <div class="label"><i class="ph-bold ph-film-strip"></i> Initial Output</div>
+    <h2>What it looked like before design</h2>
+    <p class="body">The earliest builds were technically functional but visually generic — the kind of layout AI tools tend to converge on when given loose direction. Style guides, hierarchy, and refined micro-interactions still need a designer's eye.</p>
+  </div>
+  <div class="video-frame">
+    <video src="assets/roamswild/initialoutput.mp4" autoplay muted loop playsinline></video>
+  </div>
+  <div class="extras">
+    <div><img src="assets/roamswild/early-landing.png" alt="Early RoamsWild landing page"></div>
+    <div><video src="assets/roamswild/early-flow.mp4" autoplay muted loop playsinline></video></div>
+  </div>
+</div>
+
+<!-- SLIDE 8: TAKEAWAY 2 -->
+<div class="slide slide-takeaway">
+  <div class="content">
+    <div class="takeaway-num" style="color: var(--amber);">Takeaway 02</div>
+    <p>Don't forget you still need to design. Otherwise it looks like everything else AI might produce. Or like an Engineer designed it.</p>
+  </div>
+</div>
+
+<!-- SLIDE 9: INTELLIGENCE LAYER -->
+<div class="slide slide-intelligence">
+  <div class="left">
+    <div class="label"><i class="ph-bold ph-brain"></i> Intelligence Layer</div>
+    <h2>What the Product Considers</h2>
+    <p class="body">Instead of popularity, static info, or reviews — the system evaluates real-world factors that matter to travelers and photographers. Each factor is scored and explained in user-friendly language.</p>
+    <img src="assets/roamswild/Spotdetail.png" alt="Spot detail with confidence scoring" style="margin-top:28px; width:100%; max-width:320px; border-radius:10px; box-shadow:0 4px 20px rgba(0,0,0,0.3);">
+  </div>
+  <div class="right">
+    <div class="factor">
+      <div class="icon-box"><i class="ph-bold ph-road-horizon"></i></div>
+      <div class="factor-text">
+        <div class="num">Road Classification</div>
+        <div class="desc">Road type, surface conditions, and access difficulty scoring</div>
+      </div>
+    </div>
+    <div class="factor">
+      <div class="icon-box"><i class="ph-bold ph-sun-horizon"></i></div>
+      <div class="factor-text">
+        <div class="num">Lighting Quality</div>
+        <div class="desc">Terrain lighting prediction using sun azimuth and weather data</div>
+      </div>
+    </div>
+    <div class="factor">
+      <div class="icon-box"><i class="ph-bold ph-cloud-rain"></i></div>
+      <div class="factor-text">
+        <div class="num">Weather Patterns</div>
+        <div class="desc">Multi-day weather analysis for optimal travel and photography windows</div>
+      </div>
+    </div>
+    <div class="factor">
+      <div class="icon-box"><i class="ph-bold ph-mountains"></i></div>
+      <div class="factor-text">
+        <div class="num">Elevation & Terrain</div>
+        <div class="desc">Elevation profiles and scenic potential evaluation</div>
+      </div>
+    </div>
+    <div class="factor">
+      <div class="icon-box"><i class="ph-bold ph-shield-check"></i></div>
+      <div class="factor-text">
+        <div class="num">Access Confidence</div>
+        <div class="desc">Land ownership verification and restriction assessment</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 10: TOOLS & APIs -->
+<div class="slide slide-apis">
+  <div class="label"><i class="ph-bold ph-plugs-connected"></i> Tools & APIs</div>
+  <h2>From Ideas to Systems</h2>
+  <p class="sub">Simple heuristics evolved into multi-factor scoring. Claude Code served as a development partner for API prototyping, feature logic, and scoring iteration.</p>
+
+  <div class="tools-grid">
+    <div class="tool-card">
+      <div class="tool-icon" style="background: var(--forest);"><i class="ph-bold ph-robot"></i></div>
+      <h3>Claude Code</h3>
+      <p>AI development partner for rapid prototyping</p>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon" style="background: var(--primary);"><i class="ph-bold ph-database"></i></div>
+      <h3>Supabase</h3>
+      <p>Backend database and authentication</p>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon" style="background: var(--primary);"><i class="ph-bold ph-github-logo"></i></div>
+      <h3>GitHub</h3>
+      <p>Version control and deployment</p>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon" style="background: var(--amber);"><i class="ph-bold ph-triangle"></i></div>
+      <h3>Vercel</h3>
+      <p>Hosting and edge functions</p>
+    </div>
+  </div>
+  <div class="apis-row">
+    <div class="api-item">
+      <i class="ph-bold ph-cloud-sun"></i>
+      <div class="api-text">
+        <div class="api-name">Open-Meteo</div>
+        <div class="api-desc">Weather & environmental</div>
+      </div>
+    </div>
+    <div class="api-item">
+      <i class="ph-bold ph-tree-evergreen"></i>
+      <div class="api-text">
+        <div class="api-name">Recreation.gov</div>
+        <div class="api-desc">Public lands & facilities</div>
+      </div>
+    </div>
+    <div class="api-item">
+      <i class="ph-bold ph-thermometer"></i>
+      <div class="api-text">
+        <div class="api-name">Tomorrow.io</div>
+        <div class="api-desc">Advanced weather intel</div>
+      </div>
+    </div>
+    <div class="api-item">
+      <i class="ph-bold ph-map-trifold"></i>
+      <div class="api-text">
+        <div class="api-name">OpenStreetMap</div>
+        <div class="api-desc">Road & terrain data</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 11: SYSTEMS DESIGNED -->
+<div class="slide slide-systems">
+  <div class="left">
+    <div class="label"><i class="ph-bold ph-gear-six"></i> From Ideas to Systems</div>
+    <h2>Decision-support, not just listings</h2>
+    <p class="body" style="margin-bottom:24px;">I started with simple heuristics — combining public land data with road networks to identify dead ends and intersections where dispersed campsites often appear. From there, I designed and built scoring systems that surface what actually matters to travelers and photographers.</p>
+    <div class="systems-grid" style="grid-template-columns:1fr;">
+      <div class="sys-card">
+        <div class="sys-icon" style="background: var(--forest);"><i class="ph-bold ph-sun"></i></div>
+        <h3>Terrain Lighting Quality</h3>
+        <p>Predicts optimal lighting conditions using sun azimuth calculations, weather patterns, and terrain orientation data.</p>
+      </div>
+      <div class="sys-card">
+        <div class="sys-icon" style="background: var(--amber);"><i class="ph-bold ph-star"></i></div>
+        <h3>Scenic Potential Scoring</h3>
+        <p>Evaluates landscape diversity, elevation changes, water features, and geological interest to surface hidden gems.</p>
+      </div>
+      <div class="sys-card">
+        <div class="sys-icon" style="background: var(--forest);"><i class="ph-bold ph-shield-check"></i></div>
+        <h3>Access Confidence</h3>
+        <p>Assesses road conditions, land ownership boundaries, seasonal restrictions, and vehicle requirements.</p>
+      </div>
+      <div class="sys-card">
+        <div class="sys-icon" style="background: var(--primary);"><i class="ph-bold ph-clock"></i></div>
+        <h3>Timing Relevance</h3>
+        <p>Surfaces the best windows for visiting based on weather, seasonal conditions, and golden hour calculations.</p>
+      </div>
+    </div>
+  </div>
+  <div class="right-imgs">
+    <img src="assets/roamswild/designsystems.png" alt="Decision-support systems diagram">
+    <img src="assets/roamswild/Exploretab.png" alt="RoamsWild explore tab with map and campsite listings">
+    <img src="assets/roamswild/terrainanalysis.png" alt="Photo Scout terrain lighting analysis">
+  </div>
+</div>
+
+<!-- SLIDE 12: TAKEAWAY 3 -->
+<div class="slide slide-takeaway">
+  <div class="content">
+    <div class="takeaway-num" style="color: var(--lime);">Takeaway 03</div>
+    <p style="color: var(--primary);">With the range of APIs available today, deriving new data can unlock entirely new product experiences.</p>
+  </div>
+</div>
+
+<!-- SLIDE 13: OUTCOMES -->
+<div class="slide slide-outcomes">
+  <div class="left">
+  <div class="label"><i class="ph-bold ph-trophy"></i> Outcomes</div>
+  <h2>What I Learned</h2>
+  <div class="outcomes-list">
+    <div class="outcome"><i class="ph-bold ph-brain"></i><p><strong>AI as a practical build partner</strong> — not a novelty. Claude Code accelerated prototyping for API endpoints, scoring logic, and data transformations that would have taken significantly longer solo.</p></div>
+    <div class="outcome"><i class="ph-bold ph-palette"></i><p><strong>Design still drives the experience.</strong> Without intentional design systems, AI-generated UIs converge on the same generic patterns. A strong foundation made the difference.</p></div>
+    <div class="outcome"><i class="ph-bold ph-plugs-connected"></i><p><strong>Derived data creates new product categories.</strong> Combining weather, terrain, and timing APIs produced intelligence that doesn't exist in any single data source.</p></div>
+    <div class="outcome"><i class="ph-bold ph-compass"></i><p><strong>Real domain expertise matters.</strong> Personal experience with outdoor travel, camping, and photography informed every scoring decision — AI amplified judgment, it didn't replace it.</p></div>
+  </div>
+  </div>
+  <div class="right-img">
+    <img src="assets/roamswild/Tripdetail.png" alt="RoamsWild trip detail with map and itinerary">
+  </div>
+</div>
+
+<!-- SLIDE 14: THANK YOU -->
+<div class="slide slide-thanks">
+  <div class="content">
+    <img src="assets/roamswild/landingpagemacbook.png" alt="RoamsWild on MacBook" style="width:480px; margin-bottom:32px; border-radius:8px;">
+    <h2>Thank you.</h2>
+    <p class="sub">Michelle Taylor — Product Designer</p>
+    <a class="cta" href="https://www.roamswild.com" target="_blank"><i class="ph-bold ph-arrow-up-right"></i> View RoamsWild App</a>
+    <div class="links">
+      <div class="link-item"><i class="ph ph-globe-simple"></i> michelletaylor.design</div>
+      <div class="link-item"><i class="ph ph-envelope-simple"></i> hello@michelletaylor.design</div>
+    </div>
+  </div>
+</div>
+
+<!-- NAVIGATION -->
+<script>
+(function() {
+  const nav = document.createElement('div');
+  nav.className = 'slide-nav';
+  nav.innerHTML = `
+    <button id="prev-btn"><i class="ph-bold ph-caret-up"></i></button>
+    <div class="dots" id="dots"></div>
+    <span class="counter" id="counter"></span>
+    <button id="next-btn"><i class="ph-bold ph-caret-down"></i></button>
+  `;
+  document.body.appendChild(nav);
+
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.getElementById('dots');
+  const counter = document.getElementById('counter');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  let current = 0;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  function updateUI() {
+    const dots = dotsContainer.querySelectorAll('.dot');
+    dots.forEach((d, i) => d.className = 'dot' + (i === current ? ' active' : ''));
+    counter.textContent = (current + 1) + ' / ' + slides.length;
+  }
+
+  function goTo(index) {
+    current = Math.max(0, Math.min(index, slides.length - 1));
+    slides[current].scrollIntoView({ behavior: 'smooth' });
+    updateUI();
+  }
+
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+        const index = Array.from(slides).indexOf(entry.target);
+        if (index !== -1) { current = index; updateUI(); }
+      }
+    });
+  }, { threshold: 0.5 });
+
+  slides.forEach(slide => observer.observe(slide));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
+    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
+  });
+
+  updateUI();
+})();
+</script>
+
+</body></html>
