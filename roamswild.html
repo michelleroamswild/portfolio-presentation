@@ -1167,6 +1167,150 @@
     transform: translateY(-2px);
   }
   .slide-thanks .next-link i { font-size: 16px; }
+  @media (max-width: 768px) {
+    .slide { padding: 60px 28px; }
+
+    /* Slide 1 — Title */
+    .slide-title {
+      grid-template-columns: 1fr;
+      padding: 60px 28px;
+    }
+    .slide-title .left { padding: 0; }
+    .slide-title h1 { font-size: clamp(48px, 11vw, 72px); }
+    .slide-title .subtitle { font-size: 16px; margin-bottom: 32px; }
+    .slide-title .right { display: none; }
+
+    /* Slide 2 — Problem */
+    .slide-problem {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding: 60px 28px;
+      height: auto;
+      min-height: 100vh;
+      overflow: visible;
+      justify-content: flex-start;
+    }
+    .slide-problem h2 { font-size: 32px; }
+    .slide-problem .card { padding: 18px 20px; }
+
+    /* Slide 3 — Insight */
+    .slide-insight { padding: 60px 28px; }
+    .slide-insight blockquote { font-size: 32px; }
+
+    /* Slide 4 — Role */
+    .slide-role { padding: 60px 28px; }
+    .slide-role h2 { font-size: clamp(36px, 9vw, 56px); }
+    .slide-role .role-chips { gap: 8px; }
+    .slide-role .role-chip { font-size: 13px; padding: 12px 18px; }
+
+    /* Slide 5 — Initial Output */
+    .slide-initial {
+      padding: 60px 28px;
+      gap: 32px;
+    }
+    .slide-initial h2 { font-size: 32px; }
+    .slide-initial .media-grid {
+      grid-template-columns: 1fr;
+      max-height: none;
+    }
+    .slide-initial .extras { grid-template-rows: auto auto; gap: 12px; }
+
+    /* Slide 6 — Strategy */
+    .slide-strategy { padding: 60px 28px; }
+    .slide-strategy h2 { font-size: clamp(36px, 9vw, 56px); margin-bottom: 32px; }
+    .slide-strategy .shifts { grid-template-columns: 1fr; gap: 14px; }
+    .slide-strategy .shift { padding: 24px 22px; }
+    .slide-strategy .shift .from-to { font-size: 22px; }
+
+    /* Slide 7 — System */
+    .slide-system {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding: 60px 28px;
+      height: auto;
+      min-height: 100vh;
+      overflow: visible;
+      justify-content: flex-start;
+    }
+    .slide-system h2 { font-size: 32px; }
+    .slide-system .diagram { padding: 24px; }
+
+    /* Slide 8 — Decisions */
+    .slide-decisions {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding: 60px 28px;
+    }
+    .slide-decisions h2 { font-size: 32px; }
+    .slide-decisions .card { padding: 20px 22px; }
+
+    /* Slide 9 — Under the Hood */
+    .slide-tech {
+      padding: 60px 28px;
+      height: auto;
+      min-height: 100vh;
+      overflow: visible;
+      justify-content: flex-start;
+    }
+    .slide-tech h2 { font-size: 32px; }
+    .slide-tech .stack-grid { grid-template-columns: 1fr; gap: 32px; }
+
+    /* Slide 10 — Schema */
+    .slide-schema {
+      padding: 60px 28px;
+      height: auto;
+      min-height: 100vh;
+      overflow: visible;
+      justify-content: flex-start;
+    }
+    .slide-schema h2 { font-size: 32px; }
+    .slide-schema .schema-grid { grid-template-columns: 1fr; gap: 32px; }
+    .slide-schema .schema { padding: 18px; }
+    .slide-schema .tier-cards,
+    .slide-schema .tier-cards.three { grid-template-columns: 1fr 1fr; }
+    .slide-schema .schema-tier { grid-template-columns: 50px 1fr; gap: 10px; }
+
+    /* Slide 11 — Experience */
+    .slide-experience { padding: 60px 28px; }
+    .slide-experience h2 { font-size: 32px; }
+    .slide-experience .screens { grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    /* Slide 12 — Outcomes */
+    .slide-outcomes {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .slide-outcomes .left { padding: 60px 28px; }
+    .slide-outcomes .right { min-height: 280px; }
+    .slide-outcomes h2 { font-size: 32px; margin-bottom: 28px; }
+
+    /* Slide 13 — Learned */
+    .slide-learned {
+      padding: 60px 28px;
+      height: auto;
+      min-height: 100vh;
+      overflow: visible;
+      justify-content: flex-start;
+    }
+    .slide-learned h2 { font-size: 32px; }
+    .slide-learned .lessons { grid-template-columns: 1fr; gap: 16px; }
+    .slide-learned .lesson { padding: 24px 22px; }
+
+    /* Slide 14 — Next */
+    .slide-next {
+      padding: 60px 28px;
+      height: auto;
+      min-height: 100vh;
+      overflow: visible;
+      justify-content: flex-start;
+    }
+    .slide-next h2 { font-size: 32px; }
+    .slide-next .ideas { grid-template-columns: 1fr; gap: 16px; }
+
+    /* Thanks */
+    .slide-thanks h1 { font-size: 64px; }
+    .slide-thanks .next-link { bottom: 40px; right: 40px; }
+  }
 </style>
 </head>
 <body>

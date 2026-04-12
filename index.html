@@ -123,7 +123,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 80px;
-    padding: 0 100px;
+    padding: 0 60px;
     position: relative;
     overflow: hidden;
   }
@@ -170,7 +170,7 @@
     color: var(--indigo);
   }
   @media (max-width: 900px) {
-    .slide-hero { flex-direction: column; justify-content: center; gap: 40px; padding: 60px 32px; }
+    .slide-hero { flex-direction: column; justify-content: center; gap: 32px; padding: 40px 24px; }
     .hero-portrait { width: 60vw; max-width: 320px; }
   }
   .hero-blob {
@@ -810,11 +810,70 @@
   .slide-footer a:hover { color: var(--indigo); }
 
   @media (max-width: 768px) {
-    .slide-hero { padding: 0 32px; }
-    .slide-cases { padding: 60px 32px; }
-    .case-studies { grid-template-columns: 1fr; }
+    /* Hero */
+    .slide-hero {
+      flex-direction: column;
+      justify-content: center;
+      gap: 32px;
+      padding: 60px 28px;
+    }
+    .hero-content { max-width: 100%; }
+    .hero-content h1 { font-size: 48px; letter-spacing: -2px; }
+    .hero-greeting { font-size: 22px !important; }
     .hero-chips { flex-direction: column; }
-    .hero-content h1 { font-size: 36px; }
+    .chip { font-size: 12px; padding: 8px 14px; }
+    .hero-portrait {
+      width: 200px;
+      margin-right: 0;
+      padding: 12px 12px 18px;
+    }
+    .portrait-caption { font-size: 16px !important; }
+    .hero-blob { display: none; }
+
+    /* About */
+    .slide-about { padding: 60px 28px; }
+    .slide-about > * { max-width: 100%; }
+    .slide-about h2 { font-size: 36px; margin-bottom: 28px; }
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .personal-text p { font-size: 15px; }
+    .personal-chips { gap: 6px; }
+    .personal-chip { font-size: 12px; padding: 6px 12px; }
+    .photo-collage { min-height: 280px; }
+    .collage-photo.pos-left { width: 48%; left: -4%; }
+    .collage-photo.pos-center { width: 62%; left: 19%; }
+    .collage-photo.pos-right { width: 44%; right: -4%; }
+
+    /* Case Studies */
+    .slide-cases { padding: 60px 28px 100px; }
+    .slide-cases > * { max-width: 100%; }
+    .slide-cases h2 { font-size: 36px; margin-bottom: 40px; margin-top: 80px; }
+    .case-studies { grid-template-columns: 1fr; gap: 16px; }
+    .card { min-height: 240px; grid-template-columns: 1fr; }
+    .card-content { max-width: 100%; padding: 28px; }
+    .card h3 { font-size: 28px; }
+    .card-arrow { bottom: 28px; left: 28px; }
+    .card-peek { display: none; }
+    .card--bolt .card-img-rounded {
+      height: 65%;
+      bottom: -30px;
+      right: -40px;
+    }
+
+    /* Extra credit */
+    .extra-credit { margin-top: 48px; }
+    .extra-credit-row { grid-template-columns: 1fr; gap: 16px; }
+    .ec-card { min-height: 100px; padding: 22px 24px; }
+    .ec-name { font-size: 20px; }
+    .ec-preview { display: none; }
+
+    /* Footer */
+    .slide-footer { padding-top: 24px; }
+
+    /* Nav */
+    .slide-nav { bottom: 16px; padding: 5px 10px; }
   }
 </style>
 </head>
@@ -909,33 +968,6 @@
 
   </div>
 
-  <div class="extra-credit">
-    <p class="extra-credit-label">Extra Credit</p>
-    <div class="extra-credit-row">
-      <a class="ec-card ec--realready" href="realready.html">
-        <i class="ph-bold ph-film-reel ec-icon"></i>
-        <div class="ec-text">
-          <span class="ec-company">Personal Project</span>
-          <span class="ec-name">Reel Ready</span>
-        </div>
-        <div class="ec-preview">
-          <!-- Add preview image here later: <img src="..." alt=""> -->
-          <span class="ec-preview-placeholder">Preview</span>
-        </div>
-      </a>
-      <a class="ec-card ec--clipquery" href="clipquery.html">
-        <i class="ph-bold ph-film-strip ec-icon"></i>
-        <div class="ec-text">
-          <span class="ec-company">Personal Project</span>
-          <span class="ec-name">Clip Query</span>
-        </div>
-        <div class="ec-preview">
-          <!-- Add preview image here later: <img src="..." alt=""> -->
-          <span class="ec-preview-placeholder">Preview</span>
-        </div>
-      </a>
-    </div>
-  </div>
 
   <div class="slide-footer">
     <p><a href="https://www.michelletaylor.design/" target="_blank">michelletaylor.design</a></p>

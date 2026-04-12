@@ -214,7 +214,7 @@
   .slide-title .subtitle {
     font-size: 19px;
     line-height: 1.55;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.85);
     max-width: 480px;
     font-weight: 400;
     margin-bottom: 56px;
@@ -1018,6 +1018,114 @@
     color: var(--gray-500);
     font-size: 13px;
     font-weight: 500;
+  }
+  @media (max-width: 768px) {
+    .slide { padding: 60px 28px; }
+
+    /* Slide 1 — Title */
+    .slide-title { grid-template-columns: 1fr; padding: 60px 28px; }
+    .slide-title .left { padding: 0; }
+    .slide-title h1 { font-size: clamp(48px, 11vw, 72px); }
+    .slide-title .subtitle { font-size: 16px; margin-bottom: 32px; }
+    .slide-title .right { display: none; }
+    .slide-title img.bg-illustration {
+      width: 360px;
+      right: -80px;
+      bottom: -60px;
+    }
+
+    /* Slide 2 — Problem */
+    .slide-problem {
+      height: auto;
+      min-height: 100vh;
+      overflow: visible;
+      justify-content: flex-start;
+      padding-top: 80px;
+    }
+    .slide-problem .grid { grid-template-columns: 1fr; gap: 12px; }
+    .slide-problem .card { min-height: auto; padding: 20px 18px; gap: 10px; }
+    .slide-problem .card .icon { width: 36px; height: 36px; font-size: 16px; }
+    .slide-problem .card h3 { font-size: 16px; }
+    .slide-problem .card p { font-size: 13px; }
+
+    /* Slide 3 — Why broke */
+    .slide-why {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 60px 28px;
+    }
+    .slide-why .content { padding: 0; }
+    .slide-why .visual { max-height: 300px; }
+
+    /* Slide 4 — Old screens */
+    .slide-old-screens {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding: 60px 28px;
+    }
+    .slide-old-screens h2 { font-size: 32px; }
+    .slide-old-screens .frame { aspect-ratio: 4/3; }
+
+    /* Slide 5 — Role */
+    .slide-role { padding: 60px 28px; }
+    .slide-role .partners-row { flex-direction: column; gap: 10px; }
+    .slide-role h2 { font-size: clamp(36px, 8vw, 56px); }
+    .slide-role .body-text { font-size: 16px; }
+
+    /* Slide 6 — Strategy */
+    .slide-strategy { padding: 60px 28px; }
+    .slide-strategy .shifts { grid-template-columns: 1fr; gap: 16px; }
+    .slide-strategy h2 { font-size: clamp(36px, 8vw, 56px); }
+    .slide-strategy .shift { padding: 24px 22px; }
+    .slide-strategy .shift .from-to { font-size: 22px; }
+
+    /* Slide 7 — Tradeoffs */
+    .slide-tradeoffs .grid { grid-template-columns: 1fr; gap: 16px; }
+    .slide-tradeoffs h2 { font-size: 32px; }
+    .slide-tradeoffs .card { padding: 24px 22px; }
+
+    /* Slide 8 — Solution */
+    .slide-solution { padding: 60px 28px; }
+    .slide-solution .feature-chips { flex-direction: column; gap: 8px; }
+    .slide-solution h2 { font-size: clamp(36px, 8vw, 56px); }
+
+    /* Slide 9 — Outcomes */
+    .slide-outcomes { padding: 60px 28px; }
+    .slide-outcomes .stats { grid-template-columns: 1fr; gap: 16px; }
+    .slide-outcomes h2 { font-size: 32px; }
+    .slide-outcomes .stat { padding: 28px 24px; min-height: auto; }
+
+    /* Slide 10 — Changed */
+    .slide-changed {
+      height: auto;
+      min-height: 100vh;
+      overflow: visible;
+      justify-content: flex-start;
+      padding-top: 80px;
+    }
+    .slide-changed .audiences { grid-template-columns: 1fr; gap: 16px; }
+    .slide-changed h2 { font-size: 32px; }
+    .slide-changed .audience { padding: 24px 22px; }
+
+    /* Slide 11 — Learned */
+    .slide-learned {
+      height: auto;
+      min-height: 100vh;
+      overflow: visible;
+      justify-content: flex-start;
+      padding-top: 80px;
+    }
+    .slide-learned .lessons { grid-template-columns: 1fr; gap: 16px; }
+    .slide-learned h2 { font-size: 32px; }
+    .slide-learned .lesson { padding: 24px 22px; }
+
+    /* Slide 12 — Next */
+    .slide-next .ideas { grid-template-columns: 1fr; gap: 16px; }
+    .slide-next h2 { font-size: 32px; }
+
+    /* Thanks */
+    .slide-thanks h1 { font-size: 64px; }
+    .slide-thanks .next-link { bottom: 40px; right: 40px; }
   }
 </style>
 </head>
