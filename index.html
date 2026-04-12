@@ -138,6 +138,14 @@
     border-radius: 6px;
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
     margin-right: 80px;
+    animation: floatPhoto 6s ease-in-out infinite;
+  }
+  @keyframes floatPhoto {
+    0%, 100% { transform: rotate(-3deg) translateY(0); }
+    50%      { transform: rotate(-2deg) translateY(-12px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-portrait { animation: none; }
   }
   .hero-portrait img {
     width: 100%;
@@ -252,6 +260,63 @@
   }
   @media (prefers-reduced-motion: reduce) {
     .hero-content h1 .wave { animation: none; }
+  }
+
+  /* ---- HERO → NEXT TRANSITION ---- */
+  @keyframes implodeContent {
+    0%  { transform: translate(0, 0) scale(1); filter: blur(0); opacity: 1; }
+    55% { transform: translate(32vw, 5vh) scale(0.5); filter: blur(6px); opacity: 0.65; }
+    100%{ transform: translate(35vw, 6vh) scale(0.05); filter: blur(22px); opacity: 0; }
+  }
+  @keyframes implodePortrait {
+    0%  { transform: rotate(-3deg) translate(0, 0) scale(1); filter: blur(0); opacity: 1; }
+    55% { transform: rotate(-1deg) translate(-22vw, -3vh) scale(0.45); filter: blur(6px); opacity: 0.6; }
+    100%{ transform: rotate(0deg) translate(-24vw, -4vh) scale(0.05); filter: blur(22px); opacity: 0; }
+  }
+  .slide-hero.imploding .hero-content {
+    animation: implodeContent 0.7s cubic-bezier(0.4, 0, 0.15, 1) forwards !important;
+  }
+  .slide-hero.imploding .hero-portrait {
+    animation: implodePortrait 0.7s cubic-bezier(0.4, 0, 0.15, 1) forwards !important;
+  }
+  .slide-hero.imploding .hero-blob {
+    filter: blur(40px);
+    opacity: 0;
+    transition: all 0.55s cubic-bezier(0.55, 0, 0.1, 1) !important;
+    animation: none !important;
+  }
+  .slide-hero.imploding .hero-blob-1 { transform: translate(35vw, 30vh) scale(0.15) !important; }
+  .slide-hero.imploding .hero-blob-2 { transform: translate(-25vw, -20vh) scale(0.15) !important; }
+  .slide-hero.imploding .hero-blob-3 { transform: translate(-30vw, 12vh) scale(0.15) !important; }
+  #hero-transition {
+    position: fixed;
+    inset: 0;
+    background: var(--gray-50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.45s ease;
+  }
+  #hero-transition.show { opacity: 1; pointer-events: all; }
+  #hero-transition.fade-out { opacity: 0; transition: opacity 0.5s ease; }
+  #hero-transition h2 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: clamp(48px, 5vw, 80px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--gray-900);
+    transform: scale(0.6);
+    opacity: 0;
+    filter: blur(14px);
+    transition: all 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  #hero-transition.text-in h2 {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0);
   }
   .hero-sub {
     font-size: 22px;
@@ -736,6 +801,8 @@
 </head>
 <body>
 
+<div id="hero-transition"><h2>Let's get started…</h2></div>
+
 <!-- SLIDE 1: HERO -->
 <section class="slide slide-hero">
   <div class="hero-blob hero-blob-1"></div>
@@ -902,8 +969,52 @@
     counter.textContent = (current + 1) + ' / ' + slides.length;
   }
 
+  let transitioning = false;
+  let heroTransitionDone = false;
+
+  function triggerHeroTransition(cb) {
+    const hero = slides[0];
+    const overlay = document.getElementById('hero-transition');
+    transitioning = true;
+    document.body.style.overflow = 'hidden';
+
+    hero.classList.add('imploding');
+    overlay.classList.add('show');
+
+    setTimeout(() => { overlay.classList.add('text-in'); }, 650);
+
+    // Scroll to next slide BEHIND the overlay while text is showing
+    setTimeout(() => {
+      hero.classList.remove('imploding');
+      cb();
+    }, 1200);
+
+    // Fade out overlay after 2s of text visible
+    setTimeout(() => {
+      overlay.classList.remove('show');
+      overlay.classList.add('fade-out');
+    }, 2650);
+
+    setTimeout(() => {
+      overlay.className = '';
+      document.body.style.overflow = '';
+      transitioning = false;
+    }, 3150);
+  }
+
   function goTo(index) {
-    current = Math.max(0, Math.min(index, slides.length - 1));
+    if (transitioning) return;
+    index = Math.max(0, Math.min(index, slides.length - 1));
+    if (current === 0 && index === 1 && !heroTransitionDone) {
+      heroTransitionDone = true;
+      triggerHeroTransition(() => {
+        current = 1;
+        slides[1].scrollIntoView({ behavior: 'smooth' });
+        updateUI();
+      });
+      return;
+    }
+    current = index;
     slides[current].scrollIntoView({ behavior: 'smooth' });
     updateUI();
   }
@@ -915,7 +1026,11 @@
     entries.forEach(entry => {
       if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
         const index = Array.from(slides).indexOf(entry.target);
-        if (index !== -1) { current = index; updateUI(); }
+        if (index !== -1) {
+          current = index;
+          if (index === 0) heroTransitionDone = false;
+          updateUI();
+        }
       }
     });
   }, { threshold: 0.5 });
