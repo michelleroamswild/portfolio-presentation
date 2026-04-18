@@ -992,6 +992,97 @@
   }
 
   /* ============================================
+     FEATURE DETAIL SLIDES
+     ============================================ */
+  .slide-feature {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+    align-items: center;
+  }
+  .slide-feature .left {
+    padding: 80px 40px 80px 100px;
+  }
+  .slide-feature .right {
+    padding: 40px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  .slide-feature .right img {
+    max-width: 100%;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    border-radius: 12px;
+    filter: drop-shadow(0 12px 32px rgba(63,62,44,0.15));
+  }
+  /* Alternate layout: image left, text right */
+  .slide-feature--alt {
+    background: var(--white);
+  }
+  .slide-feature--alt .left {
+    padding: 40px 40px 40px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  .slide-feature--alt .left img {
+    max-width: 100%;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    border-radius: 12px;
+    filter: drop-shadow(0 12px 32px rgba(63,62,44,0.15));
+  }
+  .slide-feature--alt .right {
+    padding: 80px 100px 80px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+  }
+  .feature-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin-bottom: 12px;
+  }
+  .slide-feature h2 {
+    font-size: clamp(40px, 4vw, 64px);
+    font-weight: 800;
+    line-height: 0.96;
+    letter-spacing: -0.03em;
+    color: var(--primary);
+    margin-bottom: 20px;
+  }
+  .slide-feature .body-text {
+    margin-bottom: 28px;
+  }
+  .feature-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .feature-highlight {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary);
+  }
+  .feature-highlight i {
+    font-size: 18px;
+    color: var(--forest);
+  }
+
+  /* ============================================
      SLIDE 9 — OUTCOMES
      ============================================ */
   .slide-outcomes {
@@ -1320,6 +1411,17 @@
     .slide-experience { padding: 60px 28px; }
     .slide-experience h2 { font-size: 32px; }
     .slide-experience .screens { grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    /* Feature detail slides */
+    .slide-feature,
+    .slide-feature--alt { grid-template-columns: 1fr; }
+    .slide-feature .left,
+    .slide-feature--alt .right { padding: 60px 28px 20px; }
+    .slide-feature .right,
+    .slide-feature--alt .left { padding: 20px 28px 40px; }
+    .slide-feature h2 { font-size: 32px; }
+    .slide-feature .right img,
+    .slide-feature--alt .left img { max-height: 40vh; }
 
     /* Slide 12 — Outcomes */
     .slide-outcomes {

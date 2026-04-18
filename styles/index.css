@@ -506,10 +506,25 @@
     margin-bottom: 80px;
     line-height: 1.05;
   }
+  .slide-cases--single {
+    align-items: center;
+  }
+  .slide-cases--single h2 {
+    text-align: center;
+  }
+  .card--featured {
+    width: 100%;
+    max-width: 840px;
+    min-height: 440px;
+  }
+  .card--featured.card--sidequests {
+    max-width: 840px;
+    min-height: 240px;
+  }
   .case-studies {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    gap: 36px;
   }
   .card {
     background-color: var(--card-bg, var(--white));
@@ -573,6 +588,38 @@
     --card-border: #d3cbff;
     --card-accent: #6f5be8;
     --card-shadow: rgba(111,91,232,0.14);
+  }
+  .card--sidequests {
+    --card-bg: #ece8ff;
+    --card-accent: #6f5be8;
+    --card-text: var(--gray-900);
+    --card-shadow: rgba(111,91,232,0.14);
+    grid-column: 1 / -1;
+    min-height: 180px;
+    margin-top: 12px;
+    background-image: none;
+  }
+  .sidequests-icon {
+    position: absolute;
+    right: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 64px;
+    color: rgba(111,91,232,0.3);
+    z-index: 1;
+    pointer-events: none;
+    animation: mysteryPulse 3s ease-in-out infinite;
+    transition: color 0.4s ease;
+  }
+  .card--sidequests:hover .sidequests-icon {
+    color: rgba(111,91,232,0.6);
+  }
+  @keyframes mysteryPulse {
+    0%, 100% { transform: translateY(-50%) scale(1) rotate(0deg); opacity: 0.5; }
+    50% { transform: translateY(-50%) scale(1.1) rotate(8deg); opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sidequests-icon { animation: none; }
   }
   .card .card-company { color: var(--card-accent, var(--gray-500)); }
   .card h3 { color: var(--card-text, var(--gray-900)); }
@@ -857,7 +904,8 @@
     .slide-cases { padding: 60px 28px 100px; }
     .slide-cases > * { max-width: 100%; }
     .slide-cases h2 { font-size: 36px; margin-bottom: 40px; margin-top: 80px; }
-    .case-studies { grid-template-columns: 1fr; gap: 16px; }
+    .case-studies { grid-template-columns: 1fr; }
+    .card--featured { max-width: 100%; }
     .card { min-height: 240px; grid-template-columns: 1fr; }
     .card-content { max-width: 100%; padding: 28px; }
     .card h3 { font-size: 28px; }
@@ -868,6 +916,9 @@
       bottom: -30px;
       right: -40px;
     }
+    .card--sidequests { min-height: 140px; margin-top: 4px; }
+    .sidequests-icon { right: 24px; font-size: 44px; }
+    .case-studies { gap: 20px; }
 
     /* Extra credit */
     .extra-credit { margin-top: 48px; }

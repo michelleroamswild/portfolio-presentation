@@ -1,0 +1,553 @@
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --primary: #1e1533;
+    --gray-700: #3d3557;
+    --gray-500: #6e6588;
+    --white: #ffffff;
+    --cream: #f5f2fb;
+    --sand: #e4ddf0;
+    --highlight: #ece8ff;
+    --indigo: #6f5be8;
+    --indigo-soft: rgba(111,91,232,0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    background: var(--cream);
+    color: var(--primary);
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+    height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .slide {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 90px 110px;
+  }
+
+  /* SHARED ELEMENTS */
+  .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    padding: 7px 14px;
+    border-radius: 100px;
+    width: fit-content;
+    background: var(--indigo-soft);
+    color: var(--indigo);
+  }
+  .label i { font-size: 14px; }
+
+  .slide h2 {
+    font-size: clamp(48px, 5vw, 76px);
+    font-weight: 800;
+    line-height: 0.96;
+    letter-spacing: -0.03em;
+    margin-bottom: 32px;
+    color: var(--primary);
+  }
+
+  .body-text {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.55;
+    color: var(--gray-700);
+    max-width: 640px;
+  }
+
+  /* NAV */
+  .slide-nav {
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(30,21,51,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 5px 10px;
+    border-radius: 28px;
+    z-index: 1000;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .slide-nav button {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: var(--white);
+    font-size: 11px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .slide-nav button:hover { background: rgba(255,255,255,0.2); }
+  .slide-nav .dots { display: flex; align-items: center; gap: 4px; padding: 0 3px; }
+  .slide-nav .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .slide-nav .dot.active {
+    background: var(--white);
+    width: 14px;
+    border-radius: 3px;
+  }
+  .slide-nav .counter {
+    font-size: 10px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+    min-width: 30px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* HOME BUTTON */
+  .home-btn {
+    position: fixed;
+    top: 20px; left: 20px;
+    z-index: 1001;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: rgba(30,21,51,0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white);
+    font-size: 16px;
+    text-decoration: none;
+    transition: background 0.2s;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .home-btn:hover { background: var(--primary); }
+
+  /* ============================================
+     SLIDE 1 — REEL READY
+     ============================================ */
+  .slide-reelready {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 12vw;
+    align-items: center;
+    position: relative;
+  }
+  .slide-reelready .left {
+    padding: 90px 0 90px 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .slide-reelready .tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .slide-reelready .tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 100px;
+    background: var(--indigo-soft);
+    color: var(--indigo);
+  }
+  .slide-reelready .tag i { font-size: 13px; }
+  .tag-gemini {
+    background: rgba(66,133,244,0.1);
+    color: #4285f4;
+  }
+  .tag-llava {
+    background: rgba(232,91,111,0.1);
+    color: #e85b6f;
+  }
+  .slide-reelready h1 {
+    font-size: clamp(64px, 7vw, 110px);
+    font-weight: 800;
+    line-height: 0.96;
+    letter-spacing: -0.04em;
+    color: var(--primary);
+    margin-bottom: 20px;
+  }
+  .slide-reelready .subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--gray-700);
+    max-width: 440px;
+    margin-bottom: 32px;
+  }
+
+  .slide-reelready .right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px 40px;
+  }
+
+  /* iPhone mockup */
+  .iphone-frame {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 9 / 19.2;
+    border-radius: 56px;
+    background: #1a1a1a;
+    padding: 14px;
+    box-shadow:
+      0 0 0 2px #3a3a3a,
+      0 20px 60px rgba(30,21,51,0.3),
+      0 8px 24px rgba(111,91,232,0.15);
+  }
+  .iphone-screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    overflow: hidden;
+    background: var(--white);
+    position: relative;
+  }
+  .iphone-screen iframe {
+    width: 100%;
+    height: 100%;
+    padding-top: 32px;
+    border: none;
+    transform-origin: top left;
+  }
+  .iphone-notch {
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 34px;
+    background: #1a1a1a;
+    border-radius: 0 0 18px 18px;
+    z-index: 10;
+  }
+  .iphone-notch::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #2a2a3a;
+  }
+
+  /* ============================================
+     SLIDE 2 — CLIPQUERY
+     ============================================ */
+  /* ClipQuery wrapper — two snap points, one iframe */
+  .clipquery-wrapper {
+    position: relative;
+    height: calc(157vh - 200px);
+    background: var(--cream);
+  }
+  .slide-clipquery {
+    height: calc(57vh - 200px);
+    min-height: calc(57vh - 200px);
+    overflow: visible;
+    padding: 0;
+    background: transparent;
+  }
+  .slide-clipquery-full {
+    height: 100vh;
+    min-height: 100vh;
+    overflow: visible;
+    padding: 0;
+    background: transparent;
+  }
+
+  .clipquery-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: calc(62vh - 200px);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .clipquery-header .tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .clipquery-header .tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 100px;
+    background: rgba(232,91,111,0.12);
+    color: #e85b6f;
+  }
+  .clipquery-header .tag i { font-size: 13px; }
+  .clipquery-header h2 {
+    font-size: clamp(56px, 7vw, 100px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    margin-bottom: 12px;
+  }
+  .clipquery-header .subtitle {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--gray-700);
+    max-width: 520px;
+  }
+
+  /* Browser frame mockup — shared base */
+  .browser-frame {
+    border-radius: 12px;
+    background: #1a1a1a;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow:
+      0 20px 60px rgba(30,21,51,0.3),
+      0 8px 24px rgba(111,91,232,0.15);
+  }
+
+  /* ClipQuery browser — absolutely positioned across two snap points */
+  .clipquery-wrapper .browser-frame {
+    position: absolute;
+    top: calc(62vh - 200px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 88vw;
+    max-width: 1400px;
+    height: 90vh;
+  }
+  .browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    background: #2a2a2a;
+    flex-shrink: 0;
+  }
+  .browser-dots {
+    display: flex;
+    gap: 6px;
+  }
+  .browser-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  .browser-dots span:nth-child(1) { background: #ff5f57; }
+  .browser-dots span:nth-child(2) { background: #febc2e; }
+  .browser-dots span:nth-child(3) { background: #28c840; }
+  .browser-url {
+    flex: 1;
+    background: #1a1a1a;
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-family: 'Space Grotesk', monospace;
+    color: rgba(255,255,255,0.5);
+  }
+  .browser-screen {
+    flex: 1;
+    overflow: hidden;
+    background: var(--white);
+  }
+  .browser-screen iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* ============================================
+     SLIDE 4 — BOLT PLAYGROUND
+     ============================================ */
+  .slide-boltplayground {
+    background: #f0f6ff;
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    padding: 0;
+    align-items: center;
+  }
+  .slide-boltplayground .left {
+    height: 100%;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+  }
+  .slide-boltplayground .right {
+    padding: 90px 80px 90px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .slide-boltplayground .tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .slide-boltplayground .tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 100px;
+    background: rgba(0,109,255,0.1);
+    color: #006dff;
+  }
+  .slide-boltplayground .tag i { font-size: 13px; }
+  .slide-boltplayground h2 {
+    font-size: clamp(48px, 6vw, 80px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    margin-bottom: 10px;
+    color: #0a1a2f;
+  }
+  .slide-boltplayground .subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #4a6080;
+    max-width: 440px;
+  }
+  .browser-frame--bolt {
+    width: 100%;
+    height: 65vh;
+    box-shadow:
+      0 20px 60px rgba(0,109,255,0.15),
+      0 8px 24px rgba(0,109,255,0.1);
+  }
+
+  /* ============================================
+     SLIDE 5 — THANKS
+     ============================================ */
+  .slide-thanks {
+    background: var(--primary);
+    align-items: center;
+    text-align: center;
+  }
+  .slide-thanks h1 {
+    font-size: clamp(72px, 10vw, 140px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 0.96;
+    color: var(--white);
+  }
+  .slide-thanks .questions {
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.4);
+    margin-top: 16px;
+  }
+  .slide-thanks .next-link {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.5);
+    font-size: 20px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .slide-thanks .next-link:hover {
+    background: rgba(255,255,255,0.15);
+    color: var(--white);
+  }
+
+  /* ============================================
+     MOBILE
+     ============================================ */
+  @media (max-width: 768px) {
+    body { scroll-snap-type: y proximity; }
+    .slide {
+      padding: 60px 28px;
+      height: auto;
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
+
+    .slide-reelready {
+      grid-template-columns: 1fr;
+      padding: 80px 28px 40px;
+    }
+    .slide-reelready .left { padding: 0; }
+    .slide-reelready h1 { font-size: clamp(48px, 11vw, 72px); }
+    .slide-reelready .subtitle { font-size: 16px; margin-bottom: 32px; }
+    .slide-reelready .right { padding: 20px 0; }
+    .iphone-frame {
+      width: 220px;
+      height: 460px;
+      border-radius: 36px;
+      padding: 10px;
+    }
+    .iphone-screen { border-radius: 28px; }
+    .iphone-notch { width: 80px; height: 24px; border-radius: 0 0 14px 14px; }
+
+    .clipquery-header { top: 18vh; padding: 0 20px; }
+    .clipquery-header h2 { font-size: clamp(40px, 10vw, 64px); }
+    .clipquery-header .subtitle { font-size: 15px; }
+    .browser-frame { top: 72vh; width: calc(100vw - 32px); max-width: none; }
+
+    .slide-boltplayground { grid-template-columns: 1fr; padding: 80px 20px 40px; }
+    .slide-boltplayground .left { padding: 0; height: auto; }
+    .slide-boltplayground .right { padding: 20px 0 0; }
+    .slide-boltplayground h2 { font-size: clamp(36px, 9vw, 56px); }
+    .slide-boltplayground .subtitle { font-size: 15px; }
+    .browser-frame--bolt { height: 45vh; }
+
+    .slide-nav { bottom: 16px; padding: 5px 10px; }
+  }

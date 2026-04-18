@@ -96,16 +96,15 @@
   <div class="tools-label">Tools &amp; Stack</div>
   <div class="tools-row">
     <span class="tool-chip"><i class="ph-duotone ph-terminal-window"></i> Claude Code</span>
-    <span class="tool-chip"><i class="ph-duotone ph-heart"></i> Loveable</span>
+    <span class="tool-chip"><i class="ph-duotone ph-heart"></i> Lovable</span>
     <span class="tool-chip"><i class="ph-duotone ph-chat-circle-dots"></i> ChatGPT</span>
     <span class="tool-chip"><i class="ph-duotone ph-atom"></i> React</span>
+    <span class="tool-chip"><i class="ph-duotone ph-code"></i> Python / FastAPI</span>
     <span class="tool-chip"><i class="ph-duotone ph-github-logo"></i> GitHub</span>
     <span class="tool-chip"><i class="ph-duotone ph-database"></i> Supabase</span>
     <span class="tool-chip"><i class="ph-duotone ph-triangle"></i> Vercel</span>
     <span class="tool-chip"><i class="ph-duotone ph-paint-brush"></i> Procreate</span>
     <span class="tool-chip"><i class="ph-duotone ph-notebook"></i> Notion</span>
-    <span class="tool-chip"><i class="ph-duotone ph-package"></i> NPM</span>
-    <span class="tool-chip"><i class="ph-duotone ph-command"></i> Terminal</span>
   </div>
 </div>
 
@@ -138,8 +137,8 @@
   <div class="shifts">
     <div class="shift">
       <div class="num">Who</div>
-      <div class="from-to">Road-based travelers</div>
-      <p>People who explore by vehicle — van lifers, overlanders, and road trippers who want to discover new places and need to make decisions about where to stop and camp.</p>
+      <div class="from-to">Overlanders &amp; dispersed campers</div>
+      <p>People who camp off-grid on public land — overlanders and van lifers navigating BLM, USFS, and forest roads who need to make real decisions about where to stop.</p>
     </div>
     <div class="shift">
       <div class="num">Struggles</div>
@@ -183,8 +182,8 @@
     <div class="stage">
       <div class="stage-label">Processing</div>
       <div class="stage-row">
-        <span class="pill"><i class="ph-bold ph-brain"></i> Heuristic + AI scoring</span>
-        <span class="pill"><i class="ph-bold ph-gauge"></i> Confidence modeling</span>
+        <span class="pill"><i class="ph-bold ph-brain"></i> Algorithmic scoring engine</span>
+        <span class="pill"><i class="ph-bold ph-gauge"></i> Multi-factor scoring with transparency</span>
       </div>
     </div>
     <div class="arrow-down"><i class="ph-bold ph-caret-down"></i></div>
@@ -266,6 +265,10 @@
           <div class="algo-name"><span class="acronym">LAA</span> Light at Anchor</div>
           <div class="algo-desc">Verifies whether anchor features actually receive direct sunlight via ray-marched shadow checks against the DEM.</div>
         </div>
+        <div class="algo algo-formula">
+          <div class="algo-name">Combined Score</div>
+          <div class="algo-desc">DAGS × (0.70 + 0.30 × VAS) × (0.75 + 0.25 × LAA) — scores compound hierarchically, not independently. VAS and LAA act as multipliers on the base glow score.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -300,8 +303,8 @@
       <div class="context-item">
         <div class="icon"><i class="ph-bold ph-shield-check"></i></div>
         <div class="text">
-          <h4>Auth-aware by default</h4>
-          <p>Row-level security via Supabase Auth means user-owned data is isolated without writing custom permission logic.</p>
+          <h4>Row-level security on every user-facing table</h4>
+          <p>127 RLS policies across 38 tables via Supabase Auth — user-owned data is isolated without writing custom permission logic.</p>
         </div>
       </div>
       <div class="context-item">
@@ -385,32 +388,90 @@
 </div>
 
 <!-- ================================================
-     SLIDE 11 — THE EXPERIENCE
+     SLIDE 11 — THE EXPERIENCE (OVERVIEW)
      ================================================ -->
 <div class="slide slide-experience">
   <div class="label"><i class="ph-bold ph-device-mobile"></i> The Experience</div>
   <h2>Lightweight. Exploratory. Confident.</h2>
   <p class="body-text">Instead of overwhelming users with filters and data, RoamsWild surfaces curated results with reasoning attached — designed for the moment you're on the road and need to decide.</p>
-  <div class="screens">
-    <div class="screen">
-      <div class="img-wrap"><img src="assets/roamswild/photoweather-ns.png" alt="Photo Weather Conditions"></div>
-      <div class="screen-label">Feature 01</div>
-      <div class="screen-name">Photo Weather Conditions</div>
+</div>
+
+<!-- ================================================
+     SLIDE 12 — FEATURE: DISPERSED EXPLORER
+     ================================================ -->
+<div class="slide slide-feature">
+  <div class="left">
+    <div class="feature-num">Feature 01</div>
+    <h2>Dispersed Explorer</h2>
+    <p class="body-text">The core discovery experience. A map-based interface with public land boundaries, BLM/USFS overlays, road access networks, and scored camping spots — designed for finding off-grid sites you'd never find on a review app.</p>
+    <div class="feature-highlights">
+      <div class="feature-highlight"><i class="ph-bold ph-map-trifold"></i> Public land boundary overlays</div>
+      <div class="feature-highlight"><i class="ph-bold ph-road-horizon"></i> Road access &amp; surface type</div>
+      <div class="feature-highlight"><i class="ph-bold ph-map-pin"></i> Scored spot clustering</div>
+      <div class="feature-highlight"><i class="ph-bold ph-funnel"></i> Contextual filtering</div>
     </div>
-    <div class="screen">
-      <div class="img-wrap"><img src="assets/roamswild/besthikestoday-ns.png" alt="Best Hikes Today"></div>
-      <div class="screen-label">Feature 02</div>
-      <div class="screen-name">Best Hikes Today</div>
+  </div>
+  <div class="right">
+    <img src="assets/roamswild/Exploretab.png" alt="Dispersed Explorer map view">
+  </div>
+</div>
+
+<!-- ================================================
+     SLIDE 13 — FEATURE: TRIP PLANNER
+     ================================================ -->
+<div class="slide slide-feature slide-feature--alt">
+  <div class="left">
+    <img src="assets/roamswild/Tripdetail.png" alt="Trip Planner detail view">
+  </div>
+  <div class="right">
+    <div class="feature-num">Feature 02</div>
+    <h2>Trip Planner</h2>
+    <p class="body-text">AI-assisted trip building with day-by-day itinerary generation. Tell it where you're headed and how long you have — it builds a route with camping spots, stops, and timing based on real terrain and weather data.</p>
+    <div class="feature-highlights">
+      <div class="feature-highlight"><i class="ph-bold ph-robot"></i> AI-generated itineraries</div>
+      <div class="feature-highlight"><i class="ph-bold ph-calendar-check"></i> Day-by-day planning</div>
+      <div class="feature-highlight"><i class="ph-bold ph-path"></i> Route-aware suggestions</div>
+      <div class="feature-highlight"><i class="ph-bold ph-cloud-sun"></i> Weather-integrated timing</div>
     </div>
-    <div class="screen">
-      <div class="img-wrap"><img src="assets/roamswild/surprisemesmall-ns.png" alt="Surprise Me"></div>
-      <div class="screen-label">Feature 03</div>
-      <div class="screen-name">Surprise Me</div>
+  </div>
+</div>
+
+<!-- ================================================
+     SLIDE 14 — FEATURE: THE LIGHT REPORT
+     ================================================ -->
+<div class="slide slide-feature">
+  <div class="left">
+    <div class="feature-num">Feature 03</div>
+    <h2>The Light Report</h2>
+    <p class="body-text">A sunrise/sunset photography forecast built on terrain visibility analysis. It tells you not just when golden hour is, but whether the light will actually hit the features you care about — using the DAGS, VAS, and LAA scoring pipeline.</p>
+    <div class="feature-highlights">
+      <div class="feature-highlight"><i class="ph-bold ph-sun-horizon"></i> Golden hour forecasting</div>
+      <div class="feature-highlight"><i class="ph-bold ph-mountains"></i> Terrain visibility analysis</div>
+      <div class="feature-highlight"><i class="ph-bold ph-compass"></i> Viewpoint recommendations</div>
+      <div class="feature-highlight"><i class="ph-bold ph-camera"></i> Photography-optimized</div>
     </div>
-    <div class="screen">
-      <div class="img-wrap"><img src="assets/roamswild/photoscout-ns.png" alt="Photo Scout"></div>
-      <div class="screen-label">Feature 04</div>
-      <div class="screen-name">Photo Scout</div>
+  </div>
+  <div class="right">
+    <img src="assets/roamswild/photoweather-ns.png" alt="The Light Report">
+  </div>
+</div>
+
+<!-- ================================================
+     SLIDE 15 — FEATURE: SURPRISE ME
+     ================================================ -->
+<div class="slide slide-feature slide-feature--alt">
+  <div class="left">
+    <img src="assets/roamswild/surprisemesmall-ns.png" alt="Surprise Me">
+  </div>
+  <div class="right">
+    <div class="feature-num">Feature 04</div>
+    <h2>Surprise Me</h2>
+    <p class="body-text">Serendipity-driven region recommendations with diversity scoring. When you don't know where to go, Surprise Me surfaces regions you wouldn't have searched for — weighted to avoid repetition and favor variety.</p>
+    <div class="feature-highlights">
+      <div class="feature-highlight"><i class="ph-bold ph-shuffle"></i> Diversity-weighted selection</div>
+      <div class="feature-highlight"><i class="ph-bold ph-compass"></i> Region-level discovery</div>
+      <div class="feature-highlight"><i class="ph-bold ph-star"></i> Quality-scored results</div>
+      <div class="feature-highlight"><i class="ph-bold ph-arrow-clockwise"></i> Non-repeating recommendations</div>
     </div>
   </div>
 </div>
@@ -466,8 +527,8 @@
     </div>
     <div class="lesson">
       <div class="icon"><i class="ph-bold ph-funnel"></i></div>
-      <h3>Constraint is the whole game in 0→1</h3>
-      <p>Deciding what NOT to build is the hardest and most valuable work. AI makes it easier than ever to ship junk fast.</p>
+      <h3>Coherence is harder than generation</h3>
+      <p>The hardest part of working with AI isn't generating code — it's maintaining coherence across a growing system. 68 migrations, 15+ scoring utilities, and a Python backend that all need to agree.</p>
     </div>
     <div class="lesson">
       <div class="icon"><i class="ph-bold ph-robot"></i></div>
@@ -496,8 +557,8 @@
     </div>
     <div class="idea">
       <div class="num">Idea 03</div>
-      <h3>Expanded data sources</h3>
-      <p>Integrate offline maps, additional terrain APIs, and trail networks to reduce uncertainty in remote environments.</p>
+      <h3>Offline-capable maps</h3>
+      <p>Downloadable map tiles and cached scoring data for areas without cell coverage — essential for the dispersed camping use case.</p>
     </div>
   </div>
   <div class="footer">Thanks — Michelle Taylor</div>
