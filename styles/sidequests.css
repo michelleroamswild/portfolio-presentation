@@ -148,7 +148,36 @@
   .home-btn:hover { background: var(--primary); }
 
   /* ============================================
-     SLIDE 1 — REEL READY
+     SLIDE 1 — INTRO
+     ============================================ */
+  .slide-sq-intro {
+    background: var(--primary);
+    align-items: center;
+    text-align: center;
+  }
+  .slide-sq-intro .label {
+    background: rgba(111,91,232,0.2);
+    color: var(--indigo);
+  }
+  .slide-sq-intro h1 {
+    font-size: clamp(56px, 7vw, 100px);
+    font-weight: 800;
+    line-height: 0.96;
+    letter-spacing: -0.04em;
+    color: var(--white);
+    max-width: 900px;
+    margin-bottom: 20px;
+  }
+  .slide-sq-intro .subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.5);
+    max-width: 600px;
+  }
+
+  /* ============================================
+     SLIDE 2 — REEL READY
      ============================================ */
   .slide-reelready {
     background: var(--cream);
@@ -509,6 +538,101 @@
   }
 
   /* ============================================
+     SLIDE 5 — FINALE
+     ============================================ */
+  .slide-finale {
+    background: var(--primary);
+    align-items: center;
+    text-align: center;
+    gap: 0;
+  }
+  .slide-finale h1 {
+    font-size: clamp(56px, 8vw, 100px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 0.96;
+    color: var(--white);
+  }
+  .slide-finale .end-sub {
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.4);
+    margin-top: 12px;
+    margin-bottom: 60px;
+  }
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 100%;
+    max-width: 1200px;
+  }
+  .project-card {
+    position: relative;
+    border-radius: 20px;
+    padding: 36px 32px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    min-height: 260px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--white);
+  }
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+  }
+  .project-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .project-card h3 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  .project-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.5);
+    flex: 1;
+  }
+  .project-arrow {
+    font-size: 18px;
+    color: rgba(255,255,255,0.3);
+    transition: transform 0.3s ease;
+  }
+  .project-card:hover .project-arrow {
+    transform: translate(3px, -3px);
+  }
+  .project-card--bolt .project-label { color: #E6FF00; }
+  .project-card--bolt:hover .project-arrow { color: #E6FF00; }
+  .project-card--roamswild .project-label { color: #a5c94a; }
+  .project-card--roamswild:hover .project-arrow { color: #a5c94a; }
+  .project-card--sidequests .project-label { color: #a99cf0; }
+  .project-card--sidequests:hover .project-arrow { color: #a99cf0; }
+  .back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 40px;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .back-home:hover { color: rgba(255,255,255,0.7); }
+  .back-home i { font-size: 12px; }
+
+  /* ============================================
      MOBILE
      ============================================ */
   @media (max-width: 768px) {
@@ -519,6 +643,9 @@
       min-height: 100vh;
       min-height: 100dvh;
     }
+
+    .slide-sq-intro h1 { font-size: clamp(40px, 10vw, 64px); }
+    .slide-sq-intro .subtitle { font-size: 16px; }
 
     .slide-reelready {
       grid-template-columns: 1fr;
@@ -548,6 +675,12 @@
     .slide-boltplayground h2 { font-size: clamp(36px, 9vw, 56px); }
     .slide-boltplayground .subtitle { font-size: 15px; }
     .browser-frame--bolt { height: 45vh; }
+
+    .slide-finale h1 { font-size: clamp(40px, 10vw, 64px); }
+    .slide-finale .end-sub { font-size: 16px; margin-bottom: 24px; }
+    .project-grid { grid-template-columns: 1fr; gap: 12px; }
+    .project-card { min-height: auto; padding: 24px 20px; }
+    .project-card h3 { font-size: 20px; }
 
     .slide-nav { bottom: 16px; padding: 5px 10px; }
   }

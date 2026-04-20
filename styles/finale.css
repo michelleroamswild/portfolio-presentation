@@ -1,0 +1,236 @@
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --black: #1a1a1a;
+    --white: #ffffff;
+    --gray-50: #fafafa;
+    --gray-400: #a3a3a3;
+    --gray-500: #737373;
+    --gray-700: #404040;
+    --gray-900: #171717;
+    --indigo: #6f5be8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-900);
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+    height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .slide {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 90px 110px;
+  }
+
+  /* NAV */
+  .slide-nav {
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(26,26,26,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 5px 10px;
+    border-radius: 28px;
+    z-index: 1000;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .slide-nav button {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: var(--white);
+    font-size: 11px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .slide-nav button:hover { background: rgba(255,255,255,0.2); }
+  .slide-nav .dots { display: flex; align-items: center; gap: 4px; padding: 0 3px; }
+  .slide-nav .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .slide-nav .dot.active {
+    background: var(--white);
+    width: 14px;
+    border-radius: 3px;
+  }
+  .slide-nav .counter {
+    font-size: 10px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+    min-width: 30px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* HOME BUTTON */
+  .home-btn {
+    position: fixed;
+    top: 20px; left: 20px;
+    z-index: 1001;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: rgba(26,26,26,0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--white);
+    font-size: 16px;
+    text-decoration: none;
+    transition: background 0.2s;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .home-btn:hover { background: var(--black); }
+
+  /* ============================================
+     SLIDE 1 — THE END
+     ============================================ */
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 100%;
+    max-width: 1200px;
+  }
+  .project-card {
+    position: relative;
+    border-radius: 20px;
+    padding: 36px 32px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    min-height: 260px;
+  }
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+  }
+  .project-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .project-card h3 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  .project-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    flex: 1;
+  }
+  .project-arrow {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+  }
+  .project-card:hover .project-arrow {
+    transform: translate(3px, -3px);
+  }
+
+  /* Card themes */
+  .project-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--white);
+  }
+  .project-card p { color: rgba(255,255,255,0.5); }
+  .project-card .project-arrow { color: rgba(255,255,255,0.3); }
+
+  .project-card--bolt .project-label { color: #E6FF00; }
+  .project-card--bolt:hover .project-arrow { color: #E6FF00; }
+
+  .project-card--roamswild .project-label { color: #a5c94a; }
+  .project-card--roamswild:hover .project-arrow { color: #a5c94a; }
+
+  .project-card--sidequests .project-label { color: #a99cf0; }
+  .project-card--sidequests:hover .project-arrow { color: #a99cf0; }
+
+  .slide-end {
+    background: var(--black);
+    align-items: center;
+    text-align: center;
+    gap: 0;
+  }
+  .slide-end h1 {
+    font-size: clamp(56px, 8vw, 100px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 0.96;
+    color: var(--white);
+  }
+  .back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 40px;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.35);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .back-home:hover { color: rgba(255,255,255,0.7); }
+  .back-home i { font-size: 12px; }
+  .slide-end .end-sub {
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.4);
+    margin-top: 12px;
+    margin-bottom: 60px;
+  }
+
+  /* ============================================
+     MOBILE
+     ============================================ */
+  @media (max-width: 768px) {
+    body { scroll-snap-type: y proximity; }
+    .slide {
+      padding: 60px 28px;
+      height: auto;
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
+
+    .slide-end h1 { font-size: clamp(40px, 10vw, 64px); }
+    .slide-end .end-sub { font-size: 16px; margin-bottom: 24px; }
+    .project-grid { grid-template-columns: 1fr; gap: 12px; }
+    .project-card { min-height: auto; padding: 24px 20px; }
+    .project-card h3 { font-size: 20px; }
+
+    .slide-nav { bottom: 16px; padding: 5px 10px; }
+  }

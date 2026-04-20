@@ -3,33 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Michelle Taylor — Clip Query</title>
+<title>Michelle Taylor — The End</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css">
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css">
-<link rel="stylesheet" href="styles/clipquery.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/duotone/style.css">
+<link rel="stylesheet" href="styles/finale.css">
 </head>
 <body>
 
 <a href="index.html" class="home-btn"><i class="ph-bold ph-house-simple"></i></a>
 
-<!-- SLIDE 1: TITLE -->
-<div class="slide slide-title">
-  <div class="tag"><i class="ph-bold ph-magnifying-glass"></i> Extra Credit</div>
-  <h1>Clip Query</h1>
-  <p class="subtitle">A short description of Clip Query goes here. Replace this copy when you're ready to flesh out the deck.</p>
+<!-- ================================================
+     SLIDE 1 — THE END + PROJECT OVERVIEW
+     ================================================ -->
+<div class="slide slide-end">
+  <h1>That's a wrap.</h1>
+  <p class="end-sub">Thanks for looking. Here's what we covered.</p>
+  <div class="project-grid">
+    <a class="project-card project-card--bolt" href="onboarding.html">
+      <div class="project-label">Bolt</div>
+      <h3>Onboarding Acceleration</h3>
+      <p>Redesigned onboarding to cut activation time from 70+ days to minutes.</p>
+      <span class="project-arrow"><i class="ph-bold ph-arrow-up-right"></i></span>
+    </a>
+    <a class="project-card project-card--roamswild" href="roamswild.html">
+      <div class="project-label">Personal Project</div>
+      <h3>RoamsWild</h3>
+      <p>A data-driven exploration tool for overlanders. Five APIs, algorithmic scoring, and AI satellite analysis.</p>
+      <span class="project-arrow"><i class="ph-bold ph-arrow-up-right"></i></span>
+    </a>
+    <a class="project-card project-card--sidequests" href="sidequests.html">
+      <div class="project-label">Explorations</div>
+      <h3>Side Quests</h3>
+      <p>Reel Ready, ClipQuery, and Bolt Playground — personal tools and experiments.</p>
+      <span class="project-arrow"><i class="ph-bold ph-arrow-up-right"></i></span>
+    </a>
+  </div>
+  <a class="back-home" href="index.html"><i class="ph-bold ph-arrow-left"></i> Back to start</a>
 </div>
 
-<!-- SLIDE 2: PLACEHOLDER -->
-<div class="slide slide-placeholder">
-  <div class="label"><i class="ph-bold ph-pencil-simple"></i> Work in Progress</div>
-  <h2>This deck is being built.</h2>
-  <p>Add new <code>&lt;div class="slide"&gt;</code> blocks below this one to extend the deck. The slide nav and home button are wired automatically.</p>
-  <div class="hint">Edit clipquery.html to add your content</div>
-</div>
-
+<!-- NAVIGATION SCRIPT -->
 <script>
 (function() {
   const nav = document.createElement('div');
@@ -106,7 +123,6 @@
     if (inFs) sessionStorage.setItem(FS_KEY, '1');
     else if (!isUnloading) sessionStorage.removeItem(FS_KEY);
   });
-  // Intercept link clicks while in fullscreen to mark as navigating
   document.addEventListener('click', (e) => {
     const link = e.target.closest('a[href]');
     if (link && document.fullscreenElement) isUnloading = true;

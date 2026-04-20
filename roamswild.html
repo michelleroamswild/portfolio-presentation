@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RoamsWild — Michelle Taylor</title>
+<title>Michelle Taylor — RoamsWild</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -159,7 +159,7 @@
 <div class="slide slide-system">
   <div class="left">
     <div class="label"><i class="ph-bold ph-graph"></i> The System</div>
-    <h2>This become a whole system.</h2>
+    <h2>This became a whole system.</h2>
     <p class="body-text">RoamsWild is a set of decision-support systems. Open data feeds, modern APIs, and AI scoring combine into recommendations a person can actually trust — and understand.</p>
     <div class="pillars">
       <div class="pillar"><i class="ph-bold ph-check-circle"></i> Signals over reviews — terrain, weather, sun azimuth, access</div>
@@ -171,11 +171,12 @@
     <div class="stage">
       <div class="stage-label">Inputs</div>
       <div class="stage-row">
-        <span class="pill"><i class="ph-bold ph-mountains"></i> Terrain</span>
+        <span class="pill"><i class="ph-bold ph-mountains"></i> Terrain &amp; elevation</span>
         <span class="pill"><i class="ph-bold ph-sun-horizon"></i> Sun &amp; light</span>
-        <span class="pill"><i class="ph-bold ph-cloud-rain"></i> Weather</span>
-        <span class="pill"><i class="ph-bold ph-road-horizon"></i> Road &amp; access</span>
-        <span class="pill"><i class="ph-bold ph-tree"></i> Public lands</span>
+        <span class="pill"><i class="ph-bold ph-cloud-rain"></i> Weather &amp; atmosphere</span>
+        <span class="pill"><i class="ph-bold ph-road-horizon"></i> Road &amp; access networks</span>
+        <span class="pill"><i class="ph-bold ph-tree"></i> Public land boundaries</span>
+        <span class="pill"><i class="ph-bold ph-globe"></i> Satellite imagery</span>
       </div>
     </div>
     <div class="arrow-down"><i class="ph-bold ph-caret-down"></i></div>
@@ -183,7 +184,8 @@
       <div class="stage-label">Processing</div>
       <div class="stage-row">
         <span class="pill"><i class="ph-bold ph-brain"></i> Algorithmic scoring engine</span>
-        <span class="pill"><i class="ph-bold ph-gauge"></i> Multi-factor scoring with transparency</span>
+        <span class="pill"><i class="ph-bold ph-eye"></i> AI vision analysis (Gemini)</span>
+        <span class="pill"><i class="ph-bold ph-database"></i> Cached intelligence</span>
       </div>
     </div>
     <div class="arrow-down"><i class="ph-bold ph-caret-down"></i></div>
@@ -191,7 +193,8 @@
       <div class="stage-label">Output</div>
       <div class="stage-row">
         <span class="pill"><i class="ph-bold ph-compass"></i> Ranked, contextual recommendations</span>
-        <span class="pill"><i class="ph-bold ph-chat-circle-text"></i> Plain-language reasoning</span>
+        <span class="pill"><i class="ph-bold ph-chat-circle-text"></i> Plain-language reasoning from AI</span>
+        <span class="pill"><i class="ph-bold ph-gauge"></i> Per-spot assessments</span>
       </div>
     </div>
   </div>
@@ -201,218 +204,91 @@
      SLIDE 8 — KEY DECISIONS
      ================================================ -->
 <div class="slide slide-decisions">
-  <div class="left">
-    <div class="label"><i class="ph-bold ph-scales"></i> Key Decisions</div>
-    <h2>Quality over quantity. Always.</h2>
-    <p class="body-text">The biggest decisions weren't about features — they were about restraint. Saying "no" to scope kept the experience focused and the system trustworthy.</p>
-    <div class="cards">
-      <div class="card">
-        <div class="num">Decision 01</div>
-        <h3>Quality over quantity</h3>
-        <p>Surface the few options that actually match real conditions and intent — not every result.</p>
-      </div>
-      <div class="card">
-        <div class="num">Decision 02</div>
-        <h3>Exploration, not search</h3>
-        <p>Designed for browsing and serendipity. Less filtering, more guided discovery.</p>
-      </div>
-      <div class="card">
-        <div class="num">Decision 03</div>
-        <h3>Limited scope, deep value</h3>
-        <p>A few high-value experiences beat a feature-rich product. Saying no kept the bar high.</p>
-      </div>
+  <div class="browser-frame">
+    <div class="browser-bar">
+      <div class="browser-dots"><span></span><span></span><span></span></div>
+      <div class="browser-url">roamswild.com</div>
     </div>
-  </div>
-  <div class="right-image map-embed">
-    <iframe src="https://www.roamswild.com/map-preview" title="RoamsWild map preview" loading="lazy"></iframe>
+    <div class="browser-screen map-embed">
+      <iframe src="https://www.roamswild.com/" title="RoamsWild live experience" loading="lazy"></iframe>
+    </div>
   </div>
 </div>
 
 <!-- ================================================
-     SLIDE 9 — UNDER THE HOOD
+     SLIDE 9 — UNDER THE HOOD (EXPLORER PIPELINE)
      ================================================ -->
 <div class="slide slide-tech">
   <div class="header">
     <div class="label"><i class="ph-bold ph-circuitry"></i> Under the Hood</div>
-    <h2>Real signals. Open data. A custom scoring engine.</h2>
-    <p class="body-text">RoamsWild combines public APIs, terrain math, and a PostGIS database to turn raw geographic data into recommendations that explain themselves.</p>
+    <h2>All the data. None of the homework.</h2>
+    <p class="body-text">RoamsWild ingests road networks, public land boundaries, terrain profiles, and satellite imagery — then distills it into recommendations you can act on without cross-referencing four apps. The system does the analysis so the user just decides: stop here, or keep driving.</p>
+  </div>
+  <div class="tech-data-row">
+    <div class="col-label">Data Sources</div>
+    <div class="chips">
+      <span class="chip"><i class="ph-bold ph-tree"></i> USFS MVUM</span>
+      <span class="chip"><i class="ph-bold ph-mountains"></i> BLM Roads</span>
+      <span class="chip"><i class="ph-bold ph-map-pin"></i> OpenStreetMap</span>
+      <span class="chip"><i class="ph-bold ph-tent"></i> Recreation.gov</span>
+      <span class="chip"><i class="ph-bold ph-cloud-rain"></i> Open-Meteo</span>
+      <span class="chip"><i class="ph-bold ph-cloud-sun"></i> Tomorrow.io</span>
+      <span class="chip"><i class="ph-bold ph-globe"></i> Google Maps</span>
+      <span class="chip"><i class="ph-bold ph-mountains"></i> DEM Terrain</span>
+    </div>
   </div>
   <div class="stack-grid">
     <div>
-      <div class="col-label">External APIs</div>
-      <div class="chips">
-        <span class="chip"><i class="ph-bold ph-cloud-rain"></i> Open-Meteo</span>
-        <span class="chip"><i class="ph-bold ph-cloud-sun"></i> Tomorrow.io</span>
-        <span class="chip"><i class="ph-bold ph-map-pin"></i> OpenStreetMap</span>
-        <span class="chip"><i class="ph-bold ph-tent"></i> Recreation.gov</span>
-        <span class="chip"><i class="ph-bold ph-database"></i> RIDB</span>
-        <span class="chip"><i class="ph-bold ph-globe"></i> Google Maps</span>
-        <span class="chip"><i class="ph-bold ph-mountains"></i> DEM terrain</span>
+      <div class="col-label">Scoring</div>
+      <div class="algo">
+        <div class="algo-name"><i class="ph-bold ph-gauge"></i> Custom Heuristic Engine</div>
+        <div class="algo-desc">Multi-factor weighted scoring for campsites, regions, photography conditions, and trip feasibility.</div>
+      </div>
+      <div class="algo">
+        <div class="algo-name"><i class="ph-bold ph-sun-horizon"></i> DAGS / VAS / LAA</div>
+        <div class="algo-desc">Terrain-aware photography scoring using elevation models, curvature analysis, and ray-marched shadow checks.</div>
       </div>
     </div>
     <div>
-      <div class="col-label">Scoring Algorithms</div>
-      <div class="algos">
-        <div class="algo">
-          <div class="algo-name"><span class="acronym">DAGS</span> Distant Atmospheric Glow Score</div>
-          <div class="algo-desc">Rates viewpoints for layered terrain glow at sunrise/sunset using depth, openness, rim elevation, and sun-angle clearance.</div>
-        </div>
-        <div class="algo">
-          <div class="algo-name"><span class="acronym">VAS</span> Visual Anchor Score</div>
-          <div class="algo-desc">Detects salient terrain features — ridgelines, spires, mesas — inside the camera view cone using curvature and slope-break analysis.</div>
-        </div>
-        <div class="algo">
-          <div class="algo-name"><span class="acronym">LAA</span> Light at Anchor</div>
-          <div class="algo-desc">Verifies whether anchor features actually receive direct sunlight via ray-marched shadow checks against the DEM.</div>
-        </div>
-        <div class="algo algo-formula">
-          <div class="algo-name">Combined Score</div>
-          <div class="algo-desc">DAGS × (0.70 + 0.30 × VAS) × (0.75 + 0.25 × LAA) — scores compound hierarchically, not independently. VAS and LAA act as multipliers on the base glow score.</div>
-        </div>
+      <div class="col-label">AI</div>
+      <div class="algo">
+        <div class="algo-name"><i class="ph-bold ph-diamond"></i> Gemini 2.5 Flash</div>
+        <div class="algo-desc">Vision analysis of satellite imagery, natural language reasoning across structured data.</div>
+      </div>
+      <div class="algo">
+        <div class="algo-name"><i class="ph-bold ph-chat-circle-text"></i> Claude Haiku</div>
+        <div class="algo-desc">Conversational trip generation from natural language input.</div>
       </div>
     </div>
   </div>
-</div>
-
-<!-- ================================================
-     SLIDE 10 — DATABASE SCHEMA
-     ================================================ -->
-<div class="slide slide-schema">
-  <div class="header">
-    <div class="label"><i class="ph-bold ph-database"></i> The Schema</div>
-    <h2>A geospatial database, built for decisions.</h2>
-    <p class="body-text">Designing the data was half the work. RoamsWild stores boundaries, road networks, and derived spots as native PostGIS geometry — so the scoring engine can reason about real-world geography, not just rows of text.</p>
+  <div class="tech-principle">
+    <i class="ph-bold ph-lightbulb-filament"></i>
+    <span class="tech-principle-text">Algorithms handle volume.<br><br>AI handles judgment.</span>
   </div>
-  <div class="schema-grid">
-    <div class="context">
-      <div class="context-label">Why this schema</div>
-      <div class="context-item">
-        <div class="icon"><i class="ph-bold ph-globe-hemisphere-west"></i></div>
-        <div class="text">
-          <h4>Native geometry, not strings</h4>
-          <p>POINT, LINESTRING, and POLYGON columns with GIST indexes — spatial queries instead of lat/lng filtering.</p>
-        </div>
-      </div>
-      <div class="context-item">
-        <div class="icon"><i class="ph-bold ph-stack"></i></div>
-        <div class="text">
-          <h4>Layered by purpose</h4>
-          <p>User data, geospatial layers, scoring outputs, and reference data live in distinct domains so each can evolve independently.</p>
-        </div>
-      </div>
-      <div class="context-item">
-        <div class="icon"><i class="ph-bold ph-shield-check"></i></div>
-        <div class="text">
-          <h4>Row-level security on every user-facing table</h4>
-          <p>127 RLS policies across 38 tables via Supabase Auth — user-owned data is isolated without writing custom permission logic.</p>
-        </div>
-      </div>
-      <div class="context-item">
-        <div class="icon"><i class="ph-bold ph-lightning"></i></div>
-        <div class="text">
-          <h4>Pre-computed where it matters</h4>
-          <p>Region metrics and derived spots are scored offline so the live experience stays fast — no scoring at request time.</p>
-        </div>
-      </div>
-    </div>
-    <div class="schema">
-      <div class="schema-title">
-        <i class="ph-bold ph-database"></i> Database Schema
-        <span class="badge">PostGIS</span>
-      </div>
-      <div class="schema-tier">
-        <div class="tier-label">Users</div>
-        <div class="tier-cards">
-          <div class="db-card">
-            <div class="db-name">profiles</div>
-            <div class="db-cols">id · email · name</div>
-          </div>
-          <div class="db-card">
-            <div class="db-name">saved_trips</div>
-            <div class="db-cols">user_id · days · config</div>
-          </div>
-        </div>
-      </div>
-      <div class="schema-divider"></div>
-      <div class="schema-tier">
-        <div class="tier-label">Geospatial</div>
-        <div class="tier-cards three">
-          <div class="db-card">
-            <div class="db-name">public_lands</div>
-            <div class="db-cols">boundary · agency · rules</div>
-          </div>
-          <div class="db-card">
-            <div class="db-name">road_segments</div>
-            <div class="db-cols">geom · surface · access</div>
-          </div>
-          <div class="db-card">
-            <div class="db-name">potential_spots</div>
-            <div class="db-cols">point · score · conf</div>
-          </div>
-        </div>
-      </div>
-      <div class="schema-divider"></div>
-      <div class="schema-tier">
-        <div class="tier-label">Scoring</div>
-        <div class="tier-cards">
-          <div class="db-card">
-            <div class="db-name">regions</div>
-            <div class="db-cols">bounds · metrics · features</div>
-          </div>
-          <div class="db-card">
-            <div class="db-name">campsites</div>
-            <div class="db-cols">curated user spots</div>
-          </div>
-        </div>
-      </div>
-      <div class="schema-divider"></div>
-      <div class="schema-tier">
-        <div class="tier-label">Reference</div>
-        <div class="tier-cards three">
-          <div class="db-card">
-            <div class="db-name">campgrounds</div>
-            <div class="db-cols">RIDB facilities</div>
-          </div>
-          <div class="db-card">
-            <div class="db-name">land_regulations</div>
-            <div class="db-cols">fire · seasonal</div>
-          </div>
-          <div class="db-card">
-            <div class="db-name">wilderness_areas</div>
-            <div class="db-cols">protected zones</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ================================================
-     SLIDE 11 — THE EXPERIENCE (OVERVIEW)
-     ================================================ -->
-<div class="slide slide-experience">
-  <div class="label"><i class="ph-bold ph-device-mobile"></i> The Experience</div>
-  <h2>Lightweight. Exploratory. Confident.</h2>
-  <p class="body-text">Instead of overwhelming users with filters and data, RoamsWild surfaces curated results with reasoning attached — designed for the moment you're on the road and need to decide.</p>
 </div>
 
 <!-- ================================================
      SLIDE 12 — FEATURE: DISPERSED EXPLORER
      ================================================ -->
-<div class="slide slide-feature">
+<div class="slide slide-feature slide-feature--explorer">
   <div class="left">
     <div class="feature-num">Feature 01</div>
     <h2>Dispersed Explorer</h2>
-    <p class="body-text">The core discovery experience. A map-based interface with public land boundaries, BLM/USFS overlays, road access networks, and scored camping spots — designed for finding off-grid sites you'd never find on a review app.</p>
+    <p class="body-text">Find campsites that don't exist in any database. The Explorer builds a road network graph from five government data sources, detects dead-ends on public land, and scores each for viability — then lets you verify any spot with AI-powered satellite analysis.</p>
+    <p class="body-text" style="margin-top: 12px;">Traditional apps show you where other people camped. The Explorer derives where you <em>could</em> camp from road geometry and land boundaries — then uses AI to tell you if it's worth the drive.</p>
     <div class="feature-highlights">
-      <div class="feature-highlight"><i class="ph-bold ph-map-trifold"></i> Public land boundary overlays</div>
-      <div class="feature-highlight"><i class="ph-bold ph-road-horizon"></i> Road access &amp; surface type</div>
-      <div class="feature-highlight"><i class="ph-bold ph-map-pin"></i> Scored spot clustering</div>
-      <div class="feature-highlight"><i class="ph-bold ph-funnel"></i> Contextual filtering</div>
+      <div class="feature-highlight"><i class="ph-bold ph-map-trifold"></i> Public land overlays (BLM, USFS, NPS, State)</div>
+      <div class="feature-highlight"><i class="ph-bold ph-road-horizon"></i> Roads color-coded by vehicle requirement</div>
+      <div class="feature-highlight"><i class="ph-bold ph-map-pin"></i> Scored spots clustered by confidence</div>
+      <div class="feature-highlight"><i class="ph-bold ph-eye"></i> One-tap AI satellite analysis per spot</div>
+      <div class="feature-highlight"><i class="ph-bold ph-path"></i> Full route access tracing: passenger, high-clearance, or 4WD</div>
+      <div class="feature-highlight"><i class="ph-bold ph-database"></i> Cached in PostGIS — each spot analyzed once, served instantly</div>
     </div>
   </div>
   <div class="right">
-    <img src="assets/roamswild/Exploretab.png" alt="Dispersed Explorer map view">
+    <div class="right-image map-embed">
+      <iframe src="https://www.roamswild.com/map-preview" title="Dispersed Explorer map" loading="lazy"></iframe>
+    </div>
   </div>
 </div>
 
@@ -421,7 +297,12 @@
      ================================================ -->
 <div class="slide slide-feature slide-feature--alt">
   <div class="left">
-    <img src="assets/roamswild/Tripdetail.png" alt="Trip Planner detail view">
+    <div class="iphone-frame">
+      <div class="iphone-notch"></div>
+      <div class="iphone-screen">
+        <iframe src="https://www.roamswild.com/trip/moab" title="Trip Planner demo" loading="lazy"></iframe>
+      </div>
+    </div>
   </div>
   <div class="right">
     <div class="feature-num">Feature 02</div>
@@ -452,7 +333,12 @@
     </div>
   </div>
   <div class="right">
-    <img src="assets/roamswild/photoweather-ns.png" alt="The Light Report">
+    <div class="iphone-frame">
+      <div class="iphone-notch"></div>
+      <div class="iphone-screen">
+        <iframe src="http://localhost:8085/light-preview" title="The Light Report" loading="lazy"></iframe>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -461,7 +347,9 @@
      ================================================ -->
 <div class="slide slide-feature slide-feature--alt">
   <div class="left">
-    <img src="assets/roamswild/surprisemesmall-ns.png" alt="Surprise Me">
+    <div class="right-image map-embed">
+      <iframe src="https://www.roamswild.com/surprise-preview" title="Surprise Me preview" loading="lazy"></iframe>
+    </div>
   </div>
   <div class="right">
     <div class="feature-num">Feature 04</div>
@@ -480,61 +368,60 @@
      SLIDE 12 — OUTCOMES
      ================================================ -->
 <div class="slide slide-outcomes">
+  <div class="label"><i class="ph-bold ph-trophy"></i> Outcomes</div>
+  <h2>From idea to live product in days.</h2>
+  <div class="outcome-grid">
+    <div class="outcome-card">
+      <div class="outcome-number">~2 days</div>
+      <h3>To working prototype</h3>
+      <p>AI tools collapsed the gap between design intent and shipping code.</p>
+    </div>
+    <div class="outcome-card">
+      <div class="outcome-number">5 features</div>
+      <h3>Shipped end-to-end</h3>
+      <p>Trip planner, campsite discovery, scoring system, light report, and surprise me — deployed with auth, database, and APIs.</p>
+    </div>
+    <div class="outcome-card">
+      <div class="outcome-number">Field tested</div>
+      <h3>Validated through real use</h3>
+      <p>Used on actual trips. The signals hold up where standard apps don't.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================
+     WHAT I GOT WRONG
+     ================================================ -->
+<div class="slide slide-gotwrong">
   <div class="left">
-    <div class="label"><i class="ph-bold ph-trophy"></i> Outcomes</div>
-    <h2>From idea to live product in days.</h2>
-    <div class="stats">
-      <div class="stat">
-        <div class="icon"><i class="ph-bold ph-rocket-launch"></i></div>
-        <div class="text">
-          <h3>Live, working product</h3>
-          <p>Trip planner, campsite discovery, and scoring system — deployed with auth, database, and APIs.</p>
+    <div class="label"><i class="ph-bold ph-warning-circle"></i> What I Got Wrong</div>
+    <h2>Shipping fast has tradeoffs.</h2>
+    <div class="gotwrong-items">
+      <div class="gotwrong-item">
+        <div class="gotwrong-num">01</div>
+        <div class="gotwrong-text">
+          <h3>Too many features, not enough depth</h3>
+          <p>I built five features when I should have shipped one complete one. Breadth came at the cost of polish — each feature works, but none feels fully finished.</p>
         </div>
       </div>
-      <div class="stat">
-        <div class="icon"><i class="ph-bold ph-check-circle"></i></div>
-        <div class="text">
-          <h3>Validated through real use</h3>
-          <p>Used in the field on real trips. The signals hold up where standard apps don't.</p>
+      <div class="gotwrong-item">
+        <div class="gotwrong-num">02</div>
+        <div class="gotwrong-text">
+          <h3>UI craft suffers at AI speed</h3>
+          <p>Detailed design work is significantly harder when you're iterating in live code at this pace. The gap between "functional" and "refined" is wider than it looks.</p>
         </div>
       </div>
-      <div class="stat">
-        <div class="icon"><i class="ph-bold ph-lightning"></i></div>
-        <div class="text">
-          <h3>Accelerated by AI</h3>
-          <p>Working prototype in ~2 days. AI tools collapsed the gap between design intent and shipping code.</p>
+      <div class="gotwrong-item">
+        <div class="gotwrong-num">03</div>
+        <div class="gotwrong-text">
+          <h3>API speed and AI cost are real constraints</h3>
+          <p>Five parallel API calls add latency users can feel. AI analysis per spot costs real money. Performance and cost shape what the product can actually be.</p>
         </div>
       </div>
     </div>
   </div>
   <div class="right">
-    <img src="assets/roamswild/landingpagemacbook.png" alt="RoamsWild live on a MacBook">
-  </div>
-</div>
-
-<!-- ================================================
-     SLIDE 13 — WHAT I LEARNED
-     ================================================ -->
-<div class="slide slide-learned">
-  <div class="label"><i class="ph-bold ph-book-open-text"></i> What I Learned</div>
-  <h2>Designing systems is different from designing screens.</h2>
-  <p class="body-text">This project pushed me to treat data, scoring logic, and human judgment as core design materials — not just UI surfaces.</p>
-  <div class="lessons">
-    <div class="lesson">
-      <div class="icon"><i class="ph-bold ph-database"></i></div>
-      <h3>Designing with data, not just for it</h3>
-      <p>The most important decisions were about what signals matter and how to weight them — not what the screen looked like.</p>
-    </div>
-    <div class="lesson">
-      <div class="icon"><i class="ph-bold ph-funnel"></i></div>
-      <h3>Coherence is harder than generation</h3>
-      <p>The hardest part of working with AI isn't generating code — it's maintaining coherence across a growing system. 68 migrations, 15+ scoring utilities, and a Python backend that all need to agree.</p>
-    </div>
-    <div class="lesson">
-      <div class="icon"><i class="ph-bold ph-robot"></i></div>
-      <h3>AI as a creative + technical partner</h3>
-      <p>Used well, AI extends what one designer can ship — but it amplifies whatever direction you give it. Direction matters more than ever.</p>
-    </div>
+    <img src="assets/roamswild/DJI_0024.jpg" alt="Aerial landscape">
   </div>
 </div>
 
@@ -561,7 +448,6 @@
       <p>Downloadable map tiles and cached scoring data for areas without cell coverage — essential for the dispersed camping use case.</p>
     </div>
   </div>
-  <div class="footer">Thanks — Michelle Taylor</div>
 </div>
 
 <!-- ================================================
@@ -570,7 +456,7 @@
 <div class="slide slide-thanks">
   <h1>Thank you.</h1>
   <p class="questions">Questions?</p>
-  <a class="next-link" href="onboarding.html" aria-label="Next project"><i class="ph-bold ph-arrow-right"></i></a>
+  <a class="next-link" href="sidequests.html" aria-label="Next project"><i class="ph-bold ph-arrow-right"></i></a>
 </div>
 
 <!-- NAVIGATION SCRIPT -->
