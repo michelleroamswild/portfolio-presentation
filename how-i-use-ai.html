@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michelle Taylor — How I Use AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css">
+<link rel="stylesheet" href="styles/how-i-use-ai.css">
+</head>
+<body>
+<div class="deck">
+
+<!-- ====== 01 · COVER ====== -->
+<section class="page page--cover page--dark">
+  <div class="pad">
+    <span class="kicker on-dark"><i class="ph-bold ph-sparkle ix"></i> A Working Practice</span>
+    <h1 style="margin-top:26px;">How I Use AI</h1>
+    <p class="cover-sub">An operating model for building real products with AI, drawn from three solo 0→1 builds. AI did the typing. I owned the judgment.</p>
+    <div class="cover-tags" style="margin-top:36px;">
+      <span class="ptag rw"><span class="dot"></span> RoamsWild</span>
+      <span class="ptag cq"><span class="dot"></span> ClipQuery</span>
+      <span class="ptag rr"><span class="dot"></span> ReelReady</span>
+    </div>
+  </div>
+  <div class="cover-meta">
+    <div class="who">
+      <div class="name">Michelle Taylor</div>
+      <div class="role">Product Designer &amp; Builder</div>
+    </div>
+    <div class="links">
+      <a class="clink" href="https://www.michelletaylor.design" target="_blank" rel="noopener noreferrer"><i class="ph-bold ph-globe-simple"></i> michelletaylor.design</a>
+      <a class="clink" href="mailto:mictaylo@gmail.com"><i class="ph-bold ph-envelope-simple"></i> mictaylo@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== 02 · POV ====== -->
+<section class="page page--quote page--dark">
+  <div class="pad">
+    <span class="kicker on-dark"><i class="ph-bold ph-quotes ix"></i> The Point of View</span>
+    <p class="bigquote" style="margin-top:26px;">AI did the typing.<br><span class="a">I owned the judgment.</span></p>
+    <p class="quote-sub">Across three very different products the same pattern held: AI collapses the cost of building, which moves all the weight onto knowing what's worth building, and whether it's actually any good.</p>
+  </div>
+</section>
+
+<!-- ====== 03 · THREE BUILDS ====== -->
+<section class="page">
+  <div class="pad">
+    <div class="title-block" style="margin-bottom:26px;">
+      <span class="kicker"><i class="ph-bold ph-stack ix"></i> The Evidence</span>
+      <h2 class="title sm">Three solo builds, three uses of AI.</h2>
+    </div>
+    <div class="pcards">
+      <div class="pcard rw">
+        <div class="top"></div>
+        <div class="body">
+          <h3>RoamsWild</h3>
+          <p class="desc">A trip planner for the places GPS forgets: itineraries for road travel on US public lands.</p>
+          <div class="meta">
+            <div class="r"><b>Stack</b><span>React · Supabase/PostGIS · FastAPI</span></div>
+            <div class="r"><b>AI's job</b><span>Judgment over geospatial data</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="pcard cq">
+        <div class="top"></div>
+        <div class="body">
+          <h3>ClipQuery</h3>
+          <p class="desc">A local-first media indexer and visual search tool for huge personal photo &amp; video libraries.</p>
+          <div class="meta">
+            <div class="r"><b>Stack</b><span>React · Express · SQLite · Ollama</span></div>
+            <div class="r"><b>AI's job</b><span>On-device scene understanding</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="pcard rr">
+        <div class="top"></div>
+        <div class="body">
+          <h3>ReelReady</h3>
+          <p class="desc">An AI storyboard builder that turns raw clips and phrases into ready-to-post short-form video.</p>
+          <div class="meta">
+            <div class="r"><b>Stack</b><span>React · Supabase · Gemini · FFmpeg</span></div>
+            <div class="r"><b>AI's job</b><span>A generative content pipeline</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">How I Use AI</span><span>03</span></div>
+</section>
+
+<!-- ====== 04 · TWO MODES ====== -->
+<section class="page" style="background:var(--paper-2);">
+  <div class="pad">
+    <div class="title-block" style="margin-bottom:26px;">
+      <span class="kicker"><i class="ph-bold ph-arrows-split ix"></i> The Framing</span>
+      <h2 class="title sm">I use AI in two distinct modes.</h2>
+    </div>
+    <div class="modes">
+      <div class="mode">
+        <div class="mlabel"><span class="mnum">1</span> AI as my build partner</div>
+        <h3>The agent writes. I direct.</h3>
+        <p>I define the product, the architecture, and what "good" means, then judge every output. The agent is fast hands; the decisions stay mine.</p>
+        <div class="tags">
+          <span class="mtag">Claude Code</span><span class="mtag">Lovable</span><span class="mtag">Markdown context</span><span class="mtag">Agent skills</span>
+        </div>
+      </div>
+      <div class="mode">
+        <div class="mlabel"><span class="mnum">2</span> AI inside the product</div>
+        <h3>The features users actually touch.</h3>
+        <p>The real ML/LLM layer. It looked different in every build. The right model is a product decision, not a default.</p>
+        <div class="tags">
+          <span class="mtag">Gemini</span><span class="mtag">LLaVA · Ollama</span><span class="mtag">CLIP</span><span class="mtag">Edge functions</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">How I Use AI</span><span>04</span></div>
+</section>
+
+<!-- ====== 05 · MODE 1 · THE LOOP ====== -->
+<section class="page">
+  <div class="pad">
+    <div class="title-block" style="margin-bottom:24px;">
+      <div class="mode-head"><span class="big">Mode 01</span><span class="kicker" style="position:relative;top:-1px;">AI as my build partner</span></div>
+      <h2 class="title sm">A repeatable loop, with a hard rule.</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="sn">01</span>
+        <span class="who me">Me</span>
+        <h3>Set intent &amp; context</h3>
+        <p>The <em>what</em> lives in markdown before the agent writes anything: architecture, users, voice, guardrails. Each prompt is pointed at the right files and scoped to one thing.</p>
+      </div>
+      <div class="step">
+        <span class="sn">02</span>
+        <span class="who agent">Agent</span>
+        <h3>The agent writes the code</h3>
+        <p>A rule into SQL, a tag taxonomy into columns, a panel wired to an endpoint, anywhere the shape is already decided and the typing is the only cost.</p>
+      </div>
+      <div class="step">
+        <span class="sn">03</span>
+        <span class="who me">Me</span>
+        <h3>Judge it, log what's wrong</h3>
+        <p>The agent can build it two ways and can't tell me which is right. I decide. Whatever stays broken goes to <code>TODO.md</code> with the reason, so the loop never loses it.</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">How I Use AI</span><span>05</span></div>
+</section>
+
+<!-- ====== 06 · MODE 1 · MARKDOWN MEMORY ====== -->
+<section class="page" style="background:var(--paper-2);">
+  <div class="pad">
+    <div class="title-block" style="margin-bottom:26px;">
+      <span class="kicker"><i class="ph-bold ph-file-text ix"></i> Mode 01 · Context Engineering</span>
+      <h2 class="title sm">Markdown is the working memory.</h2>
+      <p class="lead sm">Every project runs on the same context files. They're how I keep an agent aligned across long sessions — the difference between prompting into the void and directing a build.</p>
+    </div>
+    <div class="mdfiles">
+      <div class="mdfile"><div class="bar"><i class="ph-bold ph-blueprint"></i><span class="fn">PLAN.md</span></div><div class="bd">Architecture and the hard technical decisions.</div></div>
+      <div class="mdfile"><div class="bar"><i class="ph-bold ph-user-focus"></i><span class="fn">PRODUCT.md</span></div><div class="bd">Who it's for, scope, and product voice.</div></div>
+      <div class="mdfile"><div class="bar"><i class="ph-bold ph-palette"></i><span class="fn">DESIGN.md</span></div><div class="bd">The design system and anti-slop rules.</div></div>
+      <div class="mdfile"><div class="bar"><i class="ph-bold ph-shield-check"></i><span class="fn">CLAUDE.md</span></div><div class="bd">Guardrails that never change.</div></div>
+      <div class="mdfile"><div class="bar"><i class="ph-bold ph-list-checks"></i><span class="fn">TODO.md</span></div><div class="bd">Known-broken, with the reason it broke.</div></div>
+    </div>
+    <p class="lead sm" style="margin-top:24px;max-width:none;">Plus targeted <b style="color:var(--ink);">agent skills</b> that audit engineering and database-schema gaps, so the review is repeatable, not vibes.</p>
+  </div>
+  <div class="foot"><span class="brand">How I Use AI</span><span>06</span></div>
+</section>
+
+<!-- ====== 07 · MODE 1 · PROTOTYPE → PRODUCT ====== -->
+<section class="page">
+  <div class="pad">
+    <div class="title-block" style="margin-bottom:24px;">
+      <span class="kicker"><i class="ph-bold ph-flow-arrow ix"></i> Mode 01 · From Prototype to Product</span>
+      <h2 class="title sm">Prototype fast, then engineer.</h2>
+      <p class="lead sm">All three started as Lovable prototypes: fast to something real, impressive for so little direction. But a prototype isn't a product. The ones that mattered moved to Claude Code and real architecture.</p>
+    </div>
+    <div class="cards c2">
+      <div class="card">
+        <div class="ic"><i class="ph-bold ph-heart"></i></div>
+        <h3>Lovable: prove it</h3>
+        <p>A vague prompt to a working end-to-end app in hours. The fastest way to find out whether an idea is even worth building, and to see what the interface actually needs.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><i class="ph-bold ph-terminal-window"></i></div>
+        <h3>Claude Code: build it</h3>
+        <p>Markdown-driven and architecture-first: state out of pages, math into services, UI into small components. RoamsWild's 2,606→218-line refactor lived here.</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">How I Use AI</span><span>07</span></div>
+</section>
+
+<!-- ====== 08 · MODE 2 · INTRO ====== -->
+<section class="page" style="background:var(--paper-2);">
+  <div class="pad">
+    <div class="title-block" style="margin-bottom:30px;">
+      <div class="mode-head"><span class="big">Mode 02</span><span class="kicker" style="position:relative;top:-1px;">AI inside the product</span></div>
+      <h2 class="title sm">Same operator. Three different machines.</h2>
+      <p class="lead">In-product AI looked completely different in each build, because the right model is a product decision, not a default. Local when privacy matters, cloud when scale does, generative when the output <em>is</em> the point.</p>
+    </div>
+    <div class="cards c3">
+      <div class="card rw"><div class="num">RoamsWild</div><h3>Judgment over data</h3><p>Cloud vision + reasoning as a secondary signal on top of deterministic geometry.</p></div>
+      <div class="card cq"><div class="num">ClipQuery</div><h3>Local-first AI</h3><p>Vision-language models running entirely on-device. Nothing leaves the machine.</p></div>
+      <div class="card rr"><div class="num">ReelReady</div><h3>Generative pipeline</h3><p>Twenty-three cloud functions that analyze, match, generate, and render.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">How I Use AI</span><span>08</span></div>
+</section>
+
+<!-- ====== 09 · ROAMSWILD IN-PRODUCT AI ====== -->
+<section class="page">
+  <div class="pad">
+    <div class="proj-head rw"><span class="pdot"></span><span class="pname">RoamsWild · In-Product AI</span></div>
+    <h2 class="title sm" style="margin:6px 0 14px;">AI as judgment over data.</h2>
+    <p class="lead sm" style="margin-bottom:24px;">Open data feeds, modern APIs, and deterministic geometry do the heavy lifting. AI is the judgment layer on top, and deliberately a <b style="color:var(--ink);">secondary</b> signal.</p>
+    <div class="blist">
+      <div class="bitem rw"><i class="ph-bold ph-eye"></i><span><b>Gemini vision</b> reads satellite imagery to assess whether a derived spot is actually worth the drive.</span></div>
+      <div class="bitem rw"><i class="ph-bold ph-chat-circle-text"></i><span><b>Plain-language reasoning</b> across structured data, so every recommendation can explain itself.</span></div>
+      <div class="bitem rw"><i class="ph-bold ph-magnifying-glass"></i><span>A <b>chat assistant</b> answers "what's a good hike near me?" from the same filtered, legality-aware set.</span></div>
+      <div class="bitem rw"><i class="ph-bold ph-anchor"></i><span><b>The rule:</b> every recommendation traces to a real fact first: a polygon, a sun vector, a road track — not the model.</span></div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">How I Use AI</span><span>09</span></div>
+</section>
+
+<!-- ====== 10 · CLIPQUERY IN-PRODUCT AI ====== -->
+<section class="page" style="background:var(--paper-2);">
+  <div class="pad">
+    <div class="proj-head cq"><span class="pdot"></span><span class="pname">ClipQuery · In-Product AI</span></div>
+    <h2 class="title sm" style="margin:6px 0 14px;">Local-first, on your machine.</h2>
+    <p class="lead sm" style="margin-bottom:24px;">A media vault that runs AI entirely on-device, the opposite of cloud-everything. Nothing leaves your computer.</p>
+    <div class="blist">
+      <div class="bitem cq"><i class="ph-bold ph-image-square"></i><span><b>LLaVA via Ollama</b> describes and tags scenes locally, swappable from <code>llava:7b</code> to <code>34b</code> behind one constant.</span></div>
+      <div class="bitem cq"><i class="ph-bold ph-graph"></i><span><b>CLIP embeddings</b> power semantic search: find clips by what's in them, not the filename.</span></div>
+      <div class="bitem cq"><i class="ph-bold ph-eye-slash"></i><span><b>AI as an invisible utility:</b> it generates structured data, it never dictates the aesthetic: no sparkle, no "magic" states.</span></div>
+      <div class="bitem cq"><i class="ph-bold ph-seal-check"></i><span><b>Provenance on every field:</b> <code>[HW]</code> hardware, <code>[ML]</code> model, <code>[USER]</code> verified. Edit an <code>[ML]</code> value and it locks to <code>[USER]</code>.</span></div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">How I Use AI</span><span>10</span></div>
+</section>
+
+<!-- ====== 11 · REELREADY IN-PRODUCT AI ====== -->
+<section class="page">
+  <div class="pad">
+    <div class="proj-head rr"><span class="pdot"></span><span class="pname">ReelReady · In-Product AI</span></div>
+    <h2 class="title sm" style="margin:6px 0 12px;">AI as a content pipeline.</h2>
+    <p class="lead sm" style="margin-bottom:22px;"><b style="color:var(--ink);">23 Gemini-powered edge functions</b> turn raw clips and phrases into ready-to-post reels: analyze, match, generate, render.</p>
+    <div class="flow">
+      <div class="fnode"><div class="ic"><i class="ph-bold ph-scissors"></i></div><h4>Analyze</h4><p>Gemini segments video into usable clips.</p></div>
+      <div class="farrow"><i class="ph-bold ph-arrow-right"></i></div>
+      <div class="fnode"><div class="ic"><i class="ph-bold ph-link"></i></div><h4>Match</h4><p>Suggest clips for each phrase; deep-match the library.</p></div>
+      <div class="farrow"><i class="ph-bold ph-arrow-right"></i></div>
+      <div class="fnode"><div class="ic"><i class="ph-bold ph-sparkle"></i></div><h4>Generate</h4><p>Captions, text, and batches of trial reels.</p></div>
+      <div class="farrow"><i class="ph-bold ph-arrow-right"></i></div>
+      <div class="fnode"><div class="ic"><i class="ph-bold ph-film-strip"></i></div><h4>Render</h4><p>FFmpeg worker burns in overlays, exports video.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">How I Use AI</span><span>11</span></div>
+</section>
+
+<!-- ====== 12 · WHERE IT BREAKS ====== -->
+<section class="page">
+  <div class="pad">
+    <div class="title-block" style="margin-bottom:24px;">
+      <span class="kicker"><i class="ph-bold ph-warning-circle ix"></i> What I Learned</span>
+      <h2 class="title sm">Where AI breaks.</h2>
+      <p class="lead sm">It collapses the cost of building — not the cost of being wrong. The hardest failures look correct from every angle.</p>
+    </div>
+    <div class="cards c3">
+      <div class="card"><div class="ic"><i class="ph-bold ph-ghost"></i></div><h3>Hallucinations</h3><p>Invented table names and function signatures. The data lies too: OSM tags disagree, polygons drift. Surface the raw data early and most of it gets caught.</p></div>
+      <div class="card"><div class="ic"><i class="ph-bold ph-stack"></i></div><h3>Context ceiling</h3><p>Confident at 200 lines, useless at 2,600. A monolith the agent could no longer reason about, refactored back to 218. A discipline win, not an AI win.</p></div>
+      <div class="card"><div class="ic"><i class="ph-bold ph-bug"></i></div><h3>Emergent bugs</h3><p>The worst bugs are where every local piece is correct: a recursive RLS policy, a paved road tagged "4WD." Nothing the model sees is wrong.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">How I Use AI</span><span>12</span></div>
+</section>
+
+<!-- ====== 13 · THE DISCIPLINE AI DOESN'T GIVE YOU ====== -->
+<section class="page" style="background:var(--paper-2);">
+  <div class="pad">
+    <div class="title-block" style="margin-bottom:24px;">
+      <span class="kicker"><i class="ph-bold ph-compass-tool ix"></i> The Through-Line</span>
+      <h2 class="title sm">AI won't give you taste, trust, or restraint.</h2>
+      <p class="lead sm">The model optimizes for a plausible screen. It won't make things consistent, honest, or restrained on its own — that part is still mine.</p>
+    </div>
+    <div class="cards c3">
+      <div class="card rw"><div class="ic"><i class="ph-bold ph-pen-nib"></i></div><h3>Consistency</h3><p>Agents won't use a system or styled components by default. RoamsWild's "Pine + Paper" was the move the agent never got to make.</p></div>
+      <div class="card cq"><div class="ic"><i class="ph-bold ph-seal-check"></i></div><h3>Provenance</h3><p>Show where data comes from. ClipQuery declares <code>[HW]/[ML]/[USER]</code> and bans the "magic AI" sparkle states.</p></div>
+      <div class="card rr"><div class="ic"><i class="ph-bold ph-scissors"></i></div><h3>Restraint</h3><p>Agentic tooling makes anything buildable fast, which turns scope into the hard problem. Constraint is a skill.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">How I Use AI</span><span>13</span></div>
+</section>
+
+<!-- ====== 14 · CLOSING ====== -->
+<section class="page page--close page--dark">
+  <div class="pad">
+    <span class="kicker on-dark"><i class="ph-bold ph-quotes ix"></i> In One Line</span>
+    <h1 style="margin-top:22px;">Building from scratch isn't a tooling problem anymore. It's a <span style="color:#9fd3c6;">judgment problem</span>.</h1>
+    <div class="who">
+      <span class="nm">Michelle Taylor — Product Designer &amp; Builder</span>
+      <span class="ct"><a href="https://www.michelletaylor.design" target="_blank" rel="noopener noreferrer">michelletaylor.design</a> · <a href="mailto:mictaylo@gmail.com">mictaylo@gmail.com</a></span>
+    </div>
+    <div class="chips">
+      <span class="ptag rw"><span class="dot"></span> RoamsWild</span>
+      <span class="ptag cq"><span class="dot"></span> ClipQuery</span>
+      <span class="ptag rr"><span class="dot"></span> ReelReady</span>
+    </div>
+  </div>
+</section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RoamsWild — Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css">
+<link rel="stylesheet" href="styles/roamswild-presentation.css">
+</head>
+<body>
+<div class="deck">
+
+<!-- ============ 01 · COVER ============ -->
+<section class="page page--cover">
+  <img class="cover-img" src="assets/roamswild/v2/showcase-utah-v2.webp" alt="Overland rig at a canyon overlook in Utah">
+  <div class="cover-scrim"></div>
+  <div class="cover-inner">
+    <div class="cover-tags">
+      <span class="cover-tag">Case Study</span>
+      <span class="cover-tag alt">Solo 0→1 Build</span>
+    </div>
+    <h1>RoamsWild</h1>
+    <p class="cover-sub">A trip planner for the places GPS forgets: real itineraries for road-based travel on US public lands, from a soft prompt like "4 days in Southern Utah, no 4WD."</p>
+  </div>
+  <div class="cover-meta">
+    <span class="name">Michelle Taylor, Product Designer &amp; Builder</span>
+    <span>roamswild.com</span>
+  </div>
+</section>
+
+<!-- ============ 02 · PROJECT OVERVIEW ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="title-block" style="margin-bottom:30px;">
+      <span class="kicker"><i class="ph-bold ph-compass ix"></i> Project Overview</span>
+      <h2 class="title sm">Data as ground truth, not decoration.</h2>
+    </div>
+    <div class="two text-img" style="align-items:start; gap:54px;">
+      <div class="stack" style="gap:18px;">
+        <p class="lead sm">Most outdoor apps treat data as decoration or trust "verified" crowdsourced pins as ground truth. I wanted the opposite: every recommendation traceable to a real geometric or legal fact: a sun vector, a public-land polygon, a road track, with crowd and AI input as a secondary signal at most.</p>
+        <p class="lead sm">The result is a fully functional product built on over a dozen external data services, with a database holding tens of thousands of land-ownership polygons, road segments, and derived camp spots.</p>
+      </div>
+      <div class="stack" style="gap:22px;">
+        <div>
+          <div class="label-mono" style="margin-bottom:8px;">Role</div>
+          <p class="lead sm" style="font-size:15px;">Solo designer &amp; builder: product strategy, design system, UX/UI, data architecture, and the Python terrain service.</p>
+        </div>
+        <div>
+          <div class="label-mono" style="margin-bottom:10px;">Tools &amp; Stack</div>
+          <div class="chips">
+            <span class="chip"><i class="ph-bold ph-terminal-window"></i> Claude Code</span>
+            <span class="chip"><i class="ph-bold ph-heart"></i> Lovable</span>
+            <span class="chip"><i class="ph-bold ph-chat-circle-dots"></i> ChatGPT</span>
+            <span class="chip"><i class="ph-bold ph-diamond"></i> Gemini</span>
+            <span class="chip"><i class="ph-bold ph-figma-logo"></i> Figma</span>
+            <span class="chip"><i class="ph-bold ph-paint-brush"></i> Procreate</span>
+            <span class="chip"><i class="ph-bold ph-github-logo"></i> GitHub</span>
+            <span class="chip"><i class="ph-bold ph-database"></i> Supabase</span>
+            <span class="chip"><i class="ph-bold ph-triangle"></i> Vercel</span>
+            <span class="chip"><i class="ph-bold ph-notebook"></i> Notion</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">RoamsWild</span><span>02</span></div>
+</section>
+
+<!-- ============ 03 · KEY SKILLS ============ -->
+<section class="page" style="background:var(--paper);">
+  <div class="pad">
+    <div class="title-block" style="margin-bottom:28px;">
+      <span class="kicker"><i class="ph-bold ph-target ix"></i> What This Built</span>
+      <h2 class="title sm">Four capabilities the project sharpened.</h2>
+    </div>
+    <div class="cards c4">
+      <div class="card">
+        <div class="ic"><i class="ph-bold ph-robot"></i></div>
+        <h3>AI as a build partner</h3>
+        <p>Using Claude Code as the engine for a solo full-stack build, with markdown context files as working memory.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><i class="ph-bold ph-globe-hemisphere-west"></i></div>
+        <h3>Geospatial architecture</h3>
+        <p>Unifying fragmented public-land data with PostGIS, GDAL pipelines, USGS 3DEP tiles, and real-time solar math.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><i class="ph-bold ph-strategy"></i></div>
+        <h3>Self-initiated strategy</h3>
+        <p>Defining the users and their problems, scoping what the product will and won't do, owning it through to a roadmap.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><i class="ph-bold ph-markdown-logo"></i></div>
+        <h3>Markdown-driven AI</h3>
+        <p>PLAN.md, PRODUCT.md, DESIGN.md for AI context efficiency, with targeted agent skills to audit gaps.</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">RoamsWild</span><span>03</span></div>
+</section>
+
+<!-- ============ 04 · THE PROBLEM ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="title-block" style="margin-bottom:26px;">
+      <span class="kicker"><i class="ph-bold ph-warning-diamond ix"></i> The Problem</span>
+      <h2 class="title">Multiple sources,<br>no agreement.</h2>
+    </div>
+    <p class="lead" style="margin-bottom:26px;">RoamsWild serves two travelers who are usually the same person. Underneath both is one question: <b style="color:var(--ink);">can I trust this enough to drive hours off-grid to it?</b> Public-land data is fragmented and the sources don't talk to each other, so apps bridge the gap with crowdsourced pins that are often outdated or on private land. The result is four or five apps open at once, heavy cognitive load, and decision fatigue.</p>
+    <div class="cards c2" style="flex:0 0 auto;">
+      <div class="card" style="flex-direction:row; gap:16px; align-items:flex-start;">
+        <div class="ic" style="margin:0;"><i class="ph-bold ph-truck"></i></div>
+        <div><h3>The overlander</h3><p>"Can my rig actually get there, and is it legal to camp?"</p></div>
+      </div>
+      <div class="card" style="flex-direction:row; gap:16px; align-items:flex-start;">
+        <div class="ic" style="margin:0;"><i class="ph-bold ph-camera"></i></div>
+        <div><h3>The photographer</h3><p>"Will the light be any good when I arrive?"</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">RoamsWild</span><span>04</span></div>
+</section>
+
+<!-- ============ 05 · WHO IT'S FOR + COMPETITORS ============ -->
+<section class="page" style="background:var(--paper);">
+  <div class="pad">
+    <div class="title-block" style="margin-bottom:24px;">
+      <span class="kicker"><i class="ph-bold ph-users-three ix"></i> Who It's For · Competitor Teardown</span>
+      <h2 class="title sm">The gaps repeat across the set.</h2>
+    </div>
+    <div class="two wide-img" style="gap:44px; align-items:center;">
+      <div class="blist">
+        <div class="bitem"><i class="ph-bold ph-path"></i><span><b>Outdoor travel</b>: road-based exploration across public lands, national forests, and BLM areas.</span></div>
+        <div class="bitem"><i class="ph-bold ph-tent"></i><span><b>Dispersed camping</b>: free camping on public land that needs access, terrain, and regulation knowledge.</span></div>
+        <div class="bitem"><i class="ph-bold ph-camera"></i><span><b>Landscape photography</b>: finding optimal light, terrain, and weather for compelling scenes.</span></div>
+        <div class="note" style="margin-top:6px;"><i class="ph-bold ph-warning"></i><span>Crowdsourced noise with no curation, no wild-camping logic anchored to legal ownership, photography &amp; light context missing, and discovery / planning / navigation siloed into apps that never connect into a real trip.</span></div>
+      </div>
+      <div class="fit"><div class="shot contain"><img src="assets/roamswild/v2/competitor-analysis-v2.webp" alt="RoamsWild competitor analysis"></div></div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">RoamsWild</span><span>05</span></div>
+</section>
+
+<!-- ============ 06 · RESEARCH FROM THE ROAD ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="title-block" style="margin-bottom:26px;">
+      <span class="kicker"><i class="ph-bold ph-campfire ix"></i> Research From the Road</span>
+      <h2 class="title sm">Not official. From the field.</h2>
+    </div>
+    <div class="two narrow-img" style="gap:44px; align-items:center;">
+      <div class="stack" style="gap:18px;">
+        <p class="lead sm">The research wasn't official. It happened with friends and fellow travelers around campfires, at pull-offs at the end of forest roads. Over more than five years of nomadic travel, the same patterns kept repeating: piecing together four or five apps to find camping, scout landscape highlights, and time golden hour. The problems are ones I share and constantly hear about on the road.</p>
+      </div>
+      <div class="testi">
+        <div class="q">"Life on the road is anything but easy. Constant decisions about planning a route, what to do, and where to camp can be a real drain on the fun and magic of vehicle-based travel."</div>
+        <div class="by">
+          <img src="assets/roamswild/v2/research-avatar-v2.webp" alt="Drew Hope">
+          <div><div class="nm">Drew Hope</div><div class="rl">Overlander</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">RoamsWild</span><span>06</span></div>
+</section>
+
+<!-- ============ 07 · THE PRODUCT IN MOTION ============ -->
+<section class="page" style="background:var(--paper-2);">
+  <div class="pad">
+    <div class="title-block" style="margin-bottom:24px;">
+      <span class="kicker"><i class="ph-bold ph-device-mobile ix"></i> The Product, In Motion</span>
+      <h2 class="title sm">A look around RoamsWild.</h2>
+    </div>
+    <div class="montage">
+      <div class="stack"><div class="phone grow"><img src="assets/roamswild/v2/mobile-home-v2.png" alt="Home"></div><div class="cap">Home</div></div>
+      <div class="stack"><div class="phone grow"><img src="assets/roamswild/v2/mobile-explore-v2.png" alt="Explore"></div><div class="cap">Explore</div></div>
+      <div class="stack"><div class="phone grow"><img src="assets/roamswild/v2/mobile-region-v2.png" alt="Featured region"></div><div class="cap">Featured Region</div></div>
+      <div class="stack"><div class="phone grow"><img src="assets/roamswild/v2/mobile-detail-v2.png" alt="Spot detail"></div><div class="cap">Spot Detail</div></div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">RoamsWild</span><span>07</span></div>
+</section>
+
+<!-- ============ 08 · HOW I USED AI ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="row" style="align-items:center; gap:48px; margin-bottom:26px;">
+      <div class="title-block grow">
+        <span class="kicker"><i class="ph-bold ph-robot ix"></i> How I Used AI</span>
+        <h2 class="title sm">AI did the typing.<br>I owned the judgment.</h2>
+        <p class="lead sm" style="margin-top:4px;">A short loop with a hard rule about which moves were mine and which were the agent's.</p>
+      </div>
+      <div class="shot" style="width:420px; flex-shrink:0;"><img src="assets/roamswild/v2/ai-trace-1-v2.webp" alt="Claude Code terminal trace" style="object-fit:cover;"></div>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="sn">01</span>
+        <span class="who me">Me</span>
+        <h3>Set intent &amp; context</h3>
+        <p>The <em>what</em> lived in markdown first: <code>PLAN.md</code> for architecture, <code>PRODUCT.md</code> for users and voice, <code>CLAUDE.md</code> for guardrails. Each prompt pointed at the relevant files, scoped to one thing.</p>
+      </div>
+      <div class="step">
+        <span class="sn">02</span>
+        <span class="who agent">Agent</span>
+        <h3>The agent writes the code</h3>
+        <p>A polygon rule into SQL, an OSM tag taxonomy into normalized columns, a panel wired to an endpoint, anywhere the shape was decided and the typing was the cost.</p>
+      </div>
+      <div class="step">
+        <span class="sn">03</span>
+        <span class="who me">Me</span>
+        <h3>I judge it, log what's wrong</h3>
+        <p>Keep the edge spots or delete them. The agent could build either and couldn't tell me which was right. Whatever stayed broken went to <code>TODO.md</code> with the reason.</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">RoamsWild</span><span>08</span></div>
+</section>
+
+<!-- ============ 09 · WHERE IT BROKE ============ -->
+<section class="page" style="background:var(--paper);">
+  <div class="pad">
+    <div class="title-block" style="margin-bottom:24px;">
+      <span class="kicker"><i class="ph-bold ph-warning-circle ix"></i> Where It Broke</span>
+      <h2 class="title sm">Three ways it broke.</h2>
+      <p class="lead sm">AI collapses the cost of building — not the cost of being wrong. The hardest failures looked correct from every angle.</p>
+    </div>
+    <div class="cards c3">
+      <div class="card">
+        <div class="ic"><i class="ph-bold ph-ghost"></i></div>
+        <h3>Hallucinations</h3>
+        <p>The model invented table names and function signatures. The data lied too: OSM contributors disagree on tags, PAD-US polygons shift year to year. Surfacing raw data early caught most of it.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><i class="ph-bold ph-stack"></i></div>
+        <h3>Context ceiling</h3>
+        <p>Photo Scout grew into a 2,606-line monolith the agent could no longer reason about. A refactor cut it to 218 lines: state out of the page, math into a service, UI into panels. A discipline win.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><i class="ph-bold ph-bug"></i></div>
+        <h3>Emergent bugs</h3>
+        <p>The worst bugs were where every local piece was correct: an RLS policy recursing through collaborators, a paved campground tagged "4WD required" because OSM never tagged its interior path.</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">RoamsWild</span><span>09</span></div>
+</section>
+
+<!-- ============ 10 · SYSTEM ARCHITECTURE ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="title-block" style="margin-bottom:22px;">
+      <span class="kicker"><i class="ph-bold ph-circuitry ix"></i> System Architecture</span>
+      <h2 class="title sm">Translating geography into code.</h2>
+      <p class="lead sm">Every decision about what to ingest, normalize, or flag as low-confidence became a product decision about how much certainty to project on the surface.</p>
+    </div>
+    <div class="stats" style="margin-bottom:20px;">
+      <div class="stat solid"><div class="n">16</div><div class="l">External services</div></div>
+      <div class="stat solid"><div class="n">21</div><div class="l">Edge Functions</div></div>
+      <div class="stat solid"><div class="n">40K+</div><div class="l">Candidates per query</div></div>
+      <div class="stat solid"><div class="n">~150ms</div><div class="l">Photo Scout query (from ~50s)</div></div>
+    </div>
+    <div class="infra">
+      <div class="igroup"><div class="gl"><i class="ph-bold ph-database"></i> Core</div><ul><li><b>Supabase</b> Postgres + PostGIS</li><li>Auth + RLS (email/password)</li><li>~20 Edge Functions as API</li></ul></div>
+      <div class="igroup"><div class="gl"><i class="ph-bold ph-mountains"></i> Terrain</div><ul><li><b>FastAPI</b> on Render</li><li>USGS 3DEP DEM tiles</li><li>Chunked PostGIS raster pipeline</li></ul></div>
+      <div class="igroup"><div class="gl"><i class="ph-bold ph-map-trifold"></i> Maps &amp; Roads</div><ul><li><b>Google Maps</b> Platform</li><li>OSM Overpass (+ fallback)</li><li>OSRM drive times</li></ul></div>
+      <div class="igroup"><div class="gl"><i class="ph-bold ph-sparkle"></i> Data &amp; AI</div><ul><li><b>Anthropic</b> + <b>Gemini</b></li><li>Tomorrow.io / Open-Meteo</li><li>Recreation.gov · Resend</li></ul></div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">RoamsWild</span><span>10</span></div>
+</section>
+
+<!-- ============ 11 · PILLAR 01 · POLYGON ============ -->
+<section class="page" style="background:var(--paper);">
+  <div class="pad">
+    <span class="kicker" style="margin-bottom:18px;"><i class="ph-bold ph-graph ix"></i> Architecture Pillar 01</span>
+    <div class="two wide-img" style="gap:48px;">
+      <div class="fit"><div class="shot"><img src="assets/roamswild/v2/pillar-publicland-v2.webp" alt="Public-land ownership polygons"></div></div>
+      <div class="stack" style="gap:16px;">
+        <h2 class="title sm">A Polygon</h2>
+        <p class="label-mono">Public-land ownership</p>
+        <p class="lead sm">Boundaries come from PAD-US, a USGS aggregate of hundreds of federal, state, and tribal sources at uneven accuracy. A polygon labeled "BLM" can contain a private mining inholding; a spot might fall right outside the boundary, creating confusion on legality. Camping rules change between states.</p>
+        <div class="note"><i class="ph-bold ph-scales"></i><span><b>Tradeoff:</b> PAD-US misses by ~30m at boundaries. Rather than delete edge spots, I flag distance-to-boundary and an "outside polygon" signal behind a conservative 50m buffer.</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">RoamsWild</span><span>11</span></div>
+</section>
+
+<!-- ============ 12 · PILLAR 02 · GRAPH ============ -->
+<section class="page">
+  <div class="pad">
+    <span class="kicker" style="margin-bottom:18px;"><i class="ph-bold ph-graph ix"></i> Architecture Pillar 02</span>
+    <div class="two narrow-img" style="gap:48px;">
+      <div class="stack" style="gap:16px;">
+        <h2 class="title sm">A Graph</h2>
+        <p class="label-mono">Roads &amp; accessibility</p>
+        <p class="lead sm">Every drivable way pulls from OpenStreetMap via Overpass, stored as PostGIS lines. Each segment carries a normalized vehicle-access class the planner treats as a hard constraint: say "no 4WD" and it won't show a spot that needs one. A true dead-end on public land is a strong prior for a real dispersed site, the pull-off in no registry.</p>
+        <div class="note"><i class="ph-bold ph-scales"></i><span><b>Tradeoff:</b> The first pass was too generous: ranger driveways, gated mining roads. Public-land containment plus a half-mile private-road buffer costs a few spots, but failing closed beats failing confidently.</span></div>
+      </div>
+      <div class="fit"><div class="shot"><img src="assets/roamswild/v2/pillar-roads-v2.webp" alt="OSM road track classification"></div></div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">RoamsWild</span><span>12</span></div>
+</section>
+
+<!-- ============ 13 · PILLAR 03 · RASTER ============ -->
+<section class="page" style="background:var(--paper);">
+  <div class="pad">
+    <span class="kicker" style="margin-bottom:18px;"><i class="ph-bold ph-graph ix"></i> Architecture Pillar 03</span>
+    <div class="two wide-img" style="gap:48px;">
+      <div class="fit"><div class="shot"><img src="assets/roamswild/v2/pillar-terrain-v2.webp" alt="Terrain DEM raycast render"></div></div>
+      <div class="stack" style="gap:16px;">
+        <h2 class="title sm">A Raster</h2>
+        <p class="label-mono">Terrain &amp; light</p>
+        <p class="lead sm">Built on USGS 3DEP tiles loaded as chunked PostGIS rasters. Sun position is computed from first principles, line of sight is raycast and corrected for Earth curvature and refraction, and every render shows the actual face the sun will light — not a guess.</p>
+        <div class="note"><i class="ph-bold ph-scales"></i><span><b>Tradeoff:</b> The first version was technically clever and photographically wrong. The math got too layered and had to be completely scrapped. Moving fast does not always equal success.</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">RoamsWild</span><span>13</span></div>
+</section>
+
+<!-- ============ 14 · MY SOLUTIONS · PINE + PAPER ============ -->
+<section class="page">
+  <div class="pad">
+    <span class="kicker" style="margin-bottom:18px;"><i class="ph-bold ph-pen-nib ix"></i> My Solutions · Designing for Trust</span>
+    <div class="two text-img" style="gap:48px;">
+      <div class="stack" style="gap:16px;">
+        <h2 class="title sm">Pine + Paper.</h2>
+        <p class="lead sm">After the first prototype I stopped building features for two weeks and built the design system. It couldn't look like default SaaS or outdoor-retail marketing; the agent could build either, but couldn't tell me which the data deserved.</p>
+        <p class="lead sm">The north star became <em style="color:var(--ink); font-style:italic;">The Field Notebook</em>: a warm paper canvas, one ink hand, a primary pine accent: the visual language of the settings users live in, not a tech landing page.</p>
+        <div class="note pine"><i class="ph-bold ph-text-aa"></i><span><b>Specific over evocative:</b> "38 mi of graded gravel, last 4 mi rutted," not "rough road." And color is never the only signal: every tier is also a glyph and a label, legible in bright sun.</span></div>
+      </div>
+      <div class="fit"><div class="shot"><img src="assets/roamswild/v2/styleguide-page-v2.webp" alt="Pine + Paper style guide" style="object-fit:cover;object-position:top;"></div></div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">RoamsWild</span><span>14</span></div>
+</section>
+
+<!-- ============ 15 · DESIGN PROCESS ============ -->
+<section class="page" style="background:var(--paper);">
+  <div class="pad">
+    <div class="title-block" style="margin-bottom:30px;">
+      <span class="kicker"><i class="ph-bold ph-flow-arrow ix"></i> Design Process</span>
+      <h2 class="title sm">From a messy sketch to a system.</h2>
+    </div>
+    <div class="timeline">
+      <div class="tphase">
+        <div class="dot"></div>
+        <div class="pn">01 · Ideation</div>
+        <h3>Procreate first</h3>
+        <p>Ideas came through a messy Procreate session before any screens. Something that works beats a pretty screen; I didn't chase pixels until I had something worth building.</p>
+      </div>
+      <div class="tphase">
+        <div class="dot"></div>
+        <div class="pn">02 · Proof of concept</div>
+        <h3>A band-aid on the UI</h3>
+        <p>The first generation was haphazard, born from a vague Lovable prompt. Working backward from an inconsistent UI was a band-aid, but it moved the proof of concept forward.</p>
+      </div>
+      <div class="tphase">
+        <div class="dot"></div>
+        <div class="pn">03 · Foundation</div>
+        <h3>Pine + Paper</h3>
+        <p>Once the app was viable, I framed the system in DESIGN.md and built a style guide. Claude won't make things consistent by default; that discipline had to come from me.</p>
+      </div>
+      <div class="tphase">
+        <div class="dot"></div>
+        <div class="pn">04 · Code ↔ Figma</div>
+        <h3>Mirrored via MCP</h3>
+        <p>The Figma MCP read the running React components and rebuilt them as a structured Pine + Paper library, so design and code stay in lockstep instead of drifting.</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">RoamsWild</span><span>15</span></div>
+</section>
+
+<!-- ============ 16 · DESIGNING FOR MESSY DATA ============ -->
+<section class="page">
+  <div class="pad">
+    <span class="kicker" style="margin-bottom:18px;"><i class="ph-bold ph-funnel ix"></i> Designing for Messy Data</span>
+    <div class="two narrow-img" style="gap:48px;">
+      <div class="stack" style="gap:18px;">
+        <div>
+          <h3 style="font-size:22px; color:var(--ink); margin-bottom:8px;">Answer first, evidence below</h3>
+          <p class="lead sm">The database is full of uncertainty, so the interface is honest about it. The spot card leads with the answer, then exposes the evidence: the containing polygon, a road-grade chip, a vehicle-constraint chip, distance to the nearest boundary, and a confidence badge when data is thin.</p>
+        </div>
+        <div>
+          <h3 style="font-size:22px; color:var(--ink); margin-bottom:8px;">Decision fatigue at scale</h3>
+          <p class="lead sm">A region can return thousands of candidates. The goal was the opposite of "show everything": rank hard on real fit, surface a small high-confidence set first, and keep the screen calm even when the database isn't.</p>
+        </div>
+      </div>
+      <div class="fit"><div class="shot contain"><img src="assets/roamswild/v2/solutions-surface-v2.webp" alt="Spot detail panel for Mineral Bottom Rim Pullout"></div></div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">RoamsWild</span><span>16</span></div>
+</section>
+
+<!-- ============ 17 · FEATURE · SPOT DETAIL ============ -->
+<section class="page" style="background:var(--paper);">
+  <div class="pad">
+    <div class="two text-img" style="gap:54px;">
+      <div class="stack" style="gap:16px; justify-content:center;">
+        <span class="feature-num">Key Experience 01</span>
+        <h2 class="title sm">Spot Detail</h2>
+        <p class="lead sm">Every spot opens to the same verifiable card: a satellite view with the dropped pin, the land manager and type, a plain-language description, exact coordinates with one-tap copy, amenities, and open-in-maps. The data is the product; the interface just presents it honestly.</p>
+        <div class="blist" style="margin-top:6px;">
+          <div class="bitem"><i class="ph-bold ph-shield-check"></i><span>Land manager &amp; type, surfaced first</span></div>
+          <div class="bitem"><i class="ph-bold ph-map-pin"></i><span>Exact coordinates, one-tap copy</span></div>
+          <div class="bitem"><i class="ph-bold ph-seal-check"></i><span>Confidence badge when the data is thin</span></div>
+        </div>
+      </div>
+      <div class="feature-media">
+        <div class="iphone"><div class="scr"><img src="assets/roamswild/v2/feature-spot-v2.webp" alt="Spot detail for Roundabout Overlook"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">RoamsWild</span><span>17</span></div>
+</section>
+
+<!-- ============ 18 · FEATURE · PHOTO SCOUT ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="two wide-img" style="gap:54px;">
+      <div class="fit"><div class="shot contain"><img src="assets/roamswild/v2/feature-scout-v2.webp" alt="Photo Scout for Lady in the Bathtub"></div></div>
+      <div class="stack" style="gap:16px; justify-content:center;">
+        <span class="feature-num">Key Experience 02</span>
+        <h2 class="title sm">Photo Scout</h2>
+        <p class="lead sm">A golden-hour window, a sky and wind read with forecast confidence, and a face-aware terrain render of exactly what the sun lights, annotated with azimuth, elevation, sunset, and peak time, plus a time scrub and access roads ranked by drivability.</p>
+        <div class="blist" style="margin-top:6px;">
+          <div class="bitem"><i class="ph-bold ph-sun-horizon"></i><span>Golden-hour window &amp; peak time</span></div>
+          <div class="bitem"><i class="ph-bold ph-mountains"></i><span>Face-aware terrain render</span></div>
+          <div class="bitem"><i class="ph-bold ph-path"></i><span>Access ranked by drivability</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">RoamsWild</span><span>18</span></div>
+</section>
+
+<!-- ============ 19 · FEATURE · TRIP PLANNER ============ -->
+<section class="page" style="background:var(--paper);">
+  <div class="pad">
+    <div class="two text-img" style="gap:54px;">
+      <div class="stack" style="gap:16px; justify-content:center;">
+        <span class="feature-num">Key Experience 03</span>
+        <h2 class="title sm">Trip Planner</h2>
+        <p class="lead sm">Verified spots become a real, drivable trip. A route summary binds distance and drive time, day count, one-way stops, the vehicle constraint, and pace into a single itinerary, so the plan is something you could leave for tomorrow, not a list of pins to stitch together yourself.</p>
+        <div class="blist" style="margin-top:6px;">
+          <div class="bitem"><i class="ph-bold ph-path"></i><span>Distance &amp; drive time bound in</span></div>
+          <div class="bitem"><i class="ph-bold ph-calendar-check"></i><span>Day-by-day itinerary</span></div>
+          <div class="bitem"><i class="ph-bold ph-car-profile"></i><span>Vehicle constraint honored end-to-end</span></div>
+        </div>
+      </div>
+      <div class="fit"><div class="shot contain"><img src="assets/roamswild/v2/feature-trips-v2.webp" alt="Trip planner: Denver to Cannon Beach"></div></div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">RoamsWild</span><span>19</span></div>
+</section>
+
+<!-- ============ 20 · WHAT I'D DO DIFFERENTLY ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="title-block" style="margin-bottom:28px;">
+      <span class="kicker"><i class="ph-bold ph-arrows-counter-clockwise ix"></i> What I'd Do Differently</span>
+      <h2 class="title sm">Things I'd front-load next time.</h2>
+    </div>
+    <div class="cards c3">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>LLM &amp; agent efficiency</h3>
+        <p>Set up your .md files, use skills where you need them, and wire a backlog tool like Notion early; efficiencies I only reached after months of prompting into context-less sessions.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>Local first</h3>
+        <p>I had a local DB and didn't use it. Prototyping 250k+ rows of road or polygon data against a cloud database will destroy it. Test smaller slices locally to avoid large migrations.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>Resist side features</h3>
+        <p>Agentic tooling makes almost anything buildable fast, which quietly turns scope into the hard problem. Constraint is a skill.</p>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">RoamsWild</span><span>20</span></div>
+</section>
+
+<!-- ============ 21 · OUTCOMES ============ -->
+<section class="page" style="background:var(--paper);">
+  <div class="pad">
+    <div class="title-block" style="margin-bottom:24px;">
+      <span class="kicker"><i class="ph-bold ph-trophy ix"></i> Outcomes</span>
+      <h2 class="title sm">A personal build that became a product I use.</h2>
+    </div>
+    <div class="two" style="gap:44px; align-items:start;">
+      <div class="stack" style="gap:13px;">
+        <div class="label-mono">Technical Outcomes</div>
+        <div class="bitem"><i class="ph-bold ph-check-circle"></i><span>Shipped a working trip planner and algorithmic spot-discovery system on a live Vercel &amp; Supabase stack.</span></div>
+        <div class="bitem"><i class="ph-bold ph-check-circle"></i><span>Stood up a FastAPI + PostGIS terrain service against USGS 3DEP DEM tiles, chunked rasters, and a feature cache.</span></div>
+        <div class="bitem"><i class="ph-bold ph-check-circle"></i><span>Refactored a 2,606-line React monolith toward a sub-300-line view via a PLAN.md-anchored AI workflow.</span></div>
+        <div class="bitem"><i class="ph-bold ph-check-circle"></i><span>Cut Photo Scout query time from ~50 seconds to ~150 ms by caching prominent features per region.</span></div>
+      </div>
+      <div class="stack" style="gap:13px;">
+        <div class="label-mono">Tradeoffs the Build Surfaced</div>
+        <div class="card" style="padding:16px 18px; gap:5px;"><h3 style="font-size:16px;">Speed vs. focus</h3><p>Agentic tools make it easy to build fast, which makes it just as easy to build the wrong thing fast.</p></div>
+        <div class="card" style="padding:16px 18px; gap:5px;"><h3 style="font-size:16px;">More signal isn't more truth</h3><p>Several scoring inputs sounded impressive but didn't move the result. Simpler models held up better.</p></div>
+        <div class="card" style="padding:16px 18px; gap:5px;"><h3 style="font-size:16px;">Trust needs reasoning</h3><p>A recommendation without an explanation is unusable where the cost of being wrong is real.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">RoamsWild</span><span>21</span></div>
+</section>
+
+<!-- ============ 22 · KEY TAKEAWAY ============ -->
+<section class="page page--quote">
+  <div class="pad">
+    <span class="kicker on-dark" style="margin-bottom:28px;"><i class="ph-bold ph-quotes ix"></i> The Recurring Lesson</span>
+    <p class="bigquote">Building from scratch isn't a tooling problem anymore. It's a <em>judgment problem</em>.</p>
+    <p class="quote-by">AI collapses the cost of building, which puts more weight on knowing what's worth building, and how to make it usable.</p>
+  </div>
+</section>
+
+<!-- ============ 23 · WHAT'S NEXT ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="title-block" style="margin-bottom:22px;">
+      <span class="kicker"><i class="ph-bold ph-rocket-launch ix"></i> What's Next</span>
+      <h2 class="title sm">Depth over surface area.</h2>
+      <p class="lead sm">The foundation is live, but behind a waitlist. After the early scope spread, the goal now is making the existing experiences feel polished before adding new ones.</p>
+    </div>
+    <div class="roadmap">
+      <div class="ritem"><div class="ic"><i class="ph-bold ph-sliders"></i></div><div class="tx"><h3>User preferences &amp; settings</h3><p>Tailor explore content to vehicle type, hiking capability, and more.</p></div></div>
+      <div class="ritem"><div class="ic"><i class="ph-bold ph-chat-circle-dots"></i></div><div class="tx"><h3>AI/LLM chat improvements</h3><p>Per-message cost is a real factor for a personal build.</p></div></div>
+      <div class="ritem"><div class="ic"><i class="ph-bold ph-sun-horizon"></i></div><div class="tx"><h3>Photo Scout calibration</h3><p>Field-validate across more regions and add a user calibration control.</p></div></div>
+      <div class="ritem"><div class="ic"><i class="ph-bold ph-map-pin"></i></div><div class="tx"><h3>Points of interest</h3><p>Score trails, viewpoints, water, dark-sky &amp; historic sites into the planner.</p></div></div>
+      <div class="ritem"><div class="ic"><i class="ph-bold ph-star"></i></div><div class="tx"><h3>Consistent rating system</h3><p>Trafficability, road ratings, and LiDAR on spot elevation profiles.</p></div></div>
+      <div class="ritem"><div class="ic"><i class="ph-bold ph-cloud-arrow-down"></i></div><div class="tx"><h3>Offline-first mode</h3><p>Cached tiles, spots, and itineraries for remote travel.</p></div></div>
+      <div class="ritem"><div class="ic"><i class="ph-bold ph-stack"></i></div><div class="tx"><h3>Collapse features into one flow</h3><p>Discovery, itinerary, and Photo Scout as a single decision.</p></div></div>
+      <div class="ritem"><div class="ic"><i class="ph-bold ph-device-mobile"></i></div><div class="tx"><h3>Native application?</h3><p>The world is my oyster.</p></div></div>
+    </div>
+  </div>
+  <div class="foot"><span class="brand">RoamsWild</span><span>23</span></div>
+</section>
+
+<!-- ============ 24 · CLOSING ============ -->
+<section class="page page--close">
+  <div class="pad">
+    <h1>Thank you.</h1>
+    <p class="sub">RoamsWild: built solo, end to end.</p>
+    <div class="contact">
+      <span>roamswild.com</span>
+      <span>·</span>
+      michelletaylor.design
+    </div>
+  </div>
+</section>
+
+</div>
+</body>
+</html>
