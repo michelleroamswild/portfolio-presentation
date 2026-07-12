@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michelle Taylor — From 70+ Days to Minutes (10 min)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css">
+<link rel="stylesheet" href="styles/onboarding-10minversion.css">
+</head>
+<body>
+
+<a href="index.html" class="home-btn"><i class="ph-bold ph-house-simple"></i></a>
+
+<!-- ================================================
+     1 · TITLE
+     ================================================ -->
+<div class="slide slide-title">
+  <div class="left">
+    <div class="tag">Case Study — 10 min</div>
+    <h1>From 70+ Days<br>to <span class="accent">Minutes</span></h1>
+    <div class="rule"></div>
+    <p class="subtitle">A redesign of Bolt's merchant onboarding: turning a months-long manual bottleneck into a self-serve flow that takes minutes.</p>
+    <div class="meta">
+      <div class="meta-item">
+        <div class="meta-label">Role</div>
+        <div class="meta-value">Lead Product Designer</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Company</div>
+        <div class="meta-value">Bolt</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Team</div>
+        <div class="meta-value">PM &amp; Eng Manager</div>
+      </div>
+    </div>
+  </div>
+  <img class="bg-illustration" src="assets/onboarding/Bolt Blends Seamlessly2.png" alt="">
+</div>
+
+<!-- ================================================
+     2 · THE PROBLEM
+     ================================================ -->
+<div class="slide slide-problem slide-problem-chart">
+  <div class="problem-head">
+    <div class="problem-copy">
+      <div class="label"><i class="ph-bold ph-warning-diamond"></i> The Problem</div>
+      <h2>Onboarding was the business's biggest bottleneck.</h2>
+      <p class="body-text">Different teams were all trying to get the information they needed from merchants through one legacy form. Merchants signed a contract, then waited weeks — sometimes months — before they could install Bolt and take their first purchase.</p>
+      <div class="chart-stat">
+        <div class="stat-num">74 days</div>
+        <div class="stat-cap">average time to get a merchant live</div>
+      </div>
+    </div>
+    <figure class="problem-chart">
+      <div class="chart-viewport zoom-pan">
+        <span class="zoom-hint"><i class="ph-bold ph-magnifying-glass-plus"></i> Hover to inspect</span>
+        <img src="assets/onboarding/time-to-live-chart.png" alt="Bar chart: average time to next implementation step, with merchant_live at roughly 74 days">
+      </div>
+      <figcaption><i class="ph-bold ph-chart-bar"></i> Avg. days to the next implementation step. Going live dwarfed every other step in the funnel.</figcaption>
+    </figure>
+  </div>
+</div>
+
+<!-- ================================================
+     2b · THE PROBLEM — what was breaking
+     ================================================ -->
+<div class="slide slide-problem slide-breakdown">
+  <div class="breakdown-copy">
+    <div class="label"><i class="ph-bold ph-warning-diamond"></i> The Legacy Form</div>
+    <h2>One form, asked to do everything.</h2>
+    <p class="body-text">Long forms, poor accessibility, and screens that asked for the same thing twice.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="card-head">
+          <i class="ph-bold ph-users-three"></i>
+          <h3>One form, many owners</h3>
+        </div>
+        <p>Asked for information only an engineer <em>or</em> the CEO would know, all in a single form.</p>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <i class="ph-bold ph-credit-card"></i>
+          <h3>Data we didn't need yet</h3>
+        </div>
+        <p>Payment details collected before we knew which payment method they'd use. Company owner info required even when it only mattered for Bolt Payments.</p>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <i class="ph-bold ph-copy"></i>
+          <h3>The same thing, twice</h3>
+        </div>
+        <p>Screens that asked merchants for information they had already given us.</p>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <i class="ph-bold ph-eye-slash"></i>
+          <h3>Poor accessibility</h3>
+        </div>
+        <p>Low contrast, confusing labels, and no clear sense of what was actually required.</p>
+      </div>
+    </div>
+  </div>
+  <div class="legacy-reel" aria-label="Screens from the legacy onboarding form">
+    <span class="reel-tag"><i class="ph-bold ph-files"></i> The legacy form</span>
+    <div class="reel-track">
+      <img src="assets/onboarding/old-screens/1.png" alt="Legacy onboarding form screen">
+      <img src="assets/onboarding/old-screens/23.png" alt="">
+      <img src="assets/onboarding/old-screens/24.png" alt="">
+      <img src="assets/onboarding/old-screens/25.png" alt="">
+      <img src="assets/onboarding/old-screens/26.png" alt="">
+      <img src="assets/onboarding/old-screens/27.png" alt="">
+      <img src="assets/onboarding/old-screens/28.png" alt="">
+      <img src="assets/onboarding/old-screens/29.png" alt="">
+      <!-- duplicated for a seamless loop -->
+      <img src="assets/onboarding/old-screens/1.png" alt="" aria-hidden="true">
+      <img src="assets/onboarding/old-screens/23.png" alt="" aria-hidden="true">
+      <img src="assets/onboarding/old-screens/24.png" alt="" aria-hidden="true">
+      <img src="assets/onboarding/old-screens/25.png" alt="" aria-hidden="true">
+      <img src="assets/onboarding/old-screens/26.png" alt="" aria-hidden="true">
+      <img src="assets/onboarding/old-screens/27.png" alt="" aria-hidden="true">
+      <img src="assets/onboarding/old-screens/28.png" alt="" aria-hidden="true">
+      <img src="assets/onboarding/old-screens/29.png" alt="" aria-hidden="true">
+    </div>
+  </div>
+</div>
+
+<!-- ================================================
+     2c · WHAT WAS BREAKING — the system beneath it
+     ================================================ -->
+<div class="slide slide-why">
+  <div class="visual zoom-pan">
+    <span class="zoom-hint"><i class="ph-bold ph-magnifying-glass-plus"></i> Hover to inspect</span>
+    <img src="assets/onboarding/onboardingexistingprocess.png" alt="Current state flow showing the fragmented onboarding process">
+  </div>
+  <div class="content">
+    <div class="label"><i class="ph-bold ph-graph"></i> The Current Process</div>
+    <h2>Fourteen+ steps, six roles, one form.</h2>
+    <div class="touched">
+      <div class="touched-label">Who was involved</div>
+      <div class="touched-chips">
+        <span class="who-chip bolt"><i class="ph-bold ph-user-gear"></i> Implementation Manager</span>
+        <span class="who-chip bolt"><i class="ph-bold ph-handshake"></i> Account Exec</span>
+        <span class="who-chip bolt"><i class="ph-bold ph-wrench"></i> Tech Consultant</span>
+        <span class="who-chip bolt"><i class="ph-bold ph-chart-line-up"></i> Sales</span>
+        <span class="who-chip merchant"><i class="ph-bold ph-crown-simple"></i> Merchant CEO / Owner</span>
+        <span class="who-chip merchant"><i class="ph-bold ph-code"></i> Merchant Engineer</span>
+      </div>
+    </div>
+    <div class="causes-card">
+      <ul>
+        <li><i class="ph-bold ph-arrows-down-up"></i> <span><strong>Sequential verification</strong></span></li>
+        <li><i class="ph-bold ph-hand-tap"></i> <span><strong>Manual re-entry</strong></span></li>
+        <li><i class="ph-bold ph-handshake"></i> <span><strong>Internal handoffs</strong></span></li>
+        <li><i class="ph-bold ph-circle-half-tilt"></i> <span><strong>Fragmented tools</strong></span></li>
+      </ul>
+      <p class="consequence"><i class="ph-bold ph-currency-circle-dollar"></i> Open opportunities sat untouched while merchants waited.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================
+     3 · THE AUDIT + THE DESIGN RESPONSE
+     ================================================ -->
+<div class="slide slide-audit">
+  <div class="audit-top">
+    <div class="audit-copy">
+      <div class="label"><i class="ph-bold ph-list-magnifying-glass"></i> The Audit</div>
+      <h2>What data is needed when, what we can automate, and where the efficiencies are.</h2>
+      <p class="body-text">Before redesigning anything, my PM and I audited all 40+ inputs the old flow collected. We mapped every field on three axes:</p>
+    </div>
+    <div class="axes">
+      <div class="axis">
+        <div class="axis-num">01</div>
+        <h3>What it was used for internally</h3>
+      </div>
+      <div class="axis">
+        <div class="axis-num">02</div>
+        <h3>Whether it was required to <em>create an account</em></h3>
+      </div>
+      <div class="axis">
+        <div class="axis-num">03</div>
+        <h3>Which role was expected to provide it — engineer, business owner, or finance</h3>
+      </div>
+    </div>
+  </div>
+  <div class="audit-visual">
+    <div class="visual zoom-pan">
+      <span class="zoom-hint"><i class="ph-bold ph-magnifying-glass-plus"></i> Hover to inspect</span>
+      <img src="assets/onboarding/M2-Flow.png" alt="Redesigned onboarding flow diagram">
+    </div>
+  </div>
+</div>
+
+<!-- ================================================
+     5 · THE STRATEGY
+     ================================================ -->
+<div class="slide slide-strategy">
+  <div class="label"><i class="ph-bold ph-lightbulb-filament"></i> The Strategy</div>
+  <h2>We needed to reframe the system, not the steps.</h2>
+  <div class="shifts">
+    <div class="shift">
+      <div class="num">Shift 01</div>
+      <div class="from-to">Manual <span class="arrow">→</span> Automated</div>
+      <p>Replace human data entry with automation wherever risk and compliance allow.</p>
+    </div>
+    <div class="shift">
+      <div class="num">Shift 02</div>
+      <div class="from-to">Sequential <span class="arrow">→</span> Parallel</div>
+      <p>Split technical implementation from account and payments setup, so steps stop waiting on each other.</p>
+    </div>
+    <div class="shift">
+      <div class="num">Shift 03</div>
+      <div class="from-to">Internal <span class="arrow">→</span> Self-Serve</div>
+      <p>Hand control to the merchant. Internal teams shift from gatekeepers to support.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================
+     6 · THE DESIGN RESPONSE — live prototype
+     ================================================ -->
+<div class="slide slide-prototype">
+  <div class="prototype-frame">
+    <div class="prototype-bar">
+      <div class="prototype-dots"><span></span><span></span><span></span></div>
+      <div class="prototype-url">bolt.com/onboarding</div>
+      <a class="prototype-open" href="https://bolt-playground.vercel.app/#onboarding" target="_blank" rel="noopener noreferrer">Open <i class="ph-bold ph-arrow-up-right"></i></a>
+    </div>
+    <iframe src="https://bolt-playground.vercel.app/#onboarding" title="Bolt Onboarding Prototype" loading="lazy"></iframe>
+  </div>
+</div>
+
+<!-- ================================================
+     7 · TRADEOFFS
+     ================================================ -->
+<div class="slide slide-tradeoffs">
+  <div class="label"><i class="ph-bold ph-scales"></i> Tradeoffs</div>
+  <h2>The decisions I had to defend.</h2>
+  <div class="tradeoff-cards">
+    <div class="tradeoff">
+      <div class="pair">All at once <span class="vs">vs.</span> later</div>
+      <p>Moving data out of the onboarding form meant we still needed to collect it later. That meant working with other teams to build it into their work.</p>
+    </div>
+    <div class="tradeoff">
+      <div class="pair">Automate now <span class="vs">vs.</span> ship sooner</div>
+      <p>Sequenced automation behind a leaner manual flow, so merchants got a faster experience before full automation landed.</p>
+    </div>
+    <div class="tradeoff">
+      <div class="pair">One platform <span class="vs">vs.</span> all at once</div>
+      <p>Scoped to Adobe Commerce first, the highest open-opportunity platform, to prove the model before generalizing.</p>
+    </div>
+  </div>
+  <div class="ripple-note">
+    <i class="ph-bold ph-share-network"></i>
+    <p><strong>The ripple:</strong> optimizing one flow turned it into three, which forced cross-team prioritization — and bringing Sales and Implementation Managers along, driving adoption of a flow that changed how their own jobs worked.</p>
+  </div>
+</div>
+
+<!-- ================================================
+     7b · THE RIPPLE — adjacent surfaces
+     ================================================ -->
+<div class="slide slide-ripple">
+  <div class="left">
+    <div class="label"><i class="ph-bold ph-share-network"></i> The Ripple</div>
+    <h2>Onboarding couldn't be optimized in isolation.</h2>
+    <p class="body-text">Optimizing one flow turned it into three. Every input I pulled out of onboarding had to land somewhere else — which meant designing the adjacent surfaces too, and negotiating priority across teams to get them built.</p>
+  </div>
+  <div class="ripple-slider" id="ripple-slider">
+    <div class="ripple-image">
+      <div class="img-slot active"><img src="assets/onboarding/Merchant-updates.png" alt="Merchant dashboard first-time experience"></div>
+      <div class="img-slot"><img src="assets/onboarding/payments-setup.png" alt="Payments setup flow"></div>
+      <div class="img-slot"><img src="assets/onboarding/scalability.png" alt="Scalable multi-product installation paths"></div>
+    </div>
+    <div class="ripple-controls">
+      <button class="ripple-btn prev" aria-label="Previous"><i class="ph-bold ph-caret-left"></i></button>
+      <div class="ripple-text">
+        <div class="text-slot active">
+          <div class="ripple-num">01 / 03</div>
+          <div class="pair">Merchant Dashboard</div>
+          <p>Deferring data collection changed the merchant's first-time experience in the dashboard. New in-product guidance had to be designed in lockstep with the new flow — and it scaled to cover setup tasks for other products too.</p>
+        </div>
+        <div class="text-slot">
+          <div class="ripple-num">02 / 03</div>
+          <div class="pair">Payments Setup</div>
+          <p>Pulling payment data out of onboarding meant it had to go somewhere else. So it moved into the Payments team's own setup flow, where merchants already had the context to answer it.</p>
+        </div>
+        <div class="text-slot">
+          <div class="ripple-num">03 / 03</div>
+          <div class="pair">Scalable by Design</div>
+          <p>Not in the original spec: the flow was built to flex across a growing set of product integrations and installation paths — Checkout, Ignite, Checkout Everywhere, and whatever came next.</p>
+        </div>
+      </div>
+      <button class="ripple-btn next" aria-label="Next"><i class="ph-bold ph-caret-right"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================
+     8 · OUTCOMES
+     ================================================ -->
+<div class="slide slide-outcomes">
+  <div class="label"><i class="ph-bold ph-trophy"></i> Outcomes</div>
+  <h2>Months of friction → minutes of momentum.</h2>
+  <div class="stats">
+    <div class="stat">
+      <div class="label-row">Time to live</div>
+      <div class="num">70+ days<br><small>→ minutes</small></div>
+      <p>Account creation shrank from a multi-month ordeal to a self-serve flow merchants could finish in a sitting.</p>
+    </div>
+    <div class="stat">
+      <div class="label-row">Inputs to activate</div>
+      <div class="num">40+ <small>→ 11</small></div>
+      <p>Audited every required field and cut what wasn't essential to first activation.</p>
+    </div>
+    <div class="stat">
+      <div class="label-row">Open opportunity</div>
+      <div class="num">$1.4B</div>
+      <p>Unlocked by removing months from merchant go-live time (Adobe Commerce alone).</p>
+    </div>
+  </div>
+  <div class="felt-row">
+    <div class="felt-label">Who felt it</div>
+    <div class="felt">
+      <i class="ph-bold ph-storefront"></i>
+      <p><strong>Merchants</strong> can start using Bolt the same day they sign.</p>
+    </div>
+    <div class="felt">
+      <i class="ph-bold ph-chart-line-up"></i>
+      <p><strong>The business</strong> captures revenue sooner and scales onboarding without scaling headcount.</p>
+    </div>
+    <div class="felt">
+      <i class="ph-bold ph-users-three"></i>
+      <p><strong>Internal teams</strong> saw manual workload drop sharply.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================
+     9 · WHAT IT SET UP
+     ================================================ -->
+<div class="slide slide-setup">
+  <div class="label"><i class="ph-bold ph-rocket-launch"></i> What It Set Up</div>
+  <h2>An onboarding architecture, not just a faster form.</h2>
+  <p class="body-text">The steps beyond the initial restructure and redesign: auto-provisioning of sandbox and production accounts on form submission. Built on the same foundation:</p>
+  <div class="setup-list">
+    <div class="setup-item">
+      <div class="setup-icon"><i class="ph-bold ph-plugs-connected"></i></div>
+      <p>Automating the OAuth connection and API-key exchange</p>
+    </div>
+    <div class="setup-item">
+      <div class="setup-icon"><i class="ph-bold ph-browser"></i></div>
+      <p>Redesigning the Bolt install experience inside Adobe Commerce Admin</p>
+    </div>
+    <div class="setup-item">
+      <div class="setup-icon"><i class="ph-bold ph-shield-check"></i></div>
+      <p>Notifications, go-live guardrails, and spam prevention</p>
+    </div>
+  </div>
+  <p class="setup-kicker">The value wasn't a shorter form — it was a system the company could extend to every new product.</p>
+</div>
+
+<!-- ================================================
+     THANK YOU
+     ================================================ -->
+<div class="slide slide-thanks">
+  <div class="thanks-top">
+    <h1>Thank you.</h1>
+    <p class="questions">Questions?</p>
+  </div>
+
+  <div class="side-projects">
+    <div class="sp-label">A few side quests</div>
+    <div class="sp-grid">
+      <a class="sp-card" href="https://www.roamswild.com" target="_blank" rel="noopener noreferrer">
+        <div class="sp-thumb">
+          <img src="assets/roamswild/mobile-detail.png" alt="RoamsWild campsite detail on mobile">
+        </div>
+        <div class="sp-body">
+          <h3>RoamsWild <i class="ph-bold ph-arrow-up-right"></i></h3>
+          <p>A data-driven exploration tool for overlanders. Five APIs, algorithmic scoring, and AI satellite analysis.</p>
+        </div>
+      </a>
+      <div class="sp-card sp-stack">
+        <div class="sp-thumb sp-thumb-wide">
+          <div class="browser">
+            <div class="browser-bar"><span></span><span></span><span></span></div>
+            <img src="assets/clipquery/clipquery-search.png" alt="ClipQuery local video search">
+          </div>
+        </div>
+        <div class="sp-body">
+          <h3>ClipQuery</h3>
+          <p>A searchable, AI-tagged index for the 8TB of footage you'll never organize by hand.</p>
+        </div>
+      </div>
+      <a class="sp-card sp-reverse" href="https://www.roamswildstudio.com" target="_blank" rel="noopener noreferrer">
+        <div class="sp-thumb sp-thumb-phone">
+          <div class="phone">
+            <span class="phone-notch"></span>
+            <video src="assets/reelready/reelready.mp4" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+        <div class="sp-body">
+          <h3>ReelReady <i class="ph-bold ph-arrow-up-right"></i></h3>
+          <p>Turns a messy clip library into social content — AI-written descriptions and reusable templates.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================
+     LIGHTBOX — legacy form screens
+     ================================================ -->
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-btn lb-close" id="lb-close" aria-label="Close"><i class="ph-bold ph-x"></i></button>
+  <button class="lb-btn lb-prev" id="lb-prev" aria-label="Previous screen"><i class="ph-bold ph-caret-left"></i></button>
+  <figure class="lb-stage">
+    <img id="lb-img" src="" alt="Legacy onboarding form screen">
+    <figcaption class="lb-counter" id="lb-counter"></figcaption>
+  </figure>
+  <button class="lb-btn lb-next" id="lb-next" aria-label="Next screen"><i class="ph-bold ph-caret-right"></i></button>
+</div>
+
+<!-- ================================================
+     NAVIGATION SCRIPT
+     ================================================ -->
+<script>
+(function() {
+  const nav = document.createElement('div');
+  nav.className = 'slide-nav';
+  nav.innerHTML = `
+    <button id="prev-btn"><i class="ph-bold ph-caret-up"></i></button>
+    <div class="dots" id="dots"></div>
+    <span class="counter" id="counter"></span>
+    <button id="next-btn"><i class="ph-bold ph-caret-down"></i></button>
+    <button id="fullscreen-btn" aria-label="Toggle fullscreen"><i class="ph-bold ph-arrows-out"></i></button>
+  `;
+  document.body.appendChild(nav);
+
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.getElementById('dots');
+  const counter = document.getElementById('counter');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  let current = 0;
+
+  // Lock page scroll while cursor is over the prototype iframe
+  document.querySelectorAll('.prototype-frame').forEach(frame => {
+    frame.addEventListener('mouseenter', () => { document.body.style.overflow = 'hidden'; });
+    frame.addEventListener('mouseleave', () => { document.body.style.overflow = ''; });
+  });
+
+  // Ripple slider — steps through panels before advancing to the next slide
+  const rippleSlider = document.getElementById('ripple-slider');
+  const rippleImgs = rippleSlider ? rippleSlider.querySelectorAll('.img-slot') : [];
+  const rippleTexts = rippleSlider ? rippleSlider.querySelectorAll('.text-slot') : [];
+  const ripplePrevBtn = rippleSlider ? rippleSlider.querySelector('.ripple-btn.prev') : null;
+  const rippleNextBtn = rippleSlider ? rippleSlider.querySelector('.ripple-btn.next') : null;
+  let rippleIdx = 0;
+  function rippleUpdate() {
+    rippleImgs.forEach((el, i) => el.classList.toggle('active', i === rippleIdx));
+    rippleTexts.forEach((el, i) => el.classList.toggle('active', i === rippleIdx));
+    if (ripplePrevBtn) ripplePrevBtn.disabled = rippleIdx === 0;
+    if (rippleNextBtn) rippleNextBtn.disabled = rippleIdx === rippleImgs.length - 1;
+  }
+  function rippleGoNext() {
+    if (!rippleImgs.length || rippleIdx >= rippleImgs.length - 1) return false;
+    rippleIdx++; rippleUpdate(); return true;
+  }
+  function rippleGoPrev() {
+    if (!rippleImgs.length || rippleIdx <= 0) return false;
+    rippleIdx--; rippleUpdate(); return true;
+  }
+  function rippleReset(atEnd) {
+    if (!rippleImgs.length) return;
+    rippleIdx = atEnd ? rippleImgs.length - 1 : 0;
+    rippleUpdate();
+  }
+  function isRippleSlide() {
+    return slides[current] && slides[current].classList.contains('slide-ripple');
+  }
+  if (ripplePrevBtn) ripplePrevBtn.addEventListener('click', rippleGoPrev);
+  if (rippleNextBtn) rippleNextBtn.addEventListener('click', rippleGoNext);
+  rippleUpdate();
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  function updateUI() {
+    const dots = dotsContainer.querySelectorAll('.dot');
+    dots.forEach((d, i) => d.className = 'dot' + (i === current ? ' active' : ''));
+    counter.textContent = (current + 1) + ' / ' + slides.length;
+  }
+
+  function goTo(index) {
+    const prev = current;
+    current = Math.max(0, Math.min(index, slides.length - 1));
+    slides[current].scrollIntoView({ behavior: 'smooth' });
+    // Reset the ripple slider when entering the Ripple slide from either direction
+    if (slides[current].classList.contains('slide-ripple') && prev !== current) {
+      rippleReset(current < prev);
+    }
+    updateUI();
+  }
+
+  prevBtn.addEventListener('click', () => {
+    if (isRippleSlide() && rippleGoPrev()) return;
+    goTo(current - 1);
+  });
+  nextBtn.addEventListener('click', () => {
+    if (isRippleSlide() && rippleGoNext()) return;
+    goTo(current + 1);
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+        const index = Array.from(slides).indexOf(entry.target);
+        if (index !== -1) { current = index; updateUI(); }
+      }
+    });
+  }, { threshold: 0.5 });
+
+  slides.forEach(slide => observer.observe(slide));
+
+  document.addEventListener('keydown', (e) => {
+    // the lightbox owns the keyboard while it's open
+    if (document.body.classList.contains('lightbox-open')) return;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      if (isRippleSlide() && rippleGoNext()) return;
+      goTo(current + 1);
+    }
+    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      if (isRippleSlide() && rippleGoPrev()) return;
+      goTo(current - 1);
+    }
+    if (e.key === 'f' || e.key === 'F') { e.preventDefault(); toggleFullscreen(); }
+  });
+
+  const FS_KEY = 'deck-fullscreen';
+  const fullscreenBtn = document.getElementById('fullscreen-btn');
+  let isUnloading = false;
+  window.addEventListener('beforeunload', () => { isUnloading = true; });
+  window.addEventListener('pagehide', () => { isUnloading = true; });
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(() => {});
+    } else {
+      document.exitFullscreen();
+    }
+  }
+  fullscreenBtn.addEventListener('click', toggleFullscreen);
+  document.addEventListener('fullscreenchange', () => {
+    const icon = fullscreenBtn.querySelector('i');
+    const inFs = !!document.fullscreenElement;
+    icon.className = inFs ? 'ph-bold ph-arrows-in' : 'ph-bold ph-arrows-out';
+    if (inFs) sessionStorage.setItem(FS_KEY, '1');
+    else if (!isUnloading) sessionStorage.removeItem(FS_KEY);
+  });
+  // Intercept link clicks while in fullscreen to mark as navigating
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href]');
+    if (link && document.fullscreenElement) isUnloading = true;
+  }, true);
+  if (sessionStorage.getItem(FS_KEY) === '1') {
+    const resume = () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => sessionStorage.removeItem(FS_KEY));
+      }
+      document.removeEventListener('click', resume);
+      document.removeEventListener('keydown', resume);
+    };
+    document.addEventListener('click', resume);
+    document.addEventListener('keydown', resume);
+  }
+
+  updateUI();
+
+  // Lightbox — click a legacy form screen to page through them full-size
+  (function() {
+    const box = document.getElementById('lightbox');
+    if (!box) return;
+    // the reel duplicates its images for the seamless loop; only take the originals
+    const sources = Array.from(
+      document.querySelectorAll('.legacy-reel .reel-track img:not([aria-hidden="true"])')
+    ).map(img => img.src);
+    if (!sources.length) return;
+
+    const lbImg = document.getElementById('lb-img');
+    const counter = document.getElementById('lb-counter');
+    let idx = 0;
+
+    function render() {
+      lbImg.src = sources[idx];
+      counter.textContent = (idx + 1) + ' / ' + sources.length;
+    }
+    function open(i) {
+      idx = i;
+      render();
+      box.hidden = false;
+      document.body.classList.add('lightbox-open');
+    }
+    function close() {
+      box.hidden = true;
+      document.body.classList.remove('lightbox-open');
+    }
+    const step = (n) => { idx = (idx + n + sources.length) % sources.length; render(); };
+
+    document.querySelectorAll('.legacy-reel .reel-track img').forEach(img => {
+      img.addEventListener('click', () => {
+        const i = sources.indexOf(img.src);
+        open(i === -1 ? 0 : i);
+      });
+    });
+
+    document.getElementById('lb-close').addEventListener('click', close);
+    document.getElementById('lb-prev').addEventListener('click', (e) => { e.stopPropagation(); step(-1); });
+    document.getElementById('lb-next').addEventListener('click', (e) => { e.stopPropagation(); step(1); });
+    // click the backdrop (but not the image itself) to close
+    box.addEventListener('click', (e) => { if (e.target === box || e.target.closest('.lb-stage') === null) return close(); });
+
+    document.addEventListener('keydown', (e) => {
+      if (!document.body.classList.contains('lightbox-open')) return;
+      e.preventDefault();
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') step(1);
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') step(-1);
+    });
+  })();
+
+  // Hover-to-pan zoom on flagged images
+  document.querySelectorAll('.zoom-pan').forEach(el => {
+    const img = el.querySelector('img');
+    if (!img) return;
+    el.addEventListener('mousemove', (e) => {
+      const rect = el.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      img.style.transformOrigin = `${x}% ${y}%`;
+    });
+    el.addEventListener('mouseleave', () => {
+      img.style.transformOrigin = '50% 50%';
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>
