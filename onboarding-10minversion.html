@@ -34,11 +34,12 @@
         <div class="meta-label">Company</div>
         <div class="meta-value">Bolt</div>
       </div>
-      <div class="meta-item">
-        <div class="meta-label">Team</div>
-        <div class="meta-value">PM &amp; Eng Manager</div>
+      <div class="meta-item meta-partners">
+        <div class="meta-label">Partners</div>
+        <div class="meta-value">Product Manager · Engineering · Implementation Managers · Sales &amp; Go-to-Market · Payments</div>
       </div>
     </div>
+    <p class="focus"><span>Focus:</span> Cross-functional systems architecture, API-driven activation mechanics, and parallel user workflows.</p>
   </div>
   <img class="bg-illustration" src="assets/onboarding/Bolt Blends Seamlessly2.png" alt="">
 </div>
@@ -55,6 +56,11 @@
       <div class="chart-stat">
         <div class="stat-num">74 days</div>
         <div class="stat-cap">average time to get a merchant live</div>
+      </div>
+      <div class="priority">
+        <div class="priority-tag"><i class="ph-bold ph-target"></i> Company Priority · H1 2023</div>
+        <div class="priority-name">Scaling the Checkout Package</div>
+        <p>Cutting time-to-live laddered directly to one of Bolt's top company bets that half. Not a team nice-to-have.</p>
       </div>
     </div>
     <figure class="problem-chart">
@@ -81,7 +87,7 @@
           <i class="ph-bold ph-users-three"></i>
           <h3>One form, many owners</h3>
         </div>
-        <p>Asked for information only an engineer <em>or</em> the CEO would know, all in a single form.</p>
+        <p>Asked for information only an engineer <em>or</em> the CEO would know, all in a single form. A developer couldn't start until someone handed over the owner's SSN.</p>
       </div>
       <div class="card">
         <div class="card-head">
@@ -165,6 +171,58 @@
 </div>
 
 <!-- ================================================
+     5 · THE STRATEGY
+     ================================================ -->
+<div class="slide slide-strategy">
+  <div class="label"><i class="ph-bold ph-lightbulb-filament"></i> The Strategy</div>
+  <h2>We needed to reframe the system, not the steps.</h2>
+  <div class="shifts">
+    <div class="shift">
+      <div class="num">Shift 01</div>
+      <div class="from-to">Manual <span class="arrow">→</span> Automated</div>
+      <div class="lanes">
+        <div class="lane">
+          <i class="ph-bold ph-lightning"></i>
+          <div><strong>Accounts</strong> provisioned on submit</div>
+        </div>
+        <div class="lane">
+          <i class="ph-bold ph-user-gear"></i>
+          <div><strong>Implementation Managers</strong> stop re-keying data</div>
+        </div>
+      </div>
+    </div>
+    <div class="shift shift-key">
+      <div class="num">Shift 02</div>
+      <div class="from-to">Sequential <span class="arrow">→</span> Parallel</div>
+      <div class="lanes">
+        <div class="lane">
+          <i class="ph-bold ph-code"></i>
+          <div><strong>Developer</strong> starts now</div>
+        </div>
+        <div class="lane">
+          <i class="ph-bold ph-buildings"></i>
+          <div><strong>Business details</strong> filled in later, in parallel</div>
+        </div>
+      </div>
+    </div>
+    <div class="shift">
+      <div class="num">Shift 03</div>
+      <div class="from-to">Internal <span class="arrow">→</span> Self-Serve</div>
+      <div class="lanes">
+        <div class="lane">
+          <i class="ph-bold ph-storefront"></i>
+          <div><strong>Merchant</strong> drives their own setup</div>
+        </div>
+        <div class="lane">
+          <i class="ph-bold ph-lifebuoy"></i>
+          <div><strong>Internal teams</strong> move from gatekeepers to support</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================
      3 · THE AUDIT + THE DESIGN RESPONSE
      ================================================ -->
 <div class="slide slide-audit">
@@ -197,30 +255,6 @@
   </div>
 </div>
 
-<!-- ================================================
-     5 · THE STRATEGY
-     ================================================ -->
-<div class="slide slide-strategy">
-  <div class="label"><i class="ph-bold ph-lightbulb-filament"></i> The Strategy</div>
-  <h2>We needed to reframe the system, not the steps.</h2>
-  <div class="shifts">
-    <div class="shift">
-      <div class="num">Shift 01</div>
-      <div class="from-to">Manual <span class="arrow">→</span> Automated</div>
-      <p>Replace human data entry with automation wherever risk and compliance allow.</p>
-    </div>
-    <div class="shift">
-      <div class="num">Shift 02</div>
-      <div class="from-to">Sequential <span class="arrow">→</span> Parallel</div>
-      <p>Split technical implementation from account and payments setup, so steps stop waiting on each other.</p>
-    </div>
-    <div class="shift">
-      <div class="num">Shift 03</div>
-      <div class="from-to">Internal <span class="arrow">→</span> Self-Serve</div>
-      <p>Hand control to the merchant. Internal teams shift from gatekeepers to support.</p>
-    </div>
-  </div>
-</div>
 
 <!-- ================================================
      6 · THE DESIGN RESPONSE — live prototype
@@ -253,12 +287,8 @@
     </div>
     <div class="tradeoff">
       <div class="pair">One platform <span class="vs">vs.</span> all at once</div>
-      <p>Scoped to Adobe Commerce first, the highest open-opportunity platform, to prove the model before generalizing.</p>
+      <p>Scoped to Adobe Commerce first. Not the biggest market — custom cart and Salesforce hold more GMV — but where automating account creation moves the onboarding timeline most, at the highest confidence of impact. Prove it, then generalize.</p>
     </div>
-  </div>
-  <div class="ripple-note">
-    <i class="ph-bold ph-share-network"></i>
-    <p><strong>The ripple:</strong> optimizing one flow turned it into three, which forced cross-team prioritization — and bringing Sales and Implementation Managers along, driving adoption of a flow that changed how their own jobs worked.</p>
   </div>
 </div>
 
@@ -270,10 +300,18 @@
     <div class="label"><i class="ph-bold ph-share-network"></i> The Ripple</div>
     <h2>Onboarding couldn't be optimized in isolation.</h2>
     <p class="body-text">Optimizing one flow turned it into three. Every input I pulled out of onboarding had to land somewhere else — which meant designing the adjacent surfaces too, and negotiating priority across teams to get them built.</p>
+    <div class="surface-tags">
+      <div class="surface-label">Cross-team collaboration &amp; prioritization</div>
+      <div class="surface-chips">
+        <span class="surface-chip"><i class="ph-bold ph-credit-card"></i> Payments</span>
+        <span class="surface-chip"><i class="ph-bold ph-squares-four"></i> Merchant Dashboard</span>
+        <span class="surface-chip"><i class="ph-bold ph-globe-hemisphere-west"></i> Checkout Everywhere</span>
+      </div>
+    </div>
   </div>
   <div class="ripple-slider" id="ripple-slider">
     <div class="ripple-image">
-      <div class="img-slot active"><img src="assets/onboarding/Merchant-updates.png" alt="Merchant dashboard first-time experience"></div>
+      <div class="img-slot active"><img src="assets/onboarding/merchant-tasks.png" alt="Merchant dashboard first-time experience with setup tasks"></div>
       <div class="img-slot"><img src="assets/onboarding/payments-setup.png" alt="Payments setup flow"></div>
       <div class="img-slot"><img src="assets/onboarding/scalability.png" alt="Scalable multi-product installation paths"></div>
     </div>
@@ -310,22 +348,27 @@
   <div class="stats">
     <div class="stat">
       <div class="label-row">Time to live</div>
-      <div class="num">70+ days<br><small>→ minutes</small></div>
-      <p>Account creation shrank from a multi-month ordeal to a self-serve flow merchants could finish in a sitting.</p>
+      <div class="num">70+ days</div>
+      <div class="num-after">→ minutes</div>
     </div>
     <div class="stat">
       <div class="label-row">Inputs to activate</div>
-      <div class="num">40+ <small>→ 11</small></div>
-      <p>Audited every required field and cut what wasn't essential to first activation.</p>
+      <div class="num">40+</div>
+      <div class="num-after">→ 11</div>
     </div>
     <div class="stat">
-      <div class="label-row">Open opportunity</div>
+      <div class="label-row">Merchant ↔ Bolt communication cycles</div>
+      <div class="num">5</div>
+      <div class="num-after">→ 1</div>
+      <p class="stat-note">The minimum back-and-forth to get a merchant live.</p>
+    </div>
+    <div class="stat">
+      <div class="label-row">Open-opportunity GMV — Adobe Commerce</div>
       <div class="num">$1.4B</div>
-      <p>Unlocked by removing months from merchant go-live time (Adobe Commerce alone).</p>
+      <p class="stat-note">Addressable by removing months from go-live.</p>
     </div>
   </div>
   <div class="felt-row">
-    <div class="felt-label">Who felt it</div>
     <div class="felt">
       <i class="ph-bold ph-storefront"></i>
       <p><strong>Merchants</strong> can start using Bolt the same day they sign.</p>
@@ -345,8 +388,8 @@
      9 · WHAT IT SET UP
      ================================================ -->
 <div class="slide slide-setup">
-  <div class="label"><i class="ph-bold ph-rocket-launch"></i> What It Set Up</div>
-  <h2>An onboarding architecture, not just a faster form.</h2>
+  <div class="label"><i class="ph-bold ph-rocket-launch"></i> Toward Full Self-Service</div>
+  <h2>Each release takes another person out of the loop.</h2>
   <p class="body-text">The steps beyond the initial restructure and redesign: auto-provisioning of sandbox and production accounts on form submission. Built on the same foundation:</p>
   <div class="setup-list">
     <div class="setup-item">
@@ -362,7 +405,6 @@
       <p>Notifications, go-live guardrails, and spam prevention</p>
     </div>
   </div>
-  <p class="setup-kicker">The value wasn't a shorter form — it was a system the company could extend to every new product.</p>
 </div>
 
 <!-- ================================================
@@ -587,6 +629,30 @@
   }
 
   updateUI();
+
+  // Only animate what's on screen — the reel and the video are expensive to composite
+  (function() {
+    const reel = document.querySelector('.legacy-reel');
+    const reelSlide = reel && reel.closest('.slide');
+    const videos = Array.from(document.querySelectorAll('.slide video'));
+
+    const idle = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const visible = entry.isIntersecting;
+        if (entry.target === reelSlide && reel) {
+          reel.classList.toggle('paused', !visible);
+        }
+        videos
+          .filter(v => v.closest('.slide') === entry.target)
+          .forEach(v => { visible ? v.play().catch(() => {}) : v.pause(); });
+      });
+    }, { threshold: 0.01 });
+
+    const watched = new Set();
+    if (reelSlide) watched.add(reelSlide);
+    videos.forEach(v => { const s = v.closest('.slide'); if (s) watched.add(s); });
+    watched.forEach(s => idle.observe(s));
+  })();
 
   // Lightbox — click a legacy form screen to page through them full-size
   (function() {
