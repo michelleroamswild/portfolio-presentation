@@ -2444,22 +2444,15 @@
      ============================================ */
   .slide-thanks {
     background: var(--cream);
-    display: grid;
-    /* two equal bands */
-    grid-template-rows: 1fr 1fr;
-    align-items: stretch;
-    justify-content: stretch;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 0;
   }
-  /* top band — the sign-off */
   .slide-thanks .thanks-top {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* extra room below "Questions?" */
-    padding: 80px 110px 120px;
   }
   .slide-thanks h1 {
     color: var(--black);
@@ -2476,42 +2469,33 @@
     letter-spacing: -0.01em;
   }
 
-  /* bottom band — side projects on a dark ground */
-  .slide-thanks .side-projects {
-    margin-top: 0;
-    width: 100%;
-    max-width: none;
+  /* ============================================
+     SLIDE 14 — SIDE QUESTS
+     ============================================ */
+  .slide-sidequests {
     background: linear-gradient(155deg, #16205c 0%, #0d1330 100%);
-    padding: 34px 110px 44px;
-    text-align: left;
+    justify-content: center;
+  }
+  .slide-sidequests .side-projects {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    min-height: 0;
+    text-align: left;
   }
-  /* label sits near the top of the band; the cards center in what's left */
-  .slide-thanks .sp-grid {
-    margin-top: auto;
-    margin-bottom: auto;
+  .slide-sidequests .label {
+    background: rgba(138,160,255,0.14);
+    color: #8AA0FF;
+    margin-bottom: 44px;
   }
-  .slide-thanks .sp-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.7);
-    margin-bottom: 26px;
-    text-align: center;
-  }
-  .slide-thanks .sp-grid {
+  .slide-sidequests .sp-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 32px;
   }
   /* image left, copy right — no card chrome */
-  .slide-thanks .sp-card {
+  .slide-sidequests .sp-card {
     display: grid;
-    grid-template-columns: 140px 1fr;
+    grid-template-columns: 200px 1fr;
     gap: 20px;
     align-items: center;
     text-align: left;
@@ -2520,17 +2504,17 @@
     border: none;
     padding: 0;
   }
-  .slide-thanks .sp-thumb {
-    width: 140px;
-    height: 284px;
+  .slide-sidequests .sp-thumb {
+    width: 200px;
+    height: 430px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
   }
   /* nothing gets cropped — fit the whole frame inside the slot */
-  .slide-thanks .sp-thumb > img,
-  .slide-thanks .sp-thumb > video {
+  .slide-sidequests .sp-thumb > img,
+  .slide-sidequests .sp-thumb > video {
     max-width: 100%;
     max-height: 100%;
     width: auto;
@@ -2540,18 +2524,17 @@
     border-radius: 8px;
   }
   /* ClipQuery — wide screenshot in a faux browser, stacked above the copy */
-  .slide-thanks .sp-card.sp-stack {
+  .slide-sidequests .sp-card.sp-stack {
     grid-template-columns: 1fr;
     gap: 14px;
     align-items: start;
-    align-self: start;
   }
-  .slide-thanks .sp-thumb-wide {
-    width: 86%;
+  .slide-sidequests .sp-thumb-wide {
+    width: 100%;
     height: auto;
     justify-content: flex-start;
   }
-  .slide-thanks .sp-thumb-wide .browser {
+  .slide-sidequests .sp-thumb-wide .browser {
     width: 100%;
     background: var(--white);
     border: 1px solid rgba(0,0,0,0.1);
@@ -2559,7 +2542,7 @@
     overflow: hidden;
     box-shadow: 0 8px 22px rgba(0,0,0,0.10);
   }
-  .slide-thanks .sp-thumb-wide .browser-bar {
+  .slide-sidequests .sp-thumb-wide .browser-bar {
     display: flex;
     align-items: center;
     gap: 4px;
@@ -2568,16 +2551,16 @@
     background: #f4f4f4;
     border-bottom: 1px solid rgba(0,0,0,0.08);
   }
-  .slide-thanks .sp-thumb-wide .browser-bar span {
+  .slide-sidequests .sp-thumb-wide .browser-bar span {
     width: 6px;
     height: 6px;
     border-radius: 50%;
     display: block;
   }
-  .slide-thanks .sp-thumb-wide .browser-bar span:nth-child(1) { background: #ff5f57; }
-  .slide-thanks .sp-thumb-wide .browser-bar span:nth-child(2) { background: #febc2e; }
-  .slide-thanks .sp-thumb-wide .browser-bar span:nth-child(3) { background: #28c840; }
-  .slide-thanks .sp-thumb-wide .browser img {
+  .slide-sidequests .sp-thumb-wide .browser-bar span:nth-child(1) { background: #ff5f57; }
+  .slide-sidequests .sp-thumb-wide .browser-bar span:nth-child(2) { background: #febc2e; }
+  .slide-sidequests .sp-thumb-wide .browser-bar span:nth-child(3) { background: #28c840; }
+  .slide-sidequests .sp-thumb-wide .browser img {
     width: 100%;
     height: auto;
     max-height: none;
@@ -2586,14 +2569,14 @@
   }
 
   /* ReelReady — phone sits to the right of the copy */
-  .slide-thanks .sp-card.sp-reverse {
-    grid-template-columns: 1fr 140px;
+  .slide-sidequests .sp-card.sp-reverse {
+    grid-template-columns: 1fr 200px;
   }
-  .slide-thanks .sp-card.sp-reverse .sp-thumb { order: 2; }
-  .slide-thanks .sp-card.sp-reverse .sp-body { order: 1; }
+  .slide-sidequests .sp-card.sp-reverse .sp-thumb { order: 2; }
+  .slide-sidequests .sp-card.sp-reverse .sp-body { order: 1; }
 
   /* faux iPhone shell */
-  .slide-thanks .sp-thumb-phone .phone {
+  .slide-sidequests .sp-thumb-phone .phone {
     position: relative;
     height: 100%;
     aspect-ratio: 400 / 866;
@@ -2602,14 +2585,14 @@
     padding: 4px;
     box-shadow: 0 8px 22px rgba(0,0,0,0.18);
   }
-  .slide-thanks .sp-thumb-phone .phone video {
+  .slide-sidequests .sp-thumb-phone .phone video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 14px;
     display: block;
   }
-  .slide-thanks .sp-thumb-phone .phone-notch {
+  .slide-sidequests .sp-thumb-phone .phone-notch {
     position: absolute;
     top: 7px;
     left: 50%;
@@ -2620,15 +2603,15 @@
     background: #111113;
     z-index: 2;
   }
-  .slide-thanks .sp-thumb-empty {
+  .slide-sidequests .sp-thumb-empty {
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(140,165,255,0.25);
     border-radius: 14px;
-    width: 140px;
+    width: 150px;
     color: #8AA0FF;
     font-size: 32px;
   }
-  .slide-thanks .sp-card h3 {
+  .slide-sidequests .sp-card h3 {
     display: flex;
     align-items: center;
     gap: 6px;
@@ -2636,13 +2619,13 @@
     font-size: 16px;
     margin: 0 0 5px;
   }
-  .slide-thanks .sp-card h3 i {
+  .slide-sidequests .sp-card h3 i {
     font-size: 13px;
     color: #8AA0FF;
     transition: transform 0.18s ease;
   }
-  .slide-thanks .sp-card:hover h3 i { transform: translate(2px, -2px); }
-  .slide-thanks .sp-card p {
+  .slide-sidequests .sp-card:hover h3 i { transform: translate(2px, -2px); }
+  .slide-sidequests .sp-card p {
     font-size: 13px;
     line-height: 1.55;
     color: rgba(255,255,255,0.85);
@@ -2900,6 +2883,6 @@
     /* Thanks */
     .slide-thanks h1 { font-size: 56px; }
     .slide-thanks .next-link { bottom: 40px; right: 40px; }
-    .slide-thanks .side-projects { margin-top: 32px; }
-    .slide-thanks .sp-grid { grid-template-columns: 1fr; gap: 16px; }
+    .slide-sidequests { padding: 60px 28px; }
+    .slide-sidequests .sp-grid { grid-template-columns: 1fr; gap: 16px; }
   }

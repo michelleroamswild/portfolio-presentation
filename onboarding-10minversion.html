@@ -403,9 +403,15 @@
     <h1>Thank you.</h1>
     <p class="questions">Questions?</p>
   </div>
+</div>
 
+
+<!-- ================================================
+     SIDE QUESTS
+     ================================================ -->
+<div class="slide slide-sidequests">
   <div class="side-projects">
-    <div class="sp-label">A few side quests</div>
+    <div class="label"><i class="ph-bold ph-compass"></i> Side quests</div>
     <div class="sp-grid">
       <a class="sp-card" href="https://www.roamswild.com" target="_blank" rel="noopener noreferrer">
         <div class="sp-thumb">
@@ -416,7 +422,7 @@
           <p>A data-driven exploration tool for overlanders. Five APIs, algorithmic scoring, and AI satellite analysis.</p>
         </div>
       </a>
-      <div class="sp-card sp-stack">
+      <a class="sp-card sp-stack" href="http://localhost:8080/" target="_blank" rel="noopener noreferrer">
         <div class="sp-thumb sp-thumb-wide">
           <div class="browser">
             <div class="browser-bar"><span></span><span></span><span></span></div>
@@ -424,10 +430,10 @@
           </div>
         </div>
         <div class="sp-body">
-          <h3>ClipQuery</h3>
+          <h3>ClipQuery <i class="ph-bold ph-arrow-up-right"></i></h3>
           <p>A searchable, AI-tagged index for the 8TB of footage you'll never organize by hand.</p>
         </div>
-      </div>
+      </a>
       <a class="sp-card sp-reverse" href="https://www.roamswildstudio.com" target="_blank" rel="noopener noreferrer">
         <div class="sp-thumb sp-thumb-phone">
           <div class="phone">
@@ -597,6 +603,8 @@
       if (isRippleSlide() && rippleGoPrev()) return;
       goTo(current - 1);
     }
+    if (e.key === '1') { e.preventDefault(); goTo(0); }
+    if (e.key === 'l' || e.key === 'L') { e.preventDefault(); goTo(slides.length - 1); }
     if (e.key === 'f' || e.key === 'F') { e.preventDefault(); toggleFullscreen(); }
   });
 
