@@ -21,25 +21,33 @@
      ================================================ -->
 <div class="slide slide-title">
   <div class="left">
-    <div class="tag">Case Study — 10 min</div>
+    <div class="tag">Bolt Onboarding — 10 Minute Version</div>
     <h1>From 70+ Days<br>to <span class="accent">Minutes</span></h1>
     <div class="rule"></div>
     <p class="subtitle">A redesign of Bolt's merchant onboarding: turning a months-long manual bottleneck into a self-serve flow that takes minutes.</p>
     <div class="meta">
       <div class="meta-item">
         <div class="meta-label">Role</div>
-        <div class="meta-value">Lead Product Designer</div>
-      </div>
-      <div class="meta-item">
-        <div class="meta-label">Company</div>
-        <div class="meta-value">Bolt</div>
+        <div class="partners-row">
+          <span class="partner-chip"><i class="ph-bold ph-pen-nib"></i> Lead Product Designer</span>
+        </div>
       </div>
       <div class="meta-item meta-partners">
         <div class="meta-label">Partners</div>
-        <div class="meta-value">Product Manager · Engineering · Implementation Managers · Sales &amp; Go-to-Market · Payments</div>
+        <div class="partners-row">
+          <span class="partner-chip"><i class="ph-bold ph-strategy"></i> Product Manager</span>
+          <span class="partner-chip"><i class="ph-bold ph-code"></i> Engineering Team</span>
+          <span class="partner-chip"><i class="ph-bold ph-user-gear"></i> Implementation Managers</span>
+          <span class="partner-chip"><i class="ph-bold ph-handshake"></i> Sales &amp; Go-to-Market</span>
+          <span class="partner-chip"><i class="ph-bold ph-credit-card"></i> Payments Team</span>
+        </div>
       </div>
     </div>
-    <p class="focus"><span>Focus:</span> Cross-functional systems architecture, API-driven activation mechanics, and parallel user workflows.</p>
+  </div>
+  <div class="priority-card">
+    <div class="priority-tag"><i class="ph-bold ph-target"></i> Company Priority</div>
+    <div class="priority-name">Scaling the Checkout Package</div>
+    <p>Cutting time-to-live laddered directly to one of Bolt's top company bets.</p>
   </div>
   <img class="bg-illustration" src="assets/onboarding/Bolt Blends Seamlessly2.png" alt="">
 </div>
@@ -52,15 +60,9 @@
     <div class="problem-copy">
       <div class="label"><i class="ph-bold ph-warning-diamond"></i> The Problem</div>
       <h2>Onboarding was the business's biggest bottleneck.</h2>
-      <p class="body-text">Different teams were all trying to get the information they needed from merchants through one legacy form. Merchants signed a contract, then waited weeks — sometimes months — before they could install Bolt and take their first purchase.</p>
       <div class="chart-stat">
         <div class="stat-num">74 days</div>
         <div class="stat-cap">average time to get a merchant live</div>
-      </div>
-      <div class="priority">
-        <div class="priority-tag"><i class="ph-bold ph-target"></i> Company Priority · H1 2023</div>
-        <div class="priority-name">Scaling the Checkout Package</div>
-        <p>Cutting time-to-live laddered directly to one of Bolt's top company bets that half. Not a team nice-to-have.</p>
       </div>
     </div>
     <figure class="problem-chart">
@@ -158,14 +160,14 @@
         <span class="who-chip merchant"><i class="ph-bold ph-code"></i> Merchant Engineer</span>
       </div>
     </div>
-    <div class="causes-card">
-      <ul>
-        <li><i class="ph-bold ph-arrows-down-up"></i> <span><strong>Sequential verification</strong></span></li>
-        <li><i class="ph-bold ph-hand-tap"></i> <span><strong>Manual re-entry</strong></span></li>
-        <li><i class="ph-bold ph-handshake"></i> <span><strong>Internal handoffs</strong></span></li>
-        <li><i class="ph-bold ph-circle-half-tilt"></i> <span><strong>Fragmented tools</strong></span></li>
-      </ul>
-      <p class="consequence"><i class="ph-bold ph-currency-circle-dollar"></i> Open opportunities sat untouched while merchants waited.</p>
+    <div class="causes">
+      <div class="causes-label">What made it slow</div>
+      <div class="causes-chips">
+        <span class="cause-chip"><i class="ph-bold ph-arrows-down-up"></i> Sequential verification</span>
+        <span class="cause-chip"><i class="ph-bold ph-hand-tap"></i> Manual re-entry</span>
+        <span class="cause-chip"><i class="ph-bold ph-handshake"></i> Internal handoffs</span>
+        <span class="cause-chip"><i class="ph-bold ph-circle-half-tilt"></i> Fragmented tools</span>
+      </div>
     </div>
   </div>
 </div>
@@ -191,7 +193,7 @@
         </div>
       </div>
     </div>
-    <div class="shift shift-key">
+    <div class="shift">
       <div class="num">Shift 02</div>
       <div class="from-to">Sequential <span class="arrow">→</span> Parallel</div>
       <div class="lanes">
@@ -222,6 +224,7 @@
   </div>
 </div>
 
+
 <!-- ================================================
      3 · THE AUDIT + THE DESIGN RESPONSE
      ================================================ -->
@@ -250,11 +253,35 @@
   <div class="audit-visual">
     <div class="visual zoom-pan">
       <span class="zoom-hint"><i class="ph-bold ph-magnifying-glass-plus"></i> Hover to inspect</span>
-      <img src="assets/onboarding/M2-Flow.png" alt="Redesigned onboarding flow diagram">
+      <img src="assets/onboarding/M2-Flow.svg" alt="Redesigned onboarding flow diagram">
     </div>
   </div>
 </div>
 
+
+
+
+<!-- ================================================
+     7 · SCOPE & SEQUENCING — how we chose to ship it
+     ================================================ -->
+<div class="slide slide-setup slide-sequencing">
+  <div class="label"><i class="ph-bold ph-path"></i> Scope &amp; Sequencing</div>
+  <h2>Choosing velocity over perfection to unlock immediate value.</h2>
+  <div class="seq-body">
+    <div class="phases">
+      <div class="phase">
+        <div class="phase-num">01</div>
+        <h3>Scoping for Certainty</h3>
+        <p>We scoped the MVP to Adobe Commerce and BigCommerce. Custom carts and Salesforce held higher GMV, but far lower technical certainty. We proved the architecture here first, then generalized.</p>
+      </div>
+      <div class="phase">
+        <div class="phase-num">02</div>
+        <h3>Experience First</h3>
+        <p>We prioritized replacing the legacy form and manual contact upfront to transform the end-user experience immediately. We deliberately chose not to wait on engineering for full automated provisioning.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ================================================
      6 · THE DESIGN RESPONSE — live prototype
@@ -270,27 +297,6 @@
   </div>
 </div>
 
-<!-- ================================================
-     7 · TRADEOFFS
-     ================================================ -->
-<div class="slide slide-tradeoffs">
-  <div class="label"><i class="ph-bold ph-scales"></i> Tradeoffs</div>
-  <h2>The decisions I had to defend.</h2>
-  <div class="tradeoff-cards">
-    <div class="tradeoff">
-      <div class="pair">All at once <span class="vs">vs.</span> later</div>
-      <p>Moving data out of the onboarding form meant we still needed to collect it later. That meant working with other teams to build it into their work.</p>
-    </div>
-    <div class="tradeoff">
-      <div class="pair">Automate now <span class="vs">vs.</span> ship sooner</div>
-      <p>Sequenced automation behind a leaner manual flow, so merchants got a faster experience before full automation landed.</p>
-    </div>
-    <div class="tradeoff">
-      <div class="pair">One platform <span class="vs">vs.</span> all at once</div>
-      <p>Scoped to Adobe Commerce first. Not the biggest market — custom cart and Salesforce hold more GMV — but where automating account creation moves the onboarding timeline most, at the highest confidence of impact. Prove it, then generalize.</p>
-    </div>
-  </div>
-</div>
 
 <!-- ================================================
      7b · THE RIPPLE — adjacent surfaces
@@ -299,7 +305,6 @@
   <div class="left">
     <div class="label"><i class="ph-bold ph-share-network"></i> The Ripple</div>
     <h2>Onboarding couldn't be optimized in isolation.</h2>
-    <p class="body-text">Optimizing one flow turned it into three. Every input I pulled out of onboarding had to land somewhere else — which meant designing the adjacent surfaces too, and negotiating priority across teams to get them built.</p>
     <div class="surface-tags">
       <div class="surface-label">Cross-team collaboration &amp; prioritization</div>
       <div class="surface-chips">
@@ -339,6 +344,7 @@
   </div>
 </div>
 
+
 <!-- ================================================
      8 · OUTCOMES
      ================================================ -->
@@ -371,41 +377,23 @@
   <div class="felt-row">
     <div class="felt">
       <i class="ph-bold ph-storefront"></i>
-      <p><strong>Merchants</strong> can start using Bolt the same day they sign.</p>
+      <p><strong>Merchants</strong> start using Bolt the same day they sign.</p>
     </div>
     <div class="felt">
       <i class="ph-bold ph-chart-line-up"></i>
-      <p><strong>The business</strong> captures revenue sooner and scales onboarding without scaling headcount.</p>
+      <p><strong>The business</strong> captures revenue sooner, and scales without adding headcount.</p>
     </div>
     <div class="felt">
       <i class="ph-bold ph-users-three"></i>
       <p><strong>Internal teams</strong> saw manual workload drop sharply.</p>
     </div>
+    <div class="felt felt-foundation">
+      <i class="ph-bold ph-stack"></i>
+      <p><strong>The structural layout</strong> was built to scale, serving as the exact foundation that allowed us to phase out human intervention entirely, ultimately unlocking automated OAuth connections with cart platforms and full self-service setup by the merchants.</p>
+    </div>
   </div>
 </div>
 
-<!-- ================================================
-     9 · WHAT IT SET UP
-     ================================================ -->
-<div class="slide slide-setup">
-  <div class="label"><i class="ph-bold ph-rocket-launch"></i> Toward Full Self-Service</div>
-  <h2>Each release takes another person out of the loop.</h2>
-  <p class="body-text">The steps beyond the initial restructure and redesign: auto-provisioning of sandbox and production accounts on form submission. Built on the same foundation:</p>
-  <div class="setup-list">
-    <div class="setup-item">
-      <div class="setup-icon"><i class="ph-bold ph-plugs-connected"></i></div>
-      <p>Automating the OAuth connection and API-key exchange</p>
-    </div>
-    <div class="setup-item">
-      <div class="setup-icon"><i class="ph-bold ph-browser"></i></div>
-      <p>Redesigning the Bolt install experience inside Adobe Commerce Admin</p>
-    </div>
-    <div class="setup-item">
-      <div class="setup-icon"><i class="ph-bold ph-shield-check"></i></div>
-      <p>Notifications, go-live guardrails, and spam prevention</p>
-    </div>
-  </div>
-</div>
 
 <!-- ================================================
      THANK YOU
@@ -424,7 +412,7 @@
           <img src="assets/roamswild/mobile-detail.png" alt="RoamsWild campsite detail on mobile">
         </div>
         <div class="sp-body">
-          <h3>RoamsWild <i class="ph-bold ph-arrow-up-right"></i></h3>
+          <h3>Roams Wild <i class="ph-bold ph-arrow-up-right"></i></h3>
           <p>A data-driven exploration tool for overlanders. Five APIs, algorithmic scoring, and AI satellite analysis.</p>
         </div>
       </a>
@@ -448,12 +436,29 @@
           </div>
         </div>
         <div class="sp-body">
-          <h3>ReelReady <i class="ph-bold ph-arrow-up-right"></i></h3>
+          <h3>Reel Ready <i class="ph-bold ph-arrow-up-right"></i></h3>
           <p>Turns a messy clip library into social content — AI-written descriptions and reusable templates.</p>
         </div>
       </a>
     </div>
   </div>
+</div>
+
+<!-- ================================================
+     ZOOM VIEWER — full-size diagrams
+     ================================================ -->
+<div class="zoombox" id="zoombox" hidden>
+  <div class="zb-bar">
+    <button class="zb-btn" id="zb-out" aria-label="Zoom out"><i class="ph-bold ph-minus"></i></button>
+    <span class="zb-level" id="zb-level">100%</span>
+    <button class="zb-btn" id="zb-in" aria-label="Zoom in"><i class="ph-bold ph-plus"></i></button>
+    <button class="zb-btn zb-reset" id="zb-reset" aria-label="Reset zoom"><i class="ph-bold ph-arrows-in-simple"></i></button>
+    <button class="zb-btn" id="zb-close" aria-label="Close"><i class="ph-bold ph-x"></i></button>
+  </div>
+  <div class="zb-stage" id="zb-stage">
+    <img id="zb-img" src="" alt="">
+  </div>
+  <div class="zb-hint">Drag or scroll to pan · +/− to zoom · double-click to reset</div>
 </div>
 
 <!-- ================================================
@@ -492,10 +497,13 @@
   const nextBtn = document.getElementById('next-btn');
   let current = 0;
 
-  // Lock page scroll while cursor is over the prototype iframe
-  document.querySelectorAll('.prototype-frame').forEach(frame => {
-    frame.addEventListener('mouseenter', () => { document.body.style.overflow = 'hidden'; });
-    frame.addEventListener('mouseleave', () => { document.body.style.overflow = ''; });
+  // Lock page scroll while the cursor is over anything you inspect by hovering —
+  // the prototype iframe, the diagrams, the legacy reel, the ripple screenshots.
+  // Otherwise a stray scroll snaps you to the next slide mid-look.
+  const scrollLocked = '.prototype-frame, .zoom-pan, .legacy-reel, .ripple-image';
+  document.querySelectorAll(scrollLocked).forEach(el => {
+    el.addEventListener('mouseenter', () => { document.body.style.overflow = 'hidden'; });
+    el.addEventListener('mouseleave', () => { document.body.style.overflow = ''; });
   });
 
   // Ripple slider — steps through panels before advancing to the next slide
@@ -576,8 +584,9 @@
   slides.forEach(slide => observer.observe(slide));
 
   document.addEventListener('keydown', (e) => {
-    // the lightbox owns the keyboard while it's open
+    // an open overlay owns the keyboard
     if (document.body.classList.contains('lightbox-open')) return;
+    if (document.body.classList.contains('zoombox-open')) return;
     if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
       e.preventDefault();
       if (isRippleSlide() && rippleGoNext()) return;
@@ -629,6 +638,113 @@
   }
 
   updateUI();
+
+  // Zoom viewer — click any diagram to open it large, then drag/scroll to pan
+  (function() {
+    const box = document.getElementById('zoombox');
+    if (!box) return;
+    const stage = document.getElementById('zb-stage');
+    const img = document.getElementById('zb-img');
+    const level = document.getElementById('zb-level');
+
+    const MIN = 0.1, MAX = 3;
+    let scale = 1, tx = 0, ty = 0;
+    let dragging = false, lastX = 0, lastY = 0;
+    let naturalW = 0, dflt = 1;
+
+    // Zoom by resizing the element, never transform: scale() — scaling a
+    // rasterized layer is what made the SVG blurry. translate() is only for pan.
+    function apply() {
+      if (naturalW) {
+        img.style.maxWidth = 'none';
+        img.style.maxHeight = 'none';
+        img.style.width = (naturalW * scale) + 'px';
+        img.style.height = 'auto';
+      }
+      img.style.transform = `translate(${tx}px, ${ty}px)`;
+      level.textContent = Math.round(scale * 100) + '%';
+    }
+    function reset() { scale = dflt; tx = 0; ty = 0; apply(); }
+    function zoomTo(next) {
+      scale = Math.min(MAX, Math.max(MIN, next));
+      apply();
+    }
+    function init() {
+      naturalW = img.naturalWidth || img.getBoundingClientRect().width;
+      // a screenshot that already fits opens at 100%; an oversized diagram opens
+      // zoomed in enough to read, and you pan across it
+      const stageW = stage.clientWidth - 80;
+      dflt = naturalW <= stageW ? 1 : 0.85;
+      reset();
+    }
+    function open(src, alt) {
+      img.alt = alt || '';
+      naturalW = 0;
+      box.hidden = false;
+      document.body.classList.add('zoombox-open');
+      if (img.getAttribute('src') !== src) {
+        img.setAttribute('src', src);
+        img.addEventListener('load', init, { once: true });
+      } else {
+        init();
+      }
+    }
+    function close() {
+      box.hidden = true;
+      document.body.classList.remove('zoombox-open');
+    }
+
+    document.querySelectorAll('.zoom-pan').forEach(el => {
+      const source = el.querySelector('img');
+      if (!source) return;
+      el.addEventListener('click', () => open(source.getAttribute('src'), source.alt));
+    });
+
+    // the ripple slider's screenshots open in the same viewer
+    document.querySelectorAll('.slide-ripple .ripple-image img').forEach(source => {
+      source.addEventListener('click', () => open(source.getAttribute('src'), source.alt));
+    });
+
+    document.getElementById('zb-close').addEventListener('click', close);
+    document.getElementById('zb-in').addEventListener('click', () => zoomTo(scale * 1.25));
+    document.getElementById('zb-out').addEventListener('click', () => zoomTo(scale / 1.25));
+    document.getElementById('zb-reset').addEventListener('click', reset);
+    box.addEventListener('click', (e) => { if (e.target === box || e.target === stage) close(); });
+    stage.addEventListener('dblclick', reset);
+
+    // scroll pans (both axes) — it does NOT zoom, which is what made this jumpy
+    stage.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      tx -= e.deltaX;
+      ty -= e.deltaY;
+      apply();
+    }, { passive: false });
+
+    stage.addEventListener('pointerdown', (e) => {
+      dragging = true;
+      lastX = e.clientX; lastY = e.clientY;
+      stage.setPointerCapture(e.pointerId);
+    });
+    stage.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      tx += e.clientX - lastX;
+      ty += e.clientY - lastY;
+      lastX = e.clientX; lastY = e.clientY;
+      apply();
+    });
+    ['pointerup', 'pointercancel'].forEach(ev =>
+      stage.addEventListener(ev, () => { dragging = false; })
+    );
+
+    document.addEventListener('keydown', (e) => {
+      if (!document.body.classList.contains('zoombox-open')) return;
+      e.preventDefault();
+      if (e.key === 'Escape') close();
+      if (e.key === '+' || e.key === '=') zoomTo(scale * 1.25);
+      if (e.key === '-' || e.key === '_') zoomTo(scale / 1.25);
+      if (e.key === '0') reset();
+    });
+  })();
 
   // Only animate what's on screen — the reel and the video are expensive to composite
   (function() {
